@@ -21,6 +21,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | Skill | skills.sh | Source | Date |
 |-------|-----------|--------|------|
 | [open-design-ai-prototyping](skills/open-design-ai-prototyping/) | [install](https://skills.sh/aradotso/design-skills/open-design-ai-prototyping) | [nexu-io/open-design](https://github.com/nexu-io/open-design) | 2026-05-16 |
+| [huashu-design-html-prototyping](skills/huashu-design-html-prototyping/) | [install](https://skills.sh/aradotso/design-skills/huashu-design-html-prototyping) | [alchaincyf/huashu-design](https://github.com/alchaincyf/huashu-design) | 2026-05-16 |
 <!-- SKILL_INDEX -->
 
 ---
