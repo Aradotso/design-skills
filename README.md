@@ -32,6 +32,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [diagram-design-editorial](skills/diagram-design-editorial/) | [install](https://skills.sh/aradotso/design-skills/diagram-design-editorial) | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | 2026-05-16 |
 | [design-md-chrome-extractor](skills/design-md-chrome-extractor/) | [install](https://skills.sh/aradotso/design-skills/design-md-chrome-extractor) | [bergside/design-md-chrome](https://github.com/bergside/design-md-chrome) | 2026-05-16 |
 | [nothing-design-ui-skill](skills/nothing-design-ui-skill/) | [install](https://skills.sh/aradotso/design-skills/nothing-design-ui-skill) | [dominikmartn/nothing-design-skill](https://github.com/dominikmartn/nothing-design-skill) | 2026-05-16 |
+| [nothing-design-system-skill](skills/nothing-design-system-skill/) | [install](https://skills.sh/aradotso/design-skills/nothing-design-system-skill) | [dominikmartn/nothing-design-skill](https://github.com/dominikmartn/nothing-design-skill) | 2026-05-16 |
 <!-- SKILL_INDEX -->
 
 ---
