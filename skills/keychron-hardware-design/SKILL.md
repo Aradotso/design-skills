@@ -1,451 +1,555 @@
 ---
 name: keychron-hardware-design
-description: Access and work with Keychron keyboard and mouse CAD files (STEP, DXF, DWG, PDF) for hardware design, remixing, and compatible accessories
+description: Access and work with Keychron's production-grade CAD files for keyboards and mice to design compatible accessories and modifications
 triggers:
-  - open keychron cad files
-  - work with keychron hardware designs
-  - modify keychron keyboard case
-  - design keychron compatible accessories
-  - remix keychron plate design
-  - extract keychron dimensions
-  - create keychron keyboard mod
-  - 3d print keychron parts
+  - "open keychron cad files"
+  - "design a keychron compatible case"
+  - "modify keychron keyboard plate"
+  - "work with keychron step files"
+  - "create keychron accessory"
+  - "remix keychron hardware design"
+  - "3d print keychron parts"
+  - "check keychron model dimensions"
 ---
 
 # Keychron Hardware Design Skill
 
-> Skill by [ara.so](https://ara.so) — Design Skills collection
+> Skill by [ara.so](https://ara.so) — Design Skills collection.
 
-This skill enables AI agents to work with Keychron's industrial design files for 135+ keyboard and mouse models. Access production-grade CAD assets in STEP, DXF, DWG, and PDF formats to study hardware design, create remixes, design compatible accessories, or extract dimensions for custom builds.
+This skill enables AI agents to help developers work with Keychron's production-grade hardware design files for 135+ keyboard and mouse models. The repository contains CAD assets in STEP, DXF, DWG, and PDF formats covering C Pro 8K, Q, Q Pro, Q HE, Q Max, K Pro, K Max, K HE, V Max, P HE series keyboards and M/G series mice.
 
-## What This Project Provides
+## Project Overview
 
-- **Production CAD files**: Case, plate, stabilizer, encoder, and full assembly models
-- **Multiple formats**: STEP (3D), DXF/DWG (2D), PDF (reference drawings)
-- **135+ models**: Q, Q Pro, Q HE, Q Max, K Pro, K Max, K HE, V Max, C Pro, mice (M/G series)
-- **Component libraries**: Keycap profiles (Cherry, OSA, KSA, LSA, MDA, OEM)
-- **Source-available license**: Personal/educational use allowed; original accessories exempt from commercial restrictions
-
-## Repository Structure
-
-```
-keychron-keyboards-hardware-design/
-├── Q-Series/              # Q0–Q12, Q60, Q65
-├── Q-Pro-Series/          # Q1 Pro–Q14 Pro
-├── Q-HE-Series/           # Hall Effect models
-├── Q-Max-Series/          # Q0 Max, Q1 Max, Q2 Max, etc.
-├── K-Pro-Series/          # K1 Pro–K17 Pro
-├── K-Max-Series/          # K0 Max–K17 Max
-├── K-HE-Series/           # K2 HE, K4 HE, K6 HE, K8 HE, K10 HE
-├── V-Max-Series/          # V1 Max–V10 Max
-├── C-Pro-8K-Series/       # C1, C2, C3 Pro 8K
-├── P-HE-Series/           # Lemokey P1 HE, P2 HE, P3 HE
-├── L-Series/              # L1, L3
-├── Mice/                  # M1–M7, G1, G2
-├── Keycap Profiles/       # Cherry, OSA, KSA, LSA, MDA, OEM
-└── docs/                  # Guides and reference
-```
+**Repository:** `Keychron/Keychron-Keyboards-Hardware-Design`  
+**Stars:** 3,376 (80 stars/day)  
+**License:** Source-available (personal/educational use; original compatible accessories exempt from commercial restrictions)  
+**File Types:** STEP (.stp), DXF, DWG, PDF  
+**Component Categories:** Cases, plates, encoders, stabilizers, keycaps, full models, shells
 
 ## Installation
 
+Clone the repository to access the CAD files:
+
 ```bash
-# Clone the repository
 git clone https://github.com/Keychron/Keychron-Keyboards-Hardware-Design.git
 cd Keychron-Keyboards-Hardware-Design
 ```
 
+Files are organized by series and model in dedicated folders. For example:
+
+```
+Q-Series/Q1/
+K-Pro-Series/K8-Pro/
+Q-Max-Series/Q6-Max/
+Mice/M1/
+```
+
+## Repository Structure
+
+### Major Series Categories
+
+```
+C-Pro-8K-Series/          # Wired keyboards (C1, C2, C3 Pro 8K)
+Q-Series/                 # Flagship mechanical (Q0-Q12, Q60, Q65)
+Q-Pro-Series/             # Wireless Q variants (Q1-Q14 Pro)
+Q-HE-Series/              # Hall Effect models (Q0-Q12 HE)
+Q-HE-8K-Series/           # 8K polling Hall Effect (Q1-Q16 HE 8K)
+Q-Max-Series/             # Premium Q series (Q0-Q15 Max)
+Q-Ultra-8K-Series/        # Ultra series (Q1, Q3, Q5, Q6, Q13 Ultra 8K)
+K-Pro-Series/             # K Pro keyboards (K1-K17 Pro)
+K-Max-Series/             # K Max keyboards (K0-K17 Max)
+K-HE-Series/              # K Hall Effect (K2, K4, K6, K8, K10 HE)
+K-QMK-Series/             # QMK firmware models (K1-K10 QMK)
+L-Series/                 # Aluminum keyboards (L1, L3)
+V-8K-Series/              # V series 8K polling (V1, V3, V5, V6)
+V-Ultra-8K-Series/        # V Ultra series (V0, V1, V3, V5, V6, V10)
+V-Max-Series/             # V Max series (V1-V10 Max)
+P-HE-Series/              # Lemokey Hall Effect (P1-P3 HE)
+Mice/                     # Mouse models (M1-M7, G1-G2)
+Keycap-Profiles/          # Cherry, KSA, LSA, MDA, OEM, OSA
+```
+
 ## File Format Guide
 
-### STEP Files (.stp, .step)
-- **Use for**: 3D modeling, assembly inspection, CAD remixing
-- **Compatible with**: FreeCAD, Fusion 360, SolidWorks, Rhino, Blender (with plugins)
-- **Typical files**: `*-Case.stp`, `*-Plate.stp`, `*-Full-Model.stp`
+### STEP Files (.stp)
 
-```python
-# Example: Load STEP file in FreeCAD (Python console)
-import FreeCAD
-import Part
+Primary 3D CAD format for mechanical design. Compatible with:
 
-# Open a plate design
-doc = FreeCAD.newDocument("KeychronPlate")
-Part.insert("Q-Series/Q1/Q1-Plate.stp", doc.Name)
-FreeCAD.ActiveDocument.recompute()
+- **FreeCAD** (Open source)
+- **Fusion 360** (Autodesk)
+- **SolidWorks**
+- **Onshape**
+- **Rhino**
+
+Opening a STEP file in FreeCAD:
+
+```bash
+# Install FreeCAD
+# Ubuntu/Debian
+sudo apt install freecad
+
+# macOS
+brew install --cask freecad
+
+# Open file
+freecad K-Pro-Series/K8-Pro/K8-Pro-Case.stp
 ```
 
-### DXF/DWG Files (.dxf, .dwg)
-- **Use for**: 2D laser cutting, CNC machining, dimension extraction
-- **Compatible with**: AutoCAD, LibreCAD, QCAD, Inkscape, LaserWeb
+### DXF/DWG Files
 
-```python
-# Example: Parse DXF dimensions with ezdxf (Python)
-import ezdxf
+2D CAD formats for plate designs and dimensional drawings. Compatible with:
 
-# Load plate DXF
-doc = ezdxf.readfile("Q-Pro-Series/Q1-Pro/Q1-Pro-Plate.dxf")
-msp = doc.modelspace()
+- **LibreCAD** (Open source)
+- **QCAD**
+- **AutoCAD**
+- **DraftSight**
 
-# Extract all LINE entities (plate outline)
-for entity in msp.query('LINE'):
-    print(f"Line from {entity.dxf.start} to {entity.dxf.end}")
+Opening DXF in LibreCAD:
 
-# Get bounding box
-bbox = ezdxf.bbox.extents(msp)
-print(f"Plate dimensions: {bbox.size}")
+```bash
+# Install LibreCAD
+sudo apt install librecad
+
+# Open file
+librecad Q-Series/Q1/Q1-Plate.dxf
 ```
 
-### PDF Files (.pdf)
-- **Use for**: Quick reference, dimension verification
-- **Extract data**: Use `pdfplumber` or manual measurement
+### PDF Files
 
-```python
-# Example: Extract text/tables from PDF documentation
-import pdfplumber
-
-with pdfplumber.open("docs/Q1-Pro-Specs.pdf") as pdf:
-    first_page = pdf.pages[0]
-    text = first_page.extract_text()
-    tables = first_page.extract_tables()
-    print(text)
-```
+Reference documentation and dimensional drawings viewable in any PDF reader.
 
 ## Common Workflows
 
-### 1. Extract Keyboard Dimensions
+### 1. Inspecting Keyboard Dimensions
 
-```python
-# Using Blender Python API to measure STEP import
-import bpy
-import bmesh
+To check dimensions for a Q1 Pro case:
 
-# Import STEP (requires CAD Sketcher add-on or similar)
-bpy.ops.import_scene.step(filepath="K-Pro-Series/K8-Pro/K8-Pro-Case.stp")
+```bash
+# Navigate to model folder
+cd Q-Pro-Series/Q1-Pro/
 
-# Get bounding box
-obj = bpy.context.selected_objects[0]
-bbox_corners = [obj.matrix_world @ Vector(corner) for corner in obj.bound_box]
+# List available files
+ls -lh
+# Expected: Q1-Pro-Case.stp, Q1-Pro-Plate.stp, Q1-Pro-Full-Model.stp
 
-# Calculate dimensions
-from mathutils import Vector
-dims = obj.dimensions
-print(f"Case dimensions: {dims.x:.2f} × {dims.y:.2f} × {dims.z:.2f} mm")
+# Open in FreeCAD to measure
+freecad Q1-Pro-Case.stp
 ```
 
-### 2. Modify Plate for Custom Layout
+In FreeCAD:
+1. Select **Measure** → **Distance**
+2. Click two points to measure
+3. View dimensions in property panel
+
+### 2. Designing a Compatible Plate Modification
+
+Example: Adding extra mounting holes to a K8 Pro plate.
 
 ```python
-# Using CadQuery to load and modify STEP plate
-import cadquery as cq
+# Python script using FreeCAD API
+import FreeCAD
+import Part
 
-# Load existing plate
-plate = cq.importers.importStep("Q-Series/Q3/Q3-Plate.stp")
+# Load original plate
+doc = FreeCAD.open("K-Pro-Series/K8-Pro/K8-Pro-Plate.stp")
+plate = doc.Objects[0]
 
-# Add custom switch cutout (14mm × 14mm Cherry MX)
-result = (plate
-    .faces(">Z")  # Top face
-    .workplane()
-    .center(19.05, 0)  # 1U offset (standard 19.05mm spacing)
-    .rect(14, 14)
-    .cutThruAll()
-)
+# Add mounting holes at specific coordinates
+hole_diameter = 3.0  # mm
+hole_positions = [
+    (10, 10, 0),
+    (350, 10, 0),
+    (10, 120, 0),
+    (350, 120, 0)
+]
+
+for pos in hole_positions:
+    cylinder = Part.makeCylinder(hole_diameter / 2, 5, FreeCAD.Vector(*pos))
+    plate.Shape = plate.Shape.cut(cylinder)
 
 # Export modified plate
-cq.exporters.export(result, "Q3-Plate-Custom.step")
+plate.Shape.exportStep("K8-Pro-Plate-Modified.stp")
+doc.saveAs("K8-Pro-Plate-Modified.FCStd")
 ```
 
-### 3. Design Compatible Wrist Rest
+### 3. Creating a Custom Case Add-on
+
+Example: Designing a magnetic feet attachment for Q6 Max.
 
 ```python
-# Using FreeCAD scripting
+# FreeCAD Python console script
 import FreeCAD
 import Part
-import Draft
 
-# Load keyboard case for reference
-doc = FreeCAD.newDocument("WristRest")
-Part.insert("K-Max-Series/K8-Max/K8-Max-Case.stp", doc.Name)
-
-# Get front edge position
+# Load Q6 Max case
+doc = FreeCAD.open("Q-Max-Series/Q6-Max/Q6-Max-Case.stp")
 case = doc.Objects[0]
+
+# Get case bottom dimensions
 bbox = case.Shape.BoundBox
-front_y = bbox.YMin
+width = bbox.XLength
+depth = bbox.YLength
 
-# Create wrist rest profile
-points = [
-    FreeCAD.Vector(0, front_y - 10, 0),
-    FreeCAD.Vector(0, front_y - 80, 15),
-    FreeCAD.Vector(0, front_y - 90, 10),
-    FreeCAD.Vector(0, front_y - 100, 0)
+# Create magnetic feet holder (4 corners)
+feet_diameter = 10  # mm
+feet_height = 3  # mm
+inset = 15  # mm from edges
+
+feet_positions = [
+    (inset, inset),
+    (width - inset, inset),
+    (inset, depth - inset),
+    (width - inset, depth - inset)
 ]
-spline = Draft.makeBSpline(points, closed=False)
 
-# Extrude along keyboard width
-wrist_rest = Part.makeSweep(spline.Shape, 
-                            Part.makeLine((0, 0, 0), (bbox.XLength, 0, 0)))
+feet_parts = []
+for x, y in feet_positions:
+    foot = Part.makeCylinder(feet_diameter / 2, feet_height, FreeCAD.Vector(x, y, -feet_height))
+    feet_parts.append(foot)
 
-# Save as STEP
-Part.export([wrist_rest], "K8-Max-WristRest.step")
-```
-
-### 4. Generate Laser Cutting Files from DXF
-
-```bash
-# Using QCAD CLI to convert DXF to SVG for laser cutter
-qcad -command "open Q1-Pro-Plate.dxf; export Q1-Pro-Plate.svg; quit"
-
-# Or use Inkscape for conversion
-inkscape Q1-Pro-Plate.dxf --export-filename=Q1-Pro-Plate.svg
-```
-
-### 5. 3D Print Custom Knob
-
-```python
-# Using OpenSCAD via Python (using SolidPython2)
-from solid2 import *
-from solid2.extensions.bosl2 import *
-
-# Load reference knob STEP (for dimensions)
-# Then create parametric replacement
-knob_diameter = 30  # mm
-knob_height = 15
-
-knob = cylinder(d=knob_diameter, h=knob_height)
-shaft_hole = cylinder(d=6, h=knob_height + 2)  # D-shaft encoder
-knob_with_hole = knob - shaft_hole
-
-# Add grip texture
-for i in range(20):
-    angle = i * 360 / 20
-    grip = (rotate([0, 0, angle]) 
-            * translate([knob_diameter/2 - 1, 0, 0])
-            * cylinder(d=2, h=knob_height))
-    knob_with_hole -= grip
+# Combine all feet
+feet_holder = feet_parts[0]
+for foot in feet_parts[1:]:
+    feet_holder = feet_holder.fuse(foot)
 
 # Export for 3D printing
-scad_render_to_file(knob_with_hole, "custom-knob.scad")
+feet_holder.exportStl("Q6-Max-Magnetic-Feet.stl")
 ```
 
-## Analyzing Stabilizer Mounting
+### 4. Extracting Plate DXF for Laser Cutting
 
-```python
-# Extract stabilizer hole positions from plate DXF
-import ezdxf
-from collections import defaultdict
+```bash
+# Navigate to desired model
+cd Q-Series/Q3/
 
-doc = ezdxf.readfile("K-Pro-Series/K2-Pro/K2-Pro-Plate.dxf")
-msp = doc.modelspace()
+# Verify DXF exists
+ls *.dxf
+# Q3-Plate.dxf
 
-# Find circular holes (likely stabilizer mounts)
-holes = defaultdict(list)
-for circle in msp.query('CIRCLE'):
-    diameter = circle.dxf.radius * 2
-    center = circle.dxf.center
-    holes[round(diameter, 1)].append((center.x, center.y))
+# Open in LibreCAD to verify dimensions
+librecad Q3-Plate.dxf
 
-# Typical stabilizer wire hole: ~4mm
-stab_holes = holes.get(4.0, [])
-print(f"Found {len(stab_holes)} stabilizer mounting holes")
-
-# Calculate spacing for 6.25U spacebar (standard)
-if len(stab_holes) >= 2:
-    spacing = abs(stab_holes[0][0] - stab_holes[1][0])
-    print(f"Stabilizer spacing: {spacing:.2f}mm")
+# Export with correct units for laser cutting service
+# In LibreCAD: File > Export > DXF
+# Set units to millimeters
+# Set version to R12/LT2 for maximum compatibility
 ```
 
-## Creating Assembly Documentation
+### 5. Converting STEP to STL for 3D Printing
 
-```python
-# Generate exploded view using FreeCAD
+Using FreeCAD command line:
+
+```bash
+# Convert K2 HE case to STL
+freecad -c << EOF
 import FreeCAD
-import FreeCADGui
+import Mesh
 
-doc = FreeCAD.newDocument("Q1Assembly")
+doc = FreeCAD.open("K-HE-Series/K2-HE/K2-HE-Case.stp")
+obj = doc.Objects[0]
 
-# Load components
-plate = Part.insert("Q-Series/Q1/Q1-Plate.stp", doc.Name)
-case = Part.insert("Q-Series/Q1/Q1-Case.stp", doc.Name)
-pcb = Part.insert("Q-Series/Q1/Q1-PCB.stp", doc.Name)
-
-# Create exploded view (manual positioning or use Assembly4 workbench)
-plate_obj = doc.Objects[0]
-case_obj = doc.Objects[1]
-pcb_obj = doc.Objects[2]
-
-# Offset for explosion
-plate_obj.Placement.Base.z += 30  # 30mm up
-case_obj.Placement.Base.z -= 20   # 20mm down
-
-# Export render
-FreeCADGui.activeDocument().activeView().saveImage("Q1-Exploded.png", 1920, 1080, "White")
+# Export with reasonable resolution
+Mesh.export([obj], "K2-HE-Case.stl")
+EOF
 ```
 
-## Batch Conversion Script
+Or using Python script:
 
 ```python
-#!/usr/bin/env python3
-"""Convert all STEP files in a series to STL for 3D printing"""
-import os
+import FreeCAD
+import Mesh
 import sys
-from pathlib import Path
 
-try:
-    import cadquery as cq
-except ImportError:
-    print("Install CadQuery: pip install cadquery")
-    sys.exit(1)
+input_file = sys.argv[1]  # "K2-HE-Case.stp"
+output_file = sys.argv[2]  # "K2-HE-Case.stl"
 
-def convert_step_to_stl(step_path, output_dir):
-    """Convert STEP file to STL"""
-    step_path = Path(step_path)
-    output_path = output_dir / f"{step_path.stem}.stl"
-    
-    # Import and export
-    shape = cq.importers.importStep(str(step_path))
-    cq.exporters.export(shape, str(output_path))
-    print(f"Converted: {step_path.name} -> {output_path.name}")
+doc = FreeCAD.open(input_file)
+shape = doc.Objects[0]
 
-def batch_convert(series_dir):
-    """Convert all STEP files in a series directory"""
-    series_path = Path(series_dir)
-    output_dir = series_path / "STL_Export"
-    output_dir.mkdir(exist_ok=True)
-    
-    for step_file in series_path.rglob("*.stp"):
-        if "STL_Export" not in str(step_file):
-            convert_step_to_stl(step_file, output_dir)
-
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python convert_batch.py <series_directory>")
-        sys.exit(1)
-    
-    batch_convert(sys.argv[1])
+# Higher mesh deviation = smoother surface
+mesh = shape.Shape.tessellate(0.01)
+Mesh.Mesh(mesh[0], mesh[1]).write(output_file)
 ```
 
-## Configuration & Environment
+### 6. Batch Processing Multiple Models
+
+Extract all plate files from Q Series:
 
 ```bash
-# Recommended CAD software environment variables
-export FREECAD_USER_HOME=~/.config/FreeCAD
-export PYTHONPATH=/usr/lib/freecad/lib:$PYTHONPATH
+#!/bin/bash
 
-# For CadQuery
-export CADQUERY_CACHE_DIR=~/.cache/cadquery
+# Find all STEP plate files in Q-Series
+find Q-Series -name "*Plate.stp" -type f > plate_files.txt
 
-# OCE/OpenCASCADE (needed for STEP import)
-export LD_LIBRARY_PATH=/usr/lib/opencascade:$LD_LIBRARY_PATH
+# Convert each to STL
+while IFS= read -r file; do
+    base=$(basename "$file" .stp)
+    dir=$(dirname "$file")
+    
+    echo "Converting $file..."
+    freecad -c << EOF
+import FreeCAD
+import Mesh
+
+doc = FreeCAD.open("$file")
+obj = doc.Objects[0]
+Mesh.export([obj], "$dir/${base}.stl")
+EOF
+done < plate_files.txt
 ```
 
-## Troubleshooting
+## Working with Keycap Profiles
 
-### STEP File Won't Import
-```python
-# Try alternative importers or repair
-import cadquery as cq
-from OCP.STEPControl import STEPControl_Reader
+The repository includes reference keycap profiles:
 
-reader = STEPControl_Reader()
-status = reader.ReadFile("problematic-file.stp")
-
-if status == 1:  # IFSelect_RetDone
-    reader.TransferRoots()
-    shape = reader.OneShape()
-    # Now manually create CadQuery object
-    result = cq.Workplane("XY").add(cq.Shape.cast(shape))
-else:
-    print("STEP import failed, try opening in FreeCAD first")
-```
-
-### DXF Units Are Wrong
-```python
-# DXF files may be in different units
-import ezdxf
-
-doc = ezdxf.readfile("plate.dxf")
-units = doc.units  # Check document units
-
-# If units are inches but you need mm:
-scale_factor = 25.4 if units == ezdxf.units.IN else 1.0
-
-for entity in doc.modelspace():
-    if entity.dxftype() == 'LINE':
-        entity.dxf.start = (entity.dxf.start[0] * scale_factor,
-                           entity.dxf.start[1] * scale_factor)
-```
-
-### Missing Dimension References
 ```bash
-# Generate measurement report from STEP file using FreeCAD CLI
-freecadcmd -c "
+cd Keycap-Profiles
+
+# Available profiles
+ls -1
+# Cherry-Profile/
+# KSA-Profile/
+# LSA-Profile/
+# MDA-Profile/
+# OEM-Profile/
+# OSA-Profile/
+```
+
+Load a keycap profile for custom keycap design:
+
+```python
 import FreeCAD
 import Part
-doc = FreeCAD.newDocument()
-Part.insert('Q1-Case.stp', doc.Name)
-obj = doc.Objects[0]
-bbox = obj.Shape.BoundBox
-print(f'X: {bbox.XLength}, Y: {bbox.YLength}, Z: {bbox.ZLength}')
-"
+
+# Load OSA profile reference
+doc = FreeCAD.open("Keycap-Profiles/OSA-Profile/OSA-R1-1u.stp")
+keycap = doc.Objects[0]
+
+# Clone and modify for custom legend
+custom = keycap.Shape.copy()
+
+# Add custom text engraving (simplified example)
+text_height = 1.0  # mm deep
+# ... perform boolean cut operation for legend
 ```
 
-### 3D Printer Compatibility
+## Configuration & Best Practices
+
+### File Organization
+
+```bash
+# Recommended local structure
+keychron-mods/
+├── original/              # Clone of official repo
+├── modified/              # Your modifications
+│   ├── plates/
+│   ├── cases/
+│   └── accessories/
+├── exports/               # STL/DXF exports for production
+└── scripts/               # Automation scripts
+```
+
+### CAD Software Settings
+
+**FreeCAD Preferences:**
+- Units: Millimeters (default for Keychron files)
+- Grid spacing: 1mm
+- Snap to grid: Enabled for precision
+
+**Fusion 360 Import:**
+- File format: STEP AP214
+- Unit: mm (auto-detected)
+- Stitching tolerance: 0.001 mm
+
+### 3D Printing Guidelines
+
+For printing keyboard parts from this repository:
+
+```yaml
+# Recommended PLA/PETG settings
+layer_height: 0.2mm
+wall_thickness: 1.2mm (3 walls)
+infill: 20-30%
+supports: Usually required for cases
+bed_adhesion: Brim for large flat parts
+orientation: Mounting face down for plates
+```
+
+Example Cura profile snippet:
+
 ```python
-# Repair and optimize mesh for 3D printing
-import trimesh
+# cura_keychron_profile.py
+settings = {
+    'layer_height': 0.2,
+    'wall_thickness': 1.2,
+    'top_bottom_thickness': 1.0,
+    'infill_sparse_density': 25,
+    'support_enable': True,
+    'support_type': 'buildplate',
+    'adhesion_type': 'brim',
+    'brim_width': 5
+}
+```
 
-# Load STL converted from STEP
-mesh = trimesh.load("K8-Pro-Case.stl")
+## Measurement & Validation
 
-# Fill holes and fix normals
-mesh.fill_holes()
-mesh.fix_normals()
+### Validating Plate Tolerances
 
-# Check if watertight
-if mesh.is_watertight:
-    print("Mesh is printable")
+```python
+import FreeCAD
+import Part
+
+# Load plate and switch reference
+plate = FreeCAD.open("Q-Series/Q1/Q1-Plate.stp").Objects[0]
+
+# Cherry MX switch cutout should be 14mm x 14mm
+# Measure actual cutout dimensions
+def measure_switch_cutout(plate_shape):
+    # Find rectangular faces on top surface
+    faces = [f for f in plate_shape.Faces if f.Area > 180 and f.Area < 200]
+    
+    for face in faces:
+        bbox = face.BoundBox
+        width = bbox.XLength
+        height = bbox.YLength
+        
+        if 13.8 <= width <= 14.2 and 13.8 <= height <= 14.2:
+            print(f"Switch cutout: {width:.2f}mm x {height:.2f}mm")
+            return True
+    
+    print("Warning: Standard switch cutout not found")
+    return False
+
+measure_switch_cutout(plate.Shape)
+```
+
+## Common Issues & Troubleshooting
+
+### Issue: STEP file won't open
+
+```bash
+# Verify file integrity
+file K-Pro-Series/K8-Pro/K8-Pro-Case.stp
+# Expected: "K8-Pro-Case.stp: ISO-10303 STEP data"
+
+# Try converting with Open CASCADE
+STEPFILE="K8-Pro-Case.stp"
+python3 << EOF
+import OCC.Core.STEPControl as STEP
+reader = STEP.STEPControl_Reader()
+status = reader.ReadFile("$STEPFILE")
+if status == 1:
+    print("File valid")
 else:
-    print("Mesh has holes, attempting repair...")
-    mesh = mesh.fill_holes()
+    print("File corrupted or invalid")
+EOF
+```
 
-# Export repaired
-mesh.export("K8-Pro-Case-Repaired.stl")
+### Issue: Units appear incorrect
+
+All Keychron files are in millimeters. If dimensions appear wrong:
+
+```python
+# FreeCAD unit conversion
+import FreeCAD
+
+doc = FreeCAD.open("Q1-Case.stp")
+obj = doc.Objects[0]
+
+# Check bounding box in mm
+bbox = obj.Shape.BoundBox
+print(f"Width: {bbox.XLength}mm")
+print(f"Depth: {bbox.YLength}mm")
+print(f"Height: {bbox.ZLength}mm")
+
+# Expected for Q1: ~360mm x ~140mm x ~30mm
+```
+
+### Issue: Missing files for specific model
+
+Check the model's README for download links:
+
+```bash
+# Each model folder contains a README with download links
+cat Q-Max-Series/Q6-Max/README.md
+# Look for "Downloads" section
+```
+
+Many models have placeholder folders with README/product pages but CAD files are uploaded incrementally. Check repository updates.
+
+### Issue: Exported STL has gaps or errors
+
+Increase mesh resolution:
+
+```python
+import FreeCAD
+import Mesh
+
+doc = FreeCAD.open("source.stp")
+obj = doc.Objects[0]
+
+# Lower deviation = smoother mesh (0.01 is high quality)
+mesh = obj.Shape.tessellate(0.01)
+Mesh.Mesh(mesh[0], mesh[1]).write("output-high-res.stl")
 ```
 
 ## License Compliance
 
-**Source-available license**: Personal and educational use allowed. Original compatible accessories are NOT subject to commercial restrictions, but you cannot copy/sell Keychron keyboards themselves or use Keychron trademarks.
+**Allowed:**
+- Personal use and modifications
+- Educational projects
+- Creating original compatible accessories
+- Studying and remixing designs
+- 3D printing parts for personal keyboards
 
-```python
-# Good: Creating custom accessory
-def design_keycap_puller():
-    """Custom tool compatible with Keychron keyboards - OK"""
-    pass
+**Not Allowed:**
+- Copying and selling Keychron keyboards/mice
+- Using Keychron trademarks as your own brand
+- Mass manufacturing clones for commercial sale
 
-# Good: Personal remix
-def modify_case_for_custom_build():
-    """Personal modification for own use - OK"""
-    pass
+**Gray Area (Original Accessories ARE Allowed):**
+The license explicitly states: "Original compatible accessories and add-ons are not subject to the commercial-use restriction."
 
-# Bad: Manufacturing clone
-def replicate_entire_keyboard_for_sale():
-    """Violates license - NOT ALLOWED"""
-    raise LicenseViolation("Cannot manufacture/sell Keychron clones")
+This means you CAN sell:
+- Custom plates that fit Keychron cases
+- Aftermarket cases for Keychron PCBs
+- Mounting brackets and stands
+- Cable management solutions
+- Foam inserts and dampeners
+
+## Contributing Modifications
+
+If you improve dimensions or fix issues:
+
+```bash
+# Fork the repository
+gh repo fork Keychron/Keychron-Keyboards-Hardware-Design
+
+# Create feature branch
+git checkout -b fix/q1-plate-tolerance
+
+# Make changes to STEP files
+# Use FreeCAD or other CAD software
+
+# Export corrected version
+# Include both STEP and source format (.FCStd for FreeCAD)
+
+# Commit with descriptive message
+git add Q-Series/Q1/Q1-Plate.stp
+git add Q-Series/Q1/Q1-Plate.FCStd
+git commit -m "Fix Q1 plate switch cutout tolerance to 14.0mm ±0.05mm"
+
+# Push and create PR
+git push origin fix/q1-plate-tolerance
+gh pr create --title "Fix Q1 plate switch cutout tolerance"
 ```
 
-## Quick Reference
+## Additional Resources
 
-| Task | Files Needed | Tool |
-|------|-------------|------|
-| Extract dimensions | `*-Case.stp` or `*.dxf` | FreeCAD, ezdxf |
-| Modify plate layout | `*-Plate.stp` | CadQuery, FreeCAD |
-| 3D print parts | `*-Case.stp` → STL | CadQuery, Blender |
-| Laser cut custom plate | `*-Plate.dxf` | Inkscape, QCAD |
-| Design accessories | `*-Full-Model.stp` | Fusion 360, FreeCAD |
-| Study assembly | `*-Full-Model.stp` | Any CAD viewer |
+- **Documentation:** `docs/file-format-guide.md`, `docs/getting-started.md`
+- **3D Printing Guide:** `docs/3d-printing-guide.md`
+- **Contributing:** `docs/CONTRIBUTING.md`
+- **Discord:** https://discord.com/invite/HAYbRrTsjN
+- **Keychron Homepage:** https://www.keychron.com/
 
-## Resources
-
-- **Documentation**: `docs/` directory in repository
-- **File formats**: `docs/file-format-guide.md`
-- **Getting started**: `docs/getting-started.md`
-- **3D printing**: `docs/3d-printing-guide.md`
-- **License FAQ**: `docs/license-faq.md`
-- **Community**: [Keychron Discord](https://discord.com/invite/HAYbRrTsjN)
+This skill enables comprehensive support for users working with Keychron's hardware design files for modification, accessory creation, and education.
