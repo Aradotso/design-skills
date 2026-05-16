@@ -25,6 +25,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [design-md-format](skills/design-md-format/) | [install](https://skills.sh/aradotso/design-skills/design-md-format) | [google-labs-code/design.md](https://github.com/google-labs-code/design.md) | 2026-05-16 |
 | [open-codesign-ai-design](skills/open-codesign-ai-design/) | [install](https://skills.sh/aradotso/design-skills/open-codesign-ai-design) | [OpenCoworkAI/open-codesign](https://github.com/OpenCoworkAI/open-codesign) | 2026-05-16 |
 | [claude-design-system-hooks](skills/claude-design-system-hooks/) | [install](https://skills.sh/aradotso/design-skills/claude-design-system-hooks) | [BharathKumarSuresh/claude-design-system-hooks](https://github.com/BharathKumarSuresh/claude-design-system-hooks) | 2026-05-16 |
+| [claude-design-ui-framework](skills/claude-design-ui-framework/) | [install](https://skills.sh/aradotso/design-skills/claude-design-ui-framework) | [mikesheehan54/Claude-Code-Design-AI](https://github.com/mikesheehan54/Claude-Code-Design-AI) | 2026-05-16 |
 <!-- SKILL_INDEX -->
 
 ---
