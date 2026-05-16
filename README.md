@@ -33,6 +33,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [design-md-chrome-extractor](skills/design-md-chrome-extractor/) | [install](https://skills.sh/aradotso/design-skills/design-md-chrome-extractor) | [bergside/design-md-chrome](https://github.com/bergside/design-md-chrome) | 2026-05-16 |
 | [nothing-design-ui-skill](skills/nothing-design-ui-skill/) | [install](https://skills.sh/aradotso/design-skills/nothing-design-ui-skill) | [dominikmartn/nothing-design-skill](https://github.com/dominikmartn/nothing-design-skill) | 2026-05-16 |
 | [nothing-design-system-skill](skills/nothing-design-system-skill/) | [install](https://skills.sh/aradotso/design-skills/nothing-design-system-skill) | [dominikmartn/nothing-design-skill](https://github.com/dominikmartn/nothing-design-skill) | 2026-05-16 |
+| [interface-design-system](skills/interface-design-system/) | [install](https://skills.sh/aradotso/design-skills/interface-design-system) | [Dammyjay93/interface-design](https://github.com/Dammyjay93/interface-design) | 2026-05-16 |
 <!-- SKILL_INDEX -->
 
 ---
