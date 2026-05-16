@@ -26,6 +26,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [open-codesign-ai-design](skills/open-codesign-ai-design/) | [install](https://skills.sh/aradotso/design-skills/open-codesign-ai-design) | [OpenCoworkAI/open-codesign](https://github.com/OpenCoworkAI/open-codesign) | 2026-05-16 |
 | [claude-design-system-hooks](skills/claude-design-system-hooks/) | [install](https://skills.sh/aradotso/design-skills/claude-design-system-hooks) | [BharathKumarSuresh/claude-design-system-hooks](https://github.com/BharathKumarSuresh/claude-design-system-hooks) | 2026-05-16 |
 | [claude-design-ui-framework](skills/claude-design-ui-framework/) | [install](https://skills.sh/aradotso/design-skills/claude-design-ui-framework) | [mikesheehan54/Claude-Code-Design-AI](https://github.com/mikesheehan54/Claude-Code-Design-AI) | 2026-05-16 |
+| [design-extract-system-tokens](skills/design-extract-system-tokens/) | [install](https://skills.sh/aradotso/design-skills/design-extract-system-tokens) | [Manavarya09/design-extract](https://github.com/Manavarya09/design-extract) | 2026-05-16 |
 <!-- SKILL_INDEX -->
 
 ---
