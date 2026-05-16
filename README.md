@@ -29,6 +29,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [design-extract-system-tokens](skills/design-extract-system-tokens/) | [install](https://skills.sh/aradotso/design-skills/design-extract-system-tokens) | [Manavarya09/design-extract](https://github.com/Manavarya09/design-extract) | 2026-05-16 |
 | [keychron-hardware-design](skills/keychron-hardware-design/) | [install](https://skills.sh/aradotso/design-skills/keychron-hardware-design) | [Keychron/Keychron-Keyboards-Hardware-Design](https://github.com/Keychron/Keychron-Keyboards-Hardware-Design) | 2026-05-16 |
 | [awesome-claude-design](skills/awesome-claude-design/) | [install](https://skills.sh/aradotso/design-skills/awesome-claude-design) | [VoltAgent/awesome-claude-design](https://github.com/VoltAgent/awesome-claude-design) | 2026-05-16 |
+| [diagram-design-editorial](skills/diagram-design-editorial/) | [install](https://skills.sh/aradotso/design-skills/diagram-design-editorial) | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | 2026-05-16 |
 <!-- SKILL_INDEX -->
 
 ---
