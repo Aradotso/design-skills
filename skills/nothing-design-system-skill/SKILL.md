@@ -1,31 +1,32 @@
 ---
 name: nothing-design-system-skill
-description: Generate UI in Nothing's design language — monochrome, typographic, industrial with Swiss hierarchy and OLED blacks
+description: Generate UI components in Nothing's design language — monochrome, typographic, industrial aesthetic with Swiss typography and mechanical interface elements
 triggers:
   - "use nothing design style"
+  - "create a nothing-style component"
   - "generate UI in nothing design language"
-  - "create a nothing style component"
   - "apply nothing design system"
-  - "design this with nothing aesthetic"
   - "make this look like nothing phone UI"
-  - "use monochrome industrial design"
-  - "apply swiss typography and segmented UI"
+  - "design with nothing aesthetic"
+  - "build with nothing design principles"
+  - "nothing design tokens"
 ---
 
 # Nothing Design System Skill
 
 > Skill by [ara.so](https://ara.so) — Design Skills collection.
 
-A reusable design system for Claude Code that generates UI following Nothing's visual language: monochrome palettes, Swiss typography hierarchy, industrial widgets, and OLED-optimized blacks.
+A Claude Code skill for generating UI components inspired by Nothing's visual language. Creates monochrome, typographic, industrial interfaces with Swiss typography, OLED blacks, segmented progress bars, and dot-matrix motifs.
 
-## What This Does
+## What It Does
 
-This skill teaches AI agents to generate UI components following Nothing's design principles without repeatedly describing the same rules. It provides:
+This skill provides a complete design system that enforces:
 
-- **Three-layer visual hierarchy**: Display, body, metadata typography scales
-- **Monochrome token system**: True blacks (#000000), grays, and full dark/light modes
-- **Industrial components**: Segmented progress bars, mechanical toggles, dot-matrix patterns
-- **Multi-platform output**: HTML/CSS, SwiftUI, React/Tailwind with consistent design tokens
+- **Three-layer visual hierarchy**: Display, body, metadata (nothing more)
+- **Monochrome palette**: True blacks (#000000) for OLED, pure whites, controlled grays
+- **Typography stack**: Space Grotesk (display), Space Mono (mono), Doto (dot-matrix)
+- **Mechanical components**: Segmented progress bars, industrial toggles, instrument-style widgets
+- **Multi-platform output**: HTML/CSS, SwiftUI, or React/Tailwind
 
 ## Installation
 
@@ -36,78 +37,112 @@ git clone https://github.com/dominikmartn/nothing-design-skill.git
 # Copy to Claude Code skills directory
 cp -r nothing-design-skill/nothing-design ~/.claude/skills/
 
-# Or create skills directory if it doesn't exist
-mkdir -p ~/.claude/skills
-cp -r nothing-design-skill/nothing-design ~/.claude/skills/
+# Restart Claude Code to load the skill
 ```
 
-Restart Claude Code to activate the skill.
+Verify installation by typing `/nothing-design` in Claude Code.
 
-## Core Design Principles
+## Core Design Tokens
 
-### Typography Hierarchy
+### Color System
 
-**Three layers only:**
-
-1. **Display**: Space Grotesk, 32-48px, 700 weight — Headlines, hero text
-2. **Body**: Space Grotesk, 14-18px, 400-500 weight — Primary content
-3. **Metadata**: Space Mono, 11-13px, 400 weight — Labels, captions, timestamps
-
-**Dot Matrix**: Doto font for special callouts and dot-matrix aesthetic
-
-### Color Tokens
-
-**Dark Mode (Default)**
 ```css
---nothing-bg-primary: #000000;      /* True OLED black */
---nothing-bg-secondary: #0A0A0A;    /* Elevated surfaces */
---nothing-bg-tertiary: #141414;     /* Cards, panels */
+/* Dark Mode (Primary) */
+--nothing-black: #000000;        /* OLED black, backgrounds */
+--nothing-white: #FFFFFF;        /* Text, borders, icons */
+--nothing-gray-10: #1A1A1A;      /* Subtle elevation */
+--nothing-gray-20: #333333;      /* Component backgrounds */
+--nothing-gray-40: #666666;      /* Secondary text */
+--nothing-gray-60: #999999;      /* Tertiary text */
+--nothing-red: #FF0000;          /* Accent, alerts */
 
---nothing-text-primary: #FFFFFF;    /* Headlines, body */
---nothing-text-secondary: #A0A0A0;  /* Supporting text */
---nothing-text-tertiary: #606060;   /* Metadata, disabled */
-
---nothing-border: #1F1F1F;          /* Dividers, outlines */
---nothing-accent: #FF0000;          /* Rare accent color */
+/* Light Mode */
+--nothing-bg-light: #FFFFFF;
+--nothing-text-light: #000000;
+--nothing-gray-light-80: #CCCCCC;
+--nothing-gray-light-90: #E5E5E5;
 ```
 
-**Light Mode**
+### Typography Scale
+
 ```css
---nothing-bg-primary: #FFFFFF;
---nothing-bg-secondary: #F5F5F5;
---nothing-bg-tertiary: #EBEBEB;
+/* Display - Space Grotesk */
+--font-display: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+--text-xl: 48px / 1.1;           /* Hero */
+--text-lg: 32px / 1.2;           /* Section headers */
+--text-md: 24px / 1.3;           /* Card titles */
 
---nothing-text-primary: #000000;
---nothing-text-secondary: #606060;
---nothing-text-tertiary: #A0A0A0;
+/* Body - Space Grotesk */
+--text-base: 16px / 1.5;         /* Body text */
+--text-sm: 14px / 1.4;           /* Secondary */
+--text-xs: 12px / 1.3;           /* Metadata */
 
---nothing-border: #E0E0E0;
---nothing-accent: #FF0000;
+/* Mono - Space Mono */
+--font-mono: 'Space Mono', 'SF Mono', monospace;
+
+/* Dot Matrix - Doto */
+--font-dot: 'Doto', monospace;
 ```
 
-### Spacing Scale
+### Spacing System
 
 ```css
---nothing-space-xs: 4px;   /* Tight inline gaps */
---nothing-space-s: 8px;    /* Component padding */
---nothing-space-m: 16px;   /* Standard spacing */
---nothing-space-l: 24px;   /* Section gaps */
---nothing-space-xl: 40px;  /* Major sections */
+--space-1: 4px;   /* Micro */
+--space-2: 8px;   /* Small */
+--space-3: 12px;  /* Base */
+--space-4: 16px;  /* Medium */
+--space-6: 24px;  /* Large */
+--space-8: 32px;  /* XL */
+--space-12: 48px; /* XXL */
 ```
 
 ## Component Patterns
 
-### HTML/CSS Example: Segmented Progress Bar
+### HTML/CSS Examples
+
+#### Button
+
+```html
+<button class="nothing-btn">
+  <span class="nothing-btn-label">CONTINUE</span>
+</button>
+
+<style>
+.nothing-btn {
+  background: #000000;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 120ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nothing-btn:hover {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+.nothing-btn:active {
+  transform: scale(0.98);
+}
+</style>
+```
+
+#### Segmented Progress Bar
 
 ```html
 <div class="nothing-progress">
-  <div class="nothing-progress-track">
-    <div class="nothing-progress-segment"></div>
-    <div class="nothing-progress-segment"></div>
-    <div class="nothing-progress-segment"></div>
-    <div class="nothing-progress-segment active"></div>
-    <div class="nothing-progress-segment active"></div>
-    <div class="nothing-progress-segment active"></div>
+  <div class="nothing-progress-segments">
+    <div class="segment active"></div>
+    <div class="segment active"></div>
+    <div class="segment active"></div>
+    <div class="segment"></div>
+    <div class="segment"></div>
   </div>
   <span class="nothing-progress-label">60%</span>
 </div>
@@ -116,394 +151,456 @@ Restart Claude Code to activate the skill.
 .nothing-progress {
   display: flex;
   align-items: center;
-  gap: var(--nothing-space-s);
+  gap: 12px;
 }
 
-.nothing-progress-track {
+.nothing-progress-segments {
+  display: flex;
+  gap: 4px;
   flex: 1;
-  display: grid;
-  grid-auto-flow: column;
-  gap: 2px;
+}
+
+.segment {
   height: 4px;
+  background: #333333;
+  flex: 1;
+  transition: background 200ms;
 }
 
-.nothing-progress-segment {
-  background: var(--nothing-bg-tertiary);
-  border-radius: 0; /* Hard edges */
-}
-
-.nothing-progress-segment.active {
-  background: var(--nothing-text-primary);
+.segment.active {
+  background: #FFFFFF;
 }
 
 .nothing-progress-label {
   font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  color: var(--nothing-text-tertiary);
-  letter-spacing: 0.05em;
+  font-size: 12px;
+  color: #999999;
+  min-width: 40px;
 }
 </style>
 ```
 
-### React/Tailwind Example: Nothing Button
-
-```jsx
-// NothingButton.jsx
-export default function NothingButton({ 
-  children, 
-  variant = 'primary', 
-  size = 'md',
-  onClick 
-}) {
-  const baseClasses = "uppercase tracking-wider font-medium transition-all duration-150";
-  
-  const variants = {
-    primary: "bg-white text-black hover:bg-gray-200 active:bg-gray-300",
-    secondary: "bg-transparent border border-white/20 text-white hover:bg-white/5",
-    ghost: "bg-transparent text-white hover:bg-white/10"
-  };
-  
-  const sizes = {
-    sm: "px-4 py-2 text-xs",
-    md: "px-6 py-3 text-sm",
-    lg: "px-8 py-4 text-base"
-  };
-  
-  return (
-    <button
-      className={`${baseClasses} ${variants[variant]} ${sizes[size]}`}
-      onClick={onClick}
-    >
-      <span className="font-['Space_Grotesk']">{children}</span>
-    </button>
-  );
-}
-
-// Usage
-<NothingButton variant="primary" size="md">
-  Start Now
-</NothingButton>
-```
-
-### SwiftUI Example: Mechanical Toggle
-
-```swift
-struct NothingToggle: View {
-    @Binding var isOn: Bool
-    
-    var body: some View {
-        HStack(spacing: 2) {
-            Rectangle()
-                .fill(isOn ? Color.white : Color(hex: "141414"))
-                .frame(width: 24, height: 24)
-                .overlay(
-                    Text(isOn ? "I" : "")
-                        .font(.custom("Space Mono", size: 11))
-                        .foregroundColor(.black)
-                )
-            
-            Rectangle()
-                .fill(isOn ? Color(hex: "141414") : Color.white)
-                .frame(width: 24, height: 24)
-                .overlay(
-                    Text(!isOn ? "O" : "")
-                        .font(.custom("Space Mono", size: 11))
-                        .foregroundColor(.black)
-                )
-        }
-        .onTapGesture {
-            withAnimation(.linear(duration: 0.15)) {
-                isOn.toggle()
-            }
-        }
-    }
-}
-
-// Usage
-@State private var enabled = false
-
-NothingToggle(isOn: $enabled)
-```
-
-### HTML/CSS Example: Dot Matrix Card
+#### Card Component
 
 ```html
-<article class="nothing-card">
+<div class="nothing-card">
   <div class="nothing-card-header">
-    <h3 class="nothing-display">Battery Status</h3>
-    <span class="nothing-metadata">SYSTEM</span>
+    <h3 class="nothing-card-title">SYSTEM STATUS</h3>
+    <span class="nothing-card-meta">14:32:05</span>
   </div>
-  
   <div class="nothing-card-body">
-    <div class="nothing-dotmatrix">
-      <span class="nothing-dotmatrix-value">87%</span>
-    </div>
-    <p class="nothing-body">Estimated 4h 23m remaining</p>
+    <p>All systems operational. No alerts detected.</p>
   </div>
-</article>
+</div>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400&display=swap');
-
 .nothing-card {
-  background: var(--nothing-bg-secondary);
-  border: 1px solid var(--nothing-border);
-  padding: var(--nothing-space-l);
+  background: #000000;
+  border: 1px solid #333333;
+  padding: 24px;
 }
 
 .nothing-card-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: var(--nothing-space-m);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1A1A1A;
 }
 
-.nothing-display {
+.nothing-card-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--nothing-text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFFFFF;
   margin: 0;
 }
 
-.nothing-metadata {
+.nothing-card-meta {
   font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  color: var(--nothing-text-tertiary);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 12px;
+  color: #666666;
 }
 
-.nothing-body {
+.nothing-card-body {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 14px;
-  color: var(--nothing-text-secondary);
-  margin: var(--nothing-space-s) 0 0;
-}
-
-.nothing-dotmatrix {
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    var(--nothing-border) 2px,
-    var(--nothing-border) 3px
-  );
-  padding: var(--nothing-space-s);
-  margin-bottom: var(--nothing-space-s);
-}
-
-.nothing-dotmatrix-value {
-  font-family: 'Space Mono', monospace;
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--nothing-text-primary);
-  display: block;
-  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #FFFFFF;
 }
 </style>
 ```
 
-## Common Usage Patterns
+### SwiftUI Examples
 
-### When to Use This Skill
-
-1. **Dashboard UIs**: System monitoring, analytics, admin panels
-2. **Device Interfaces**: Mobile apps with hardware aesthetic
-3. **Portfolio Sites**: Tech-focused, minimal personal sites
-4. **Documentation**: Technical docs with industrial feel
-5. **CLI Visualizations**: Terminal-inspired web interfaces
-
-### Design Workflow
-
-1. **Start with hierarchy**: Define display, body, metadata layers first
-2. **Apply tokens**: Use CSS variables or platform equivalents
-3. **Add mechanical elements**: Segmented bars, toggles, hard edges
-4. **Optimize for OLED**: True blacks, high contrast in dark mode
-5. **Test both modes**: Ensure light mode has proper inverse tokens
-
-## Configuration
-
-### Font Loading (Web)
-
-```html
-<!-- In <head> -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-```
-
-### Theme Switching
-
-```javascript
-// theme-switcher.js
-const toggleTheme = () => {
-  const root = document.documentElement;
-  const currentTheme = root.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  
-  root.setAttribute('data-theme', newTheme);
-  localStorage.setItem('nothing-theme', newTheme);
-};
-
-// Apply saved theme on load
-const savedTheme = localStorage.getItem('nothing-theme') || 'dark';
-document.documentElement.setAttribute('data-theme', savedTheme);
-```
-
-```css
-:root {
-  --nothing-bg-primary: #000000;
-  --nothing-text-primary: #FFFFFF;
-  /* ... dark mode tokens ... */
-}
-
-[data-theme="light"] {
-  --nothing-bg-primary: #FFFFFF;
-  --nothing-text-primary: #000000;
-  /* ... light mode tokens ... */
-}
-```
-
-### SwiftUI Theme Environment
+#### Button
 
 ```swift
-// NothingTheme.swift
-struct NothingTheme: EnvironmentKey {
-    static let defaultValue = NothingColorScheme.dark
-}
-
-extension EnvironmentValues {
-    var nothingTheme: NothingColorScheme {
-        get { self[NothingTheme.self] }
-        set { self[NothingTheme.self] = newValue }
+struct NothingButton: View {
+    let label: String
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            Text(label.uppercased())
+                .font(.custom("SpaceGrotesk-Medium", size: 14))
+                .tracking(0.7)
+                .foregroundColor(.white)
+                .padding(.horizontal, 24)
+                .padding(.vertical, 12)
+                .background(Color.black)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 0)
+                        .stroke(Color.white, lineWidth: 1)
+                )
+        }
+        .buttonStyle(NothingButtonStyle())
     }
 }
 
-struct NothingColorScheme {
-    let bgPrimary: Color
-    let textPrimary: Color
-    // ... other tokens ...
-    
-    static let dark = NothingColorScheme(
-        bgPrimary: Color(hex: "000000"),
-        textPrimary: Color.white
-    )
-    
-    static let light = NothingColorScheme(
-        bgPrimary: Color.white,
-        textPrimary: Color(hex: "000000")
-    )
+struct NothingButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .background(configuration.isPressed ? Color.white : Color.black)
+            .foregroundColor(configuration.isPressed ? Color.black : Color.white)
+            .scaleEffect(configuration.isPressed ? 0.98 : 1.0)
+            .animation(.easeInOut(duration: 0.12), value: configuration.isPressed)
+    }
 }
+```
+
+#### Progress Bar
+
+```swift
+struct NothingProgress: View {
+    let progress: Double // 0.0 to 1.0
+    let segments: Int = 5
+    
+    var body: some View {
+        HStack(spacing: 4) {
+            ForEach(0..<segments, id: \.self) { index in
+                Rectangle()
+                    .fill(index < Int(progress * Double(segments)) ? Color.white : Color(hex: "#333333"))
+                    .frame(height: 4)
+            }
+            
+            Text("\(Int(progress * 100))%")
+                .font(.custom("SpaceMono-Regular", size: 12))
+                .foregroundColor(Color(hex: "#999999"))
+                .frame(width: 40)
+        }
+    }
+}
+```
+
+### React/Tailwind Examples
+
+#### Setup Tailwind Config
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'nothing-black': '#000000',
+        'nothing-white': '#FFFFFF',
+        'nothing-gray-10': '#1A1A1A',
+        'nothing-gray-20': '#333333',
+        'nothing-gray-40': '#666666',
+        'nothing-gray-60': '#999999',
+        'nothing-red': '#FF0000',
+      },
+      fontFamily: {
+        'display': ['Space Grotesk', 'sans-serif'],
+        'mono': ['Space Mono', 'monospace'],
+        'dot': ['Doto', 'monospace'],
+      },
+      letterSpacing: {
+        'nothing': '0.05em',
+        'nothing-wide': '0.08em',
+      },
+    },
+  },
+}
+```
+
+#### Button Component
+
+```jsx
+export function NothingButton({ children, onClick, variant = 'primary' }) {
+  return (
+    <button
+      onClick={onClick}
+      className="
+        bg-nothing-black border border-nothing-white text-nothing-white
+        hover:bg-nothing-white hover:text-nothing-black
+        active:scale-[0.98]
+        font-display text-sm font-medium tracking-nothing uppercase
+        px-6 py-3
+        transition-all duration-[120ms] ease-out
+      "
+    >
+      {children}
+    </button>
+  );
+}
+```
+
+#### Card Component
+
+```jsx
+export function NothingCard({ title, meta, children }) {
+  return (
+    <div className="bg-nothing-black border border-nothing-gray-20 p-6">
+      <div className="flex justify-between items-baseline mb-4 pb-3 border-b border-nothing-gray-10">
+        <h3 className="font-display text-sm font-medium tracking-nothing-wide uppercase text-nothing-white">
+          {title}
+        </h3>
+        {meta && (
+          <span className="font-mono text-xs text-nothing-gray-40">
+            {meta}
+          </span>
+        )}
+      </div>
+      <div className="font-display text-base leading-relaxed text-nothing-white">
+        {children}
+      </div>
+    </div>
+  );
+}
+```
+
+## Key Design Principles
+
+### 1. Visual Hierarchy (Three Layers Only)
+
+```
+DISPLAY   → Headers, titles, key actions
+BODY      → Primary content, readable text
+METADATA  → Timestamps, labels, secondary info
+```
+
+### 2. Motion & Transitions
+
+```css
+/* Fast, mechanical transitions */
+--timing-fast: 120ms;
+--timing-base: 200ms;
+--timing-slow: 300ms;
+--easing: cubic-bezier(0.4, 0, 0.2, 1);
+```
+
+### 3. Borders & Dividers
+
+- Always 1px solid
+- Use `#333333` for subtle dividers
+- Use `#FFFFFF` for strong emphasis
+- Never rounded corners (stay industrial)
+
+### 4. Interactive States
+
+```css
+/* Hover */
+element:hover {
+  background: invert;
+  color: invert;
+}
+
+/* Active */
+element:active {
+  transform: scale(0.98);
+}
+
+/* Focus */
+element:focus {
+  outline: 1px solid #FFFFFF;
+  outline-offset: 2px;
+}
+```
+
+## Common Patterns
+
+### Data Table
+
+```html
+<table class="nothing-table">
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>VALUE</th>
+      <th>STATUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Core Temp</td>
+      <td class="mono">42°C</td>
+      <td>OK</td>
+    </tr>
+  </tbody>
+</table>
+
+<style>
+.nothing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.nothing-table th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #666666;
+  padding: 12px 16px;
+  border-bottom: 1px solid #333333;
+}
+
+.nothing-table td {
+  font-size: 14px;
+  color: #FFFFFF;
+  padding: 16px;
+  border-bottom: 1px solid #1A1A1A;
+}
+
+.nothing-table .mono {
+  font-family: 'Space Mono', monospace;
+}
+</style>
+```
+
+### Toggle Switch
+
+```html
+<label class="nothing-toggle">
+  <input type="checkbox">
+  <span class="nothing-toggle-track">
+    <span class="nothing-toggle-thumb"></span>
+  </span>
+  <span class="nothing-toggle-label">NOTIFICATIONS</span>
+</label>
+
+<style>
+.nothing-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.nothing-toggle input {
+  display: none;
+}
+
+.nothing-toggle-track {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  background: #1A1A1A;
+  border: 1px solid #333333;
+  transition: background 200ms;
+}
+
+.nothing-toggle-thumb {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  background: #666666;
+  transition: all 200ms;
+}
+
+.nothing-toggle input:checked ~ .nothing-toggle-track {
+  background: #000000;
+  border-color: #FFFFFF;
+}
+
+.nothing-toggle input:checked ~ .nothing-toggle-track .nothing-toggle-thumb {
+  left: 26px;
+  background: #FFFFFF;
+}
+
+.nothing-toggle-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+</style>
 ```
 
 ## Troubleshooting
 
 ### Fonts not loading
 
-**Problem**: Space Grotesk/Space Mono not rendering
+Ensure fonts are properly imported:
 
-**Solution**: Verify font URLs or use fallback stack:
-```css
-font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+```html
+<!-- HTML -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 ```
 
-### OLED black not working
-
-**Problem**: Background appears gray instead of true black
-
-**Solution**: Ensure no transparency or overlays:
 ```css
-body {
-  background: #000000; /* Not #000 or rgb(0,0,0) if using color profiles */
+/* CSS */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+```
+
+### OLED blacks not working
+
+Ensure root background is true black:
+
+```css
+:root, body, html {
+  background: #000000;
   color: #FFFFFF;
 }
 ```
 
-### Segmented progress bar misaligned
+### Components look too rounded
 
-**Problem**: Segments have uneven spacing
-
-**Solution**: Use CSS Grid with fixed gap:
-```css
-.nothing-progress-track {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-  gap: 2px; /* Fixed gap, not margin */
-}
-```
-
-### Light mode contrast too low
-
-**Problem**: Text not readable in light mode
-
-**Solution**: Ensure proper token mapping:
-```css
-[data-theme="light"] {
-  --nothing-text-primary: #000000; /* Not gray */
-  --nothing-text-secondary: #606060; /* Minimum WCAG AA */
-}
-```
-
-## Advanced Patterns
-
-### Animated Segment Fill
+Nothing design uses **zero** border radius. Remove all `border-radius` declarations:
 
 ```css
-@keyframes nothing-fill {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
+/* ❌ Wrong */
+border-radius: 8px;
 
-.nothing-progress-segment.active {
-  animation: nothing-fill 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: left;
-}
+/* ✅ Correct */
+border-radius: 0;
 ```
 
-### Dot Matrix Effect (CSS)
+### Text hierarchy unclear
+
+Stick to the three-layer system:
 
 ```css
-.nothing-dotmatrix-bg {
-  background-image: 
-    radial-gradient(circle, var(--nothing-text-tertiary) 1px, transparent 1px);
-  background-size: 4px 4px;
-  background-position: 0 0;
-}
+/* Display - 24px+, bold, uppercase, tight spacing */
+.display { font-size: 24px; font-weight: 700; text-transform: uppercase; }
+
+/* Body - 14-16px, normal weight */
+.body { font-size: 16px; font-weight: 400; }
+
+/* Metadata - 12px, mono, muted color */
+.meta { font-size: 12px; font-family: 'Space Mono'; color: #666666; }
 ```
 
-### Mechanical Counter (React)
+## Usage with Claude Code
 
-```jsx
-function NothingCounter({ value, digits = 4 }) {
-  const formatted = String(value).padStart(digits, '0');
-  
-  return (
-    <div className="flex gap-0.5">
-      {formatted.split('').map((digit, i) => (
-        <div 
-          key={i}
-          className="bg-[#141414] border border-[#1F1F1F] w-8 h-12 flex items-center justify-center"
-        >
-          <span className="font-['Space_Mono'] text-xl text-white">
-            {digit}
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-}
-```
+Trigger the skill naturally:
 
-## Output Examples
+- "Create a nothing-style dashboard"
+- "Generate a progress bar in nothing design"
+- "Apply nothing design tokens to this component"
+- "Make this button look industrial like nothing phone"
 
-When a user requests Nothing-style UI, generate complete, copy-paste-ready code with:
-
-1. **Design tokens** defined as CSS variables or platform constants
-2. **Typography hierarchy** using the three-layer system
-3. **Monochrome palette** with proper dark/light mode support
-4. **Industrial components** (segmented bars, mechanical toggles)
-5. **Hard edges** — no border-radius unless specified
-6. **OLED optimization** — true #000000 blacks in dark mode
-
-Always provide working code, not pseudocode. Include necessary imports, font loading, and theme setup.
+The skill will automatically apply the design system principles and generate code in your requested format (HTML/CSS, SwiftUI, or React).
