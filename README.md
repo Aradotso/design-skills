@@ -58,6 +58,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [system-design-visualizer-tool](skills/system-design-visualizer-tool/) | [install](https://skills.sh/aradotso/design-skills/system-design-visualizer-tool) | [mallahyari/system-design-visualizer](https://github.com/mallahyari/system-design-visualizer) | 2026-05-17 |
 | [design-council-orchestration](skills/design-council-orchestration/) | [install](https://skills.sh/aradotso/design-skills/design-council-orchestration) | [sjsyrek/design-council](https://github.com/sjsyrek/design-council) | 2026-05-17 |
 | [web-to-figma-chrome-extension](skills/web-to-figma-chrome-extension/) | [install](https://skills.sh/aradotso/design-skills/web-to-figma-chrome-extension) | [Paidax01/web-to-figma](https://github.com/Paidax01/web-to-figma) | 2026-05-17 |
+| [figma-ui-mcp-bridge](skills/figma-ui-mcp-bridge/) | [install](https://skills.sh/aradotso/design-skills/figma-ui-mcp-bridge) | [TranHoaiHung/figma-ui-mcp](https://github.com/TranHoaiHung/figma-ui-mcp) | 2026-05-17 |
 <!-- SKILL_INDEX -->
 
 ---
