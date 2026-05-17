@@ -48,6 +48,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [meigen-ai-design-mcp](skills/meigen-ai-design-mcp/) | [install](https://skills.sh/aradotso/design-skills/meigen-ai-design-mcp) | [jau123/MeiGen-AI-Design-MCP](https://github.com/jau123/MeiGen-AI-Design-MCP) | 2026-05-17 |
 | [qiaomu-mondo-poster-design](skills/qiaomu-mondo-poster-design/) | [install](https://skills.sh/aradotso/design-skills/qiaomu-mondo-poster-design) | [joeseesun/qiaomu-mondo-poster-design](https://github.com/joeseesun/qiaomu-mondo-poster-design) | 2026-05-17 |
 | [ui-design-brain-cursor-skill](skills/ui-design-brain-cursor-skill/) | [install](https://skills.sh/aradotso/design-skills/ui-design-brain-cursor-skill) | [carmahhawwari/ui-design-brain](https://github.com/carmahhawwari/ui-design-brain) | 2026-05-17 |
+| [awesome-software-design-patterns](skills/awesome-software-design-patterns/) | [install](https://skills.sh/aradotso/design-skills/awesome-software-design-patterns) | [QDenka/awesome-software-design](https://github.com/QDenka/awesome-software-design) | 2026-05-17 |
 <!-- SKILL_INDEX -->
 
 ---
