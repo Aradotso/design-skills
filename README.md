@@ -56,6 +56,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [materialdesigninxaml-wpf-toolkit](skills/materialdesigninxaml-wpf-toolkit/) | [install](https://skills.sh/aradotso/design-skills/materialdesigninxaml-wpf-toolkit) | [MaterialDesignInXAML/MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit) | 2026-05-17 |
 | [anvil-level-design-blender](skills/anvil-level-design-blender/) | [install](https://skills.sh/aradotso/design-skills/anvil-level-design-blender) | [alexjhetherington/anvil-level-design](https://github.com/alexjhetherington/anvil-level-design) | 2026-05-17 |
 | [system-design-visualizer-tool](skills/system-design-visualizer-tool/) | [install](https://skills.sh/aradotso/design-skills/system-design-visualizer-tool) | [mallahyari/system-design-visualizer](https://github.com/mallahyari/system-design-visualizer) | 2026-05-17 |
+| [design-council-orchestration](skills/design-council-orchestration/) | [install](https://skills.sh/aradotso/design-skills/design-council-orchestration) | [sjsyrek/design-council](https://github.com/sjsyrek/design-council) | 2026-05-17 |
 <!-- SKILL_INDEX -->
 
 ---
