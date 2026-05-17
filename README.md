@@ -45,6 +45,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [design-dna-extractor](skills/design-dna-extractor/) | [install](https://skills.sh/aradotso/design-skills/design-dna-extractor) | [zanwei/design-dna](https://github.com/zanwei/design-dna) | 2026-05-17 |
 | [awesome-design-skills-registry](skills/awesome-design-skills-registry/) | [install](https://skills.sh/aradotso/design-skills/awesome-design-skills-registry) | [bergside/awesome-design-skills](https://github.com/bergside/awesome-design-skills) | 2026-05-17 |
 | [design-os-product-planning](skills/design-os-product-planning/) | [install](https://skills.sh/aradotso/design-skills/design-os-product-planning) | [buildermethods/design-os](https://github.com/buildermethods/design-os) | 2026-05-17 |
+| [meigen-ai-design-mcp](skills/meigen-ai-design-mcp/) | [install](https://skills.sh/aradotso/design-skills/meigen-ai-design-mcp) | [jau123/MeiGen-AI-Design-MCP](https://github.com/jau123/MeiGen-AI-Design-MCP) | 2026-05-17 |
 <!-- SKILL_INDEX -->
 
 ---
