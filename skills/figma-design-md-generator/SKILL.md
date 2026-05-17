@@ -1,35 +1,39 @@
 ---
 name: figma-design-md-generator
-description: Generate DESIGN.md and SKILL.md files from Figma local styles for AI-driven development with consistent design systems
+description: Extract design system tokens and styles from Figma files to generate DESIGN.md and SKILL.md files for AI coding agents
 triggers:
-  - "extract design tokens from Figma file"
-  - "generate DESIGN.md from Figma styles"
-  - "create design system documentation for AI tools"
-  - "export Figma local styles to markdown"
-  - "build TypeUI DESIGN.md from Figma"
-  - "generate SKILL.md for design system"
-  - "document Figma component families"
-  - "export Figma variables and tokens"
+  - generate design.md from figma
+  - extract figma design tokens
+  - create design system documentation from figma
+  - export figma styles to markdown
+  - build design.md skill file
+  - extract figma local styles and variables
+  - convert figma design system to markdown
+  - create ai-ready design guidelines from figma
 ---
 
-# Figma DESIGN.md Generator (TypeUI)
+# Figma DESIGN.md Generator
 
 > Skill by [ara.so](https://ara.so) — Design Skills collection.
 
-## Overview
+This Figma plugin extracts local styles, variables, and component families from Figma files and generates standardized `DESIGN.md` and `SKILL.md` files. These files provide AI coding agents with structured design system context based on the TypeUI DESIGN.md format.
 
-The `bergside/design-md-figma` plugin extracts local styles, variables, and component families from Figma files and generates structured `DESIGN.md` and `SKILL.md` files. These outputs follow the TypeUI DESIGN.md format and enable AI coding tools (Claude Code, Cursor, Codex) to build interfaces with consistent design-system blueprints.
+## What It Does
 
-**Key capabilities:**
-- Auto-extract colors, typography, spacing, radius, effects, grids
-- Parse Figma variable collections and local styles
-- Generate editable DESIGN.md (human-readable guidelines)
-- Generate SKILL.md (agent-ready instructions)
-- Download outputs for project integration
+The plugin automatically:
 
-## Installation
+- Extracts local color styles and color variables from Figma files
+- Captures typography styles and type scales
+- Reads spacing, radius, and motion tokens
+- Documents effect styles (shadows, blur)
+- Lists grid styles and layout definitions
+- Identifies component families and component sets
+- Generates editable `DESIGN.md` (human-readable design guidelines)
+- Generates editable `SKILL.md` (AI agent-ready instructions)
 
-### As a Figma Plugin (Development)
+## Installation & Setup
+
+### As a Figma Plugin Developer
 
 1. **Clone and install dependencies:**
 
@@ -46,17 +50,13 @@ npm run build
 ```
 
 3. **Load in Figma Desktop:**
-   - Open Figma Desktop
-   - Navigate to **Plugins → Development → Import plugin from manifest...**
-   - Select `manifest.json` from the project directory
-   - Run **Design MD Skill Generator** from the plugins menu
 
-### As a Published Plugin
+- Open Figma Desktop
+- Navigate to **Plugins → Development → Import plugin from manifest...**
+- Select the `manifest.json` file from the project root
+- Run **Design MD Skill Generator** from the plugins menu
 
-Install from Figma Community:
-https://www.figma.com/community/plugin/1612814320994608244/design-md-skills
-
-## Development Commands
+### Development Commands
 
 ```bash
 # Build plugin once
@@ -69,397 +69,499 @@ npm run watch
 npm run typecheck
 ```
 
-## Usage Workflow
+## Plugin Architecture
 
-### 1. Extract Design Tokens
+The plugin consists of two main parts:
 
-Open a Figma file with local styles and variables, then run the plugin. The auto-extract process reads:
+### UI Component (`ui.tsx`)
 
-- **Color Tokens**: Paint styles and color variables
-- **Typography Tokens**: Text styles and type scales
-- **Spacing/Radius/Motion**: Layout tokens from variable collections
-- **Effect Styles**: Shadows, blurs, layer effects
-- **Grid Styles**: Layout grid definitions
-- **Component Families**: Component-set family names
-
-### 2. Generate DESIGN.md
-
-The plugin produces a structured markdown file with sections:
-
-```markdown
-# Design System - [File Name]
-
-## Source
-File: [Figma File Name]
-Page: [Current Page]
-Extracted: [Timestamp]
-
-## Variable Collections
-- Collection Name (Mode: default)
-
-## Color Tokens
-| Token | Value | Type |
-|-------|-------|------|
-| primary-500 | #3B82F6 | Solid |
-
-## Typography Tokens
-| Style | Family | Size | Weight | Line Height |
-|-------|--------|------|--------|-------------|
-| heading-1 | Inter | 32px | 700 | 1.2 |
-
-## Component Families
-- Button
-- Input
-- Card
-```
-
-### 3. Generate SKILL.md
-
-The SKILL.md output includes agent-ready instructions:
-
-```markdown
-# Design System Skill
-
-## Mission
-Implement interfaces using extracted design tokens from [File Name].
-
-## Style Foundations
-- Color palette: 8 tokens (primary, secondary, neutral, semantic)
-- Typography: 6 styles (heading-1 through body-small)
-- Spacing scale: 8-point grid (4px, 8px, 16px, 24px, 32px, 48px, 64px)
-
-## Rules: Do
-✓ Use only tokens defined in Variable Collections
-✓ Apply text styles exactly as specified
-✓ Maintain spacing consistency with 8px grid
-
-## Rules: Don't
-✗ Create arbitrary color values outside token palette
-✗ Override typography line-height without justification
-✗ Ignore semantic color tokens for state/feedback
-```
-
-### 4. Toggle and Download
-
-- **Toggle View**: Switch between DESIGN.md and SKILL.md in the editor
-- **Refresh**: Re-run extraction after updating Figma file
-- **Download**: Save `.md` files to your project repository
-
-## Code Integration Examples
-
-### Using Generated DESIGN.md in CSS Variables
-
-Convert extracted tokens to CSS custom properties:
-
-```css
-/* From DESIGN.md Color Tokens */
-:root {
-  --color-primary-500: #3B82F6;
-  --color-primary-600: #2563EB;
-  --color-neutral-100: #F3F4F6;
-  --color-semantic-error: #EF4444;
-  
-  /* From Typography Tokens */
-  --font-heading-1: 700 32px/1.2 Inter;
-  --font-body: 400 16px/1.5 Inter;
-  
-  /* From Spacing Tokens */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-}
-
-.button-primary {
-  background: var(--color-primary-500);
-  padding: var(--space-sm) var(--space-md);
-  font: var(--font-body);
-}
-```
-
-### Using SKILL.md with Claude Code
-
-Place `SKILL.md` in your project root or `.ai/` directory:
-
-```bash
-# Project structure
-my-app/
-├── .ai/
-│   └── SKILL.md          # Agent-ready design system
-├── src/
-│   └── components/
-└── DESIGN.md             # Human-readable reference
-```
-
-Prompt Claude Code:
-
-```
-"Build a login form using the design tokens from SKILL.md. 
-Include primary button, input fields, and error states."
-```
-
-Claude will reference spacing scales, color tokens, and component rules from the generated file.
-
-### TypeScript Token Type Generation
-
-Parse DESIGN.md programmatically to generate types:
+React-based interface built with TypeScript and Tailwind CSS:
 
 ```typescript
-// scripts/generate-tokens.ts
-interface ColorToken {
-  name: string;
-  value: string;
-  type: 'Solid' | 'Gradient';
-}
+import React, { useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
 
-interface TypographyToken {
-  name: string;
-  family: string;
-  size: string;
-  weight: number;
-  lineHeight: number;
-}
+function App() {
+  const [activeTab, setActiveTab] = useState<'design' | 'skill'>('design');
+  const [designMd, setDesignMd] = useState('');
+  const [skillMd, setSkillMd] = useState('');
 
-// Read DESIGN.md and parse tables
-import fs from 'fs';
+  useEffect(() => {
+    window.onmessage = (event) => {
+      const msg = event.data.pluginMessage;
+      if (msg.type === 'generation-complete') {
+        setDesignMd(msg.designMd);
+        setSkillMd(msg.skillMd);
+      }
+    };
+  }, []);
 
-const designMd = fs.readFileSync('./DESIGN.md', 'utf-8');
-
-// Extract color tokens (parse markdown table)
-const colorRegex = /\| (\S+) \| (#[A-F0-9]{6}) \| (\w+) \|/gi;
-const colors: ColorToken[] = [];
-let match;
-
-while ((match = colorRegex.exec(designMd)) !== null) {
-  colors.push({
-    name: match[1],
-    value: match[2],
-    type: match[3] as 'Solid' | 'Gradient'
-  });
-}
-
-// Generate TypeScript definitions
-const colorTypes = colors.map(c => 
-  `export const ${c.name.replace(/-/g, '_').toUpperCase()} = '${c.value}';`
-).join('\n');
-
-fs.writeFileSync('./src/tokens.ts', colorTypes);
-```
-
-### React Component with Design Tokens
-
-```tsx
-// src/components/Button.tsx
-import React from 'react';
-import './tokens.css'; // Generated from DESIGN.md
-
-interface ButtonProps {
-  variant: 'primary' | 'secondary';
-  size: 'sm' | 'md' | 'lg';
-  children: React.ReactNode;
-}
-
-export const Button: React.FC<ButtonProps> = ({ 
-  variant, 
-  size, 
-  children 
-}) => {
-  // Follows spacing and typography from DESIGN.md
-  const sizeMap = {
-    sm: 'var(--space-xs) var(--space-sm)',
-    md: 'var(--space-sm) var(--space-md)',
-    lg: 'var(--space-md) var(--space-lg)'
+  const handleGenerate = () => {
+    parent.postMessage({ pluginMessage: { type: 'generate' } }, '*');
   };
 
   return (
-    <button
-      className={`button button--${variant}`}
-      style={{ padding: sizeMap[size] }}
-    >
-      {children}
-    </button>
+    <div className="p-4">
+      <button onClick={handleGenerate}>Auto-extract & Generate</button>
+      {/* Tab switching and markdown display */}
+    </div>
   );
+}
+
+const root = createRoot(document.getElementById('react-page')!);
+root.render(<App />);
+```
+
+### Plugin Code (`code.ts`)
+
+Figma API interactions for extracting design tokens:
+
+```typescript
+figma.showUI(__html__, { width: 800, height: 600 });
+
+figma.ui.onmessage = async (msg) => {
+  if (msg.type === 'generate') {
+    const extraction = await extractDesignTokens();
+    const designMd = generateDesignMd(extraction);
+    const skillMd = generateSkillMd(extraction);
+    
+    figma.ui.postMessage({
+      type: 'generation-complete',
+      designMd,
+      skillMd
+    });
+  }
 };
 ```
 
-## Configuration
+## Extracting Design Tokens
 
-### Customizing Extraction
-
-The plugin auto-extracts all local styles. To focus on specific collections, manually edit generated files after extraction.
-
-### TypeUI Format Customization
-
-Generated files follow the TypeUI DESIGN.md schema. To extend sections:
-
-1. Run plugin to generate base files
-2. Edit downloaded `.md` files
-3. Add custom sections (e.g., "Animation Tokens", "Iconography")
-4. Commit to repository for AI tool consumption
-
-### Environment Variables for Automation
-
-If integrating with CI/CD:
-
-```bash
-# .env
-FIGMA_FILE_KEY=your-figma-file-key
-FIGMA_ACCESS_TOKEN=${FIGMA_ACCESS_TOKEN}  # Use env var, not hardcoded
-```
-
-Use Figma REST API to automate extraction outside the plugin:
+### Color Styles & Variables
 
 ```typescript
-// scripts/fetch-figma-styles.ts
-const response = await fetch(
-  `https://api.figma.com/v1/files/${process.env.FIGMA_FILE_KEY}/styles`,
-  {
-    headers: {
-      'X-Figma-Token': process.env.FIGMA_ACCESS_TOKEN!
+interface ColorToken {
+  name: string;
+  value: string;
+  type: 'solid' | 'gradient';
+  opacity?: number;
+}
+
+function extractColorStyles(): ColorToken[] {
+  const localPaintStyles = figma.getLocalPaintStyles();
+  
+  return localPaintStyles.map(style => {
+    const paint = style.paints[0] as SolidPaint;
+    const { r, g, b } = paint.color;
+    
+    return {
+      name: style.name,
+      value: `rgba(${Math.round(r * 255)}, ${Math.round(g * 255)}, ${Math.round(b * 255)}, ${paint.opacity || 1})`,
+      type: paint.type === 'SOLID' ? 'solid' : 'gradient',
+      opacity: paint.opacity
+    };
+  });
+}
+
+function extractColorVariables(): ColorToken[] {
+  const collections = figma.variables.getLocalVariableCollections();
+  const tokens: ColorToken[] = [];
+  
+  collections.forEach(collection => {
+    const variables = collection.variableIds.map(id => 
+      figma.variables.getVariableById(id)
+    );
+    
+    variables.forEach(variable => {
+      if (variable?.resolvedType === 'COLOR') {
+        const value = Object.values(variable.valuesByMode)[0] as RGB;
+        tokens.push({
+          name: variable.name,
+          value: `rgb(${Math.round(value.r * 255)}, ${Math.round(value.g * 255)}, ${Math.round(value.b * 255)})`,
+          type: 'solid'
+        });
+      }
+    });
+  });
+  
+  return tokens;
+}
+```
+
+### Typography Styles
+
+```typescript
+interface TypographyToken {
+  name: string;
+  fontFamily: string;
+  fontSize: number;
+  fontWeight: number;
+  lineHeight: number | 'AUTO';
+  letterSpacing: number;
+}
+
+function extractTypographyStyles(): TypographyToken[] {
+  const localTextStyles = figma.getLocalTextStyles();
+  
+  return localTextStyles.map(style => ({
+    name: style.name,
+    fontFamily: style.fontName.family,
+    fontSize: style.fontSize as number,
+    fontWeight: style.fontName.style.includes('Bold') ? 700 : 400,
+    lineHeight: style.lineHeight,
+    letterSpacing: style.letterSpacing as number
+  }));
+}
+```
+
+### Spacing & Radius Tokens
+
+```typescript
+function extractSpacingTokens(): Record<string, number> {
+  const collections = figma.variables.getLocalVariableCollections();
+  const spacing: Record<string, number> = {};
+  
+  collections.forEach(collection => {
+    const variables = collection.variableIds
+      .map(id => figma.variables.getVariableById(id))
+      .filter(v => v?.resolvedType === 'FLOAT' && v.name.toLowerCase().includes('spacing'));
+    
+    variables.forEach(variable => {
+      if (variable) {
+        const value = Object.values(variable.valuesByMode)[0] as number;
+        spacing[variable.name] = value;
+      }
+    });
+  });
+  
+  return spacing;
+}
+```
+
+### Effect Styles (Shadows, Blur)
+
+```typescript
+interface EffectToken {
+  name: string;
+  type: 'DROP_SHADOW' | 'INNER_SHADOW' | 'LAYER_BLUR';
+  x?: number;
+  y?: number;
+  blur: number;
+  spread?: number;
+  color?: string;
+}
+
+function extractEffectStyles(): EffectToken[] {
+  const localEffectStyles = figma.getLocalEffectStyles();
+  
+  return localEffectStyles.map(style => {
+    const effect = style.effects[0];
+    
+    if (effect.type === 'DROP_SHADOW' || effect.type === 'INNER_SHADOW') {
+      const { r, g, b, a } = effect.color;
+      return {
+        name: style.name,
+        type: effect.type,
+        x: effect.offset.x,
+        y: effect.offset.y,
+        blur: effect.radius,
+        spread: effect.spread || 0,
+        color: `rgba(${Math.round(r * 255)}, ${Math.round(g * 255)}, ${Math.round(b * 255)}, ${a})`
+      };
     }
-  }
-);
-
-const styles = await response.json();
-// Process and generate DESIGN.md programmatically
+    
+    return {
+      name: style.name,
+      type: 'LAYER_BLUR',
+      blur: effect.radius
+    };
+  });
+}
 ```
 
-## Common Patterns
+### Component Families
 
-### Pattern 1: Design-to-Code Workflow
-
-1. Designer updates Figma file with new color tokens
-2. Run plugin → Download updated `DESIGN.md`
-3. Commit to Git
-4. AI agent (Cursor/Claude) references updated tokens
-5. Developer implements with consistent values
-
-### Pattern 2: Multi-Brand Design Systems
-
-Extract separate `DESIGN.md` files per brand:
-
-```bash
-figma-project/
-├── brand-a/
-│   ├── DESIGN.md
-│   └── SKILL.md
-├── brand-b/
-│   ├── DESIGN.md
-│   └── SKILL.md
+```typescript
+function extractComponentFamilies(): string[] {
+  const componentSets = figma.root.findAllWithCriteria({
+    types: ['COMPONENT_SET']
+  });
+  
+  return componentSets.map(set => set.name).sort();
+}
 ```
 
-Tell AI agent: *"Use brand-a/SKILL.md for this component"*
+## Generating DESIGN.md
 
-### Pattern 3: Component Library Documentation
+```typescript
+interface DesignExtraction {
+  fileName: string;
+  pageNames: string[];
+  timestamp: string;
+  variableCollections: string[];
+  colors: ColorToken[];
+  typography: TypographyToken[];
+  spacing: Record<string, number>;
+  effects: EffectToken[];
+  componentFamilies: string[];
+}
 
-After extracting component families, augment with usage rules:
+function generateDesignMd(data: DesignExtraction): string {
+  return `# DESIGN.md
 
-```markdown
+## Source
+- **File**: ${data.fileName}
+- **Pages**: ${data.pageNames.join(', ')}
+- **Extracted**: ${data.timestamp}
+
+## Variable Collections
+${data.variableCollections.map(name => `- ${name}`).join('\n')}
+
+## Color Tokens
+${data.colors.map(c => `- **${c.name}**: \`${c.value}\``).join('\n')}
+
+## Typography Tokens
+${data.typography.map(t => `- **${t.name}**: ${t.fontFamily} ${t.fontSize}px / ${t.lineHeight}`).join('\n')}
+
+## Spacing Tokens
+${Object.entries(data.spacing).map(([name, val]) => `- **${name}**: ${val}px`).join('\n')}
+
+## Effect Styles
+${data.effects.map(e => `- **${e.name}**: ${e.type} blur:${e.blur}px`).join('\n')}
+
 ## Component Families
-- Button
+${data.componentFamilies.map(name => `- ${name}`).join('\n')}
+`;
+}
+```
 
-### Button Rules (Manual Addition)
-- Use primary variant for main CTAs
-- Disabled state reduces opacity to 0.5
-- Minimum touch target: 44x44px
+## Generating SKILL.md
+
+```typescript
+function generateSkillMd(data: DesignExtraction): string {
+  return `# Design System Skill
+
+## Mission
+Implement UI components using the design tokens extracted from **${data.fileName}**.
+
+## Brand
+- **Product**: ${data.fileName}
+- **Audience**: End users
+- **Surface**: Web/Mobile interface
+
+## Style Foundations
+
+### Colors
+${data.colors.slice(0, 5).map(c => `- ${c.name}: ${c.value}`).join('\n')}
+
+### Typography
+${data.typography.slice(0, 3).map(t => `- ${t.name}: ${t.fontFamily} ${t.fontSize}px`).join('\n')}
+
+### Spacing Scale
+${Object.entries(data.spacing).slice(0, 5).map(([k, v]) => `- ${k}: ${v}px`).join('\n')}
+
+## Accessibility
+- Follow WCAG 2.2 AA standards
+- Ensure 4.5:1 contrast for text
+- Provide keyboard navigation
+- Use semantic HTML
+
+## Rules: Do
+- Use extracted color tokens exactly as defined
+- Follow typography scale for all text
+- Apply spacing tokens for layout consistency
+- Reference component families for naming
+
+## Rules: Don't
+- Don't create arbitrary color values
+- Don't use pixel values outside spacing scale
+- Don't ignore effect styles
+- Don't rename component patterns
+
+## Component Rule Expectations
+- Document all interactive states (hover, active, disabled)
+- Include accessibility attributes
+- Provide responsive breakpoints
+- List required props and variants
+
+## Quality Gates
+- All colors must match extracted tokens
+- Typography must use defined text styles
+- Spacing must use spacing scale
+- Effects must reference effect styles
+`;
+}
+```
+
+## Common Usage Patterns
+
+### Full Extraction Workflow
+
+```typescript
+async function performFullExtraction() {
+  const extraction: DesignExtraction = {
+    fileName: figma.root.name,
+    pageNames: figma.root.children.map(page => page.name),
+    timestamp: new Date().toISOString(),
+    variableCollections: figma.variables.getLocalVariableCollections()
+      .map(c => c.name),
+    colors: [
+      ...extractColorStyles(),
+      ...extractColorVariables()
+    ],
+    typography: extractTypographyStyles(),
+    spacing: extractSpacingTokens(),
+    effects: extractEffectStyles(),
+    componentFamilies: extractComponentFamilies()
+  };
+  
+  return extraction;
+}
+
+figma.ui.onmessage = async (msg) => {
+  if (msg.type === 'generate') {
+    const data = await performFullExtraction();
+    
+    figma.ui.postMessage({
+      type: 'generation-complete',
+      designMd: generateDesignMd(data),
+      skillMd: generateSkillMd(data)
+    });
+  }
+  
+  if (msg.type === 'download') {
+    // Trigger download in UI
+    figma.ui.postMessage({
+      type: 'trigger-download',
+      filename: msg.filename,
+      content: msg.content
+    });
+  }
+};
+```
+
+### Download Handler (UI Side)
+
+```typescript
+function downloadMarkdown(filename: string, content: string) {
+  const blob = new Blob([content], { type: 'text/markdown' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+window.onmessage = (event) => {
+  const msg = event.data.pluginMessage;
+  
+  if (msg.type === 'trigger-download') {
+    downloadMarkdown(msg.filename, msg.content);
+  }
+};
 ```
 
 ## Troubleshooting
 
-### No Local Styles Detected
+### Plugin Not Loading
 
-**Problem**: Plugin shows empty color/typography sections.
+**Issue**: Manifest not recognized in Figma Desktop
 
-**Solution**: Ensure the Figma file has local styles (not just variables). Check:
-- Right panel → Local styles section
-- Variables defined in local collections (not libraries)
-
-### Variable Collections Not Appearing
-
-**Problem**: Variables exist but aren't extracted.
-
-**Solution**: Variables must be in local collections, not published libraries. Clone library variables locally if needed.
-
-### Generated Files Missing Sections
-
-**Problem**: Some token categories are empty.
-
-**Solution**: Plugin only extracts defined local styles. Add missing styles in Figma:
-- Effect styles for shadows
-- Grid styles for layout
-- Component sets for families
-
-### Plugin Crashes on Large Files
-
-**Problem**: Figma file has thousands of styles, plugin times out.
-
-**Solution**: Extract from specific pages or reduce scope:
-1. Duplicate file
-2. Delete unused pages
-3. Re-run extraction
-
-### TypeScript Build Errors
-
-**Problem**: `npm run build` fails with type errors.
-
-**Solution**: Ensure TypeScript version matches project:
+**Solution**: Ensure `manifest.json` is valid and run `npm run build` first:
 
 ```bash
-npm install --save-dev typescript@^5.0.0
-npm run typecheck  # Verify before build
+npm run build
+# Then import manifest.json in Figma Desktop
 ```
 
-### Downloaded Files Have Encoding Issues
+### Empty Extraction
 
-**Problem**: Special characters render incorrectly.
+**Issue**: No styles or variables extracted
 
-**Solution**: Ensure UTF-8 encoding when saving:
+**Cause**: File has no local styles (only uses library styles)
 
-```typescript
-// In plugin code (ui.html)
-const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+**Solution**: The plugin only extracts **local** styles. Either:
+- Create local styles in your file
+- Publish library styles as local overrides
+- Check that you're running the plugin in the correct file
+
+### TypeScript Errors
+
+**Issue**: Type errors during build
+
+**Solution**: Ensure Figma plugin typings are installed:
+
+```bash
+npm install --save-dev @figma/plugin-typings
 ```
 
-## Advanced Usage
+Add to `tsconfig.json`:
 
-### Programmatic Parsing of DESIGN.md
-
-```typescript
-// Parse generated DESIGN.md for automation
-import { readFileSync } from 'fs';
-
-interface ParsedDesign {
-  colors: Map<string, string>;
-  typography: Map<string, any>;
-  spacing: number[];
-}
-
-function parseDesignMd(filePath: string): ParsedDesign {
-  const content = readFileSync(filePath, 'utf-8');
-  
-  // Extract color tokens
-  const colorSection = content.match(
-    /## Color Tokens\n\n\| Token.*?\n([\s\S]*?)(?=\n## )/
-  );
-  const colors = new Map<string, string>();
-  
-  if (colorSection) {
-    const rows = colorSection[1].trim().split('\n');
-    rows.forEach(row => {
-      const [, token, value] = row.split('|').map(s => s.trim());
-      if (token && value) colors.set(token, value);
-    });
+```json
+{
+  "compilerOptions": {
+    "types": ["@figma/plugin-typings"]
   }
-  
-  return { colors, typography: new Map(), spacing: [] };
 }
-
-const design = parseDesignMd('./DESIGN.md');
-console.log(design.colors.get('primary-500')); // #3B82F6
 ```
 
-## Related Resources
+### Missing Color Variables
 
-- [TypeUI DESIGN.md Specification](https://www.typeui.sh/design-md)
-- [Curated Design Skills](https://www.typeui.sh/design-skills)
-- [Figma Plugin API](https://www.figma.com/plugin-docs/)
+**Issue**: Color variables not appearing in output
+
+**Check**: Variables must be in a **local** collection:
+
+```typescript
+// Only local collections are extracted
+const collections = figma.variables.getLocalVariableCollections();
+// Not: figma.variables.getVariableCollections() (includes libraries)
+```
+
+### UI Not Updating
+
+**Issue**: Changes to `ui.tsx` not reflected
+
+**Solution**: Use watch mode during development:
+
+```bash
+npm run watch
+# Then reload plugin in Figma (Plugins → Development → Reload)
+```
+
+## Best Practices
+
+1. **Extract Before Major Changes**: Run extraction before and after design updates to track token changes
+
+2. **Version Control Generated Files**: Commit `DESIGN.md` and `SKILL.md` to track design system evolution
+
+3. **Use with AI Agents**: Add generated `SKILL.md` to your project's `.claude` or `.cursor` skills directory for context-aware code generation
+
+4. **Combine with TypeUI**: Reference [typeui.sh/design-skills](https://www.typeui.sh/design-skills) for standardized design system patterns
+
+5. **Automate Extraction**: Set up GitHub Actions to extract on Figma file webhooks (requires Figma API)
+
+## Advanced: Programmatic API Access
+
+While primarily a Figma plugin, you can access Figma's REST API for automated extraction:
+
+```typescript
+// Requires FIGMA_ACCESS_TOKEN environment variable
+const FIGMA_TOKEN = process.env.FIGMA_ACCESS_TOKEN;
+const FILE_KEY = 'your-file-key';
+
+async function fetchFigmaStyles() {
+  const response = await fetch(
+    `https://api.figma.com/v1/files/${FILE_KEY}/styles`,
+    {
+      headers: {
+        'X-Figma-Token': FIGMA_TOKEN!
+      }
+    }
+  );
+  
+  const data = await response.json();
+  return data.meta.styles;
+}
+```
+
+Use this for CI/CD pipelines that auto-generate `DESIGN.md` on design updates.
