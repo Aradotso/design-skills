@@ -42,6 +42,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [awesome-design-md-jp](skills/awesome-design-md-jp/) | [install](https://skills.sh/aradotso/design-skills/awesome-design-md-jp) | [kzhrknt/awesome-design-md-jp](https://github.com/kzhrknt/awesome-design-md-jp) | 2026-05-17 |
 | [figma-mcp-go-design-automation](skills/figma-mcp-go-design-automation/) | [install](https://skills.sh/aradotso/design-skills/figma-mcp-go-design-automation) | [vkhanhqui/figma-mcp-go](https://github.com/vkhanhqui/figma-mcp-go) | 2026-05-17 |
 | [figma-mcp-integration](skills/figma-mcp-integration/) | [install](https://skills.sh/aradotso/design-skills/figma-mcp-integration) | [grab/cursor-talk-to-figma-mcp](https://github.com/grab/cursor-talk-to-figma-mcp) | 2026-05-17 |
+| [design-dna-extractor](skills/design-dna-extractor/) | [install](https://skills.sh/aradotso/design-skills/design-dna-extractor) | [zanwei/design-dna](https://github.com/zanwei/design-dna) | 2026-05-17 |
 <!-- SKILL_INDEX -->
 
 ---
