@@ -41,6 +41,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [power-design-slides](skills/power-design-slides/) | [install](https://skills.sh/aradotso/design-skills/power-design-slides) | [ItsssssJack/power-design](https://github.com/ItsssssJack/power-design) | 2026-05-17 |
 | [awesome-design-md-jp](skills/awesome-design-md-jp/) | [install](https://skills.sh/aradotso/design-skills/awesome-design-md-jp) | [kzhrknt/awesome-design-md-jp](https://github.com/kzhrknt/awesome-design-md-jp) | 2026-05-17 |
 | [figma-mcp-go-design-automation](skills/figma-mcp-go-design-automation/) | [install](https://skills.sh/aradotso/design-skills/figma-mcp-go-design-automation) | [vkhanhqui/figma-mcp-go](https://github.com/vkhanhqui/figma-mcp-go) | 2026-05-17 |
+| [figma-mcp-integration](skills/figma-mcp-integration/) | [install](https://skills.sh/aradotso/design-skills/figma-mcp-integration) | [grab/cursor-talk-to-figma-mcp](https://github.com/grab/cursor-talk-to-figma-mcp) | 2026-05-17 |
 <!-- SKILL_INDEX -->
 
 ---
