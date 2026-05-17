@@ -46,6 +46,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [awesome-design-skills-registry](skills/awesome-design-skills-registry/) | [install](https://skills.sh/aradotso/design-skills/awesome-design-skills-registry) | [bergside/awesome-design-skills](https://github.com/bergside/awesome-design-skills) | 2026-05-17 |
 | [design-os-product-planning](skills/design-os-product-planning/) | [install](https://skills.sh/aradotso/design-skills/design-os-product-planning) | [buildermethods/design-os](https://github.com/buildermethods/design-os) | 2026-05-17 |
 | [meigen-ai-design-mcp](skills/meigen-ai-design-mcp/) | [install](https://skills.sh/aradotso/design-skills/meigen-ai-design-mcp) | [jau123/MeiGen-AI-Design-MCP](https://github.com/jau123/MeiGen-AI-Design-MCP) | 2026-05-17 |
+| [qiaomu-mondo-poster-design](skills/qiaomu-mondo-poster-design/) | [install](https://skills.sh/aradotso/design-skills/qiaomu-mondo-poster-design) | [joeseesun/qiaomu-mondo-poster-design](https://github.com/joeseesun/qiaomu-mondo-poster-design) | 2026-05-17 |
 <!-- SKILL_INDEX -->
 
 ---
