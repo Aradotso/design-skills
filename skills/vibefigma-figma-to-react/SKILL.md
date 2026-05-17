@@ -1,628 +1,519 @@
 ---
 name: vibefigma-figma-to-react
-description: Convert Figma designs to production-ready React components with Tailwind CSS using VibeFigma CLI and API
+description: Convert Figma designs to production-ready React components with Tailwind CSS using VibeFigma
 triggers:
-  - convert figma design to react
-  - transform figma to tailwind components
-  - export figma frames as react code
-  - generate react from figma url
-  - import figma design into project
-  - create components from figma file
-  - parse figma api and build jsx
-  - figma to code conversion setup
+  - convert this Figma design to React
+  - import Figma component into our codebase
+  - generate React code from Figma
+  - turn this Figma frame into a component
+  - extract this design from Figma
+  - create component from Figma URL
+  - convert Figma to Tailwind React
+  - import Figma design as React component
 ---
 
 # VibeFigma - Figma to React Converter
 
 > Skill by [ara.so](https://ara.so) — Design Skills collection.
 
-VibeFigma transforms Figma designs into production-ready React components with automatic Tailwind CSS generation. It uses the official Figma API to extract design data and generates TypeScript/React components with proper styling, assets, and responsive design patterns.
+VibeFigma transforms Figma designs into production-ready React components with Tailwind CSS. It uses the official Figma API to extract designs and generates clean, optimized React/TypeScript code with proper styling.
 
 ## Installation
 
-VibeFigma can be used via npx (no installation needed) or installed globally:
-
-```bash
-# Use directly with npx (recommended)
-npx vibefigma --help
-
-# Or install globally
-npm install -g vibefigma
-
-# Or install as dev dependency
-npm install --save-dev vibefigma
-```
-
-## Figma Access Token Setup
-
-Before using VibeFigma, you need a Figma Personal Access Token:
-
-1. Go to https://www.figma.com/settings
-2. Scroll to "Personal Access Tokens"
-3. Click "Generate new token"
-4. Copy the token and store it securely
-
-Set the token as an environment variable:
-
-```bash
-# Add to .env file
-FIGMA_TOKEN=figd_your_figma_access_token_here
-
-# Or export in shell
-export FIGMA_TOKEN=figd_your_figma_access_token_here
-```
-
-## CLI Usage
-
-### Interactive Mode (Easiest)
+VibeFigma works best via `npx` (no installation required):
 
 ```bash
 npx vibefigma --interactive
 ```
 
-The CLI will prompt for:
-- Figma URL
-- Access token (if not in env)
-- Output paths for components and assets
-
-### Direct Command
+For programmatic use or API server:
 
 ```bash
-# Basic usage with environment variable
-npx vibefigma "https://www.figma.com/design/FILE_ID/DESIGN_NAME?node-id=NODE_ID"
+npm install vibefigma
+# or
+bun install vibefigma
+```
 
-# With explicit token
-npx vibefigma "FIGMA_URL" --token YOUR_TOKEN
+## Figma Access Token Setup
 
+Before using VibeFigma, you need a Figma personal access token:
+
+1. Go to [Figma Account Settings](https://www.figma.com/settings)
+2. Scroll to **Personal Access Tokens**
+3. Click **Generate new token**
+4. Copy the token
+
+Set it as an environment variable:
+
+```bash
+export FIGMA_TOKEN=your_figma_access_token
+```
+
+Or create a `.env` file:
+
+```env
+FIGMA_TOKEN=your_figma_access_token
+```
+
+## CLI Usage
+
+### Interactive Mode (Recommended)
+
+```bash
+npx vibefigma --interactive
+```
+
+This guides you through:
+- Entering the Figma URL
+- Providing your access token (if not set)
+- Choosing output paths
+
+### Direct Conversion
+
+```bash
+npx vibefigma "https://www.figma.com/design/FILE_KEY/NAME?node-id=NODE_ID"
+```
+
+### With Options
+
+```bash
 # Custom output paths
 npx vibefigma "FIGMA_URL" \
-  --component ./src/components/Hero.tsx \
-  --assets ./public/images
-
-# Force overwrite without confirmation
-npx vibefigma "FIGMA_URL" --force
+  -c ./src/components/Hero.tsx \
+  -a ./public/assets
 
 # Disable Tailwind CSS (use regular CSS)
 npx vibefigma "FIGMA_URL" --no-tailwind
 
-# With AI optimization
+# Force overwrite without prompts
+npx vibefigma "FIGMA_URL" --force
+
+# With optimization and AI cleaning
 npx vibefigma "FIGMA_URL" --optimize --clean
 ```
 
-### Complete CLI Options
+### Complete Options
 
 ```bash
-npx vibefigma [options] [url]
-
-Options:
-  -t, --token <token>       Figma access token
-  -u, --url <url>           Figma file/node URL
-  -c, --component <path>    Component output path (default: ./src/components/[ComponentName].tsx)
-  -a, --assets <dir>        Assets directory (default: ./public)
-  --no-tailwind            Disable Tailwind CSS
-  --optimize               Optimize components
-  --clean                  Use AI code cleaner (requires GOOGLE_GENERATIVE_AI_API_KEY)
-  --no-classes             Don't generate CSS classes
-  --no-absolute            Don't use absolute positioning
-  --no-responsive          Disable responsive design
-  --no-fonts               Don't include fonts
-  --interactive            Force interactive mode
-  -f, --force              Overwrite existing files without confirmation
+npx vibefigma "FIGMA_URL" \
+  --token YOUR_TOKEN \
+  --component ./src/components \
+  --assets ./public/assets \
+  --optimize \
+  --clean \
+  --force \
+  --no-tailwind \
+  --no-classes \
+  --no-absolute \
+  --no-responsive \
+  --no-fonts
 ```
+
+## CLI Options Reference
+
+| Option | Alias | Description | Default |
+|--------|-------|-------------|---------|
+| `--token <token>` | `-t` | Figma access token | `$FIGMA_TOKEN` |
+| `--url <url>` | `-u` | Figma file/node URL | positional arg |
+| `--component <path>` | `-c` | Component output path | `./src/components/[Name].tsx` |
+| `--assets <dir>` | `-a` | Assets directory | `./public` |
+| `--no-tailwind` | | Disable Tailwind CSS | enabled |
+| `--optimize` | | Optimize components | disabled |
+| `--clean` | | Use AI code cleaner | disabled |
+| `--force` | `-f` | Overwrite without confirmation | disabled |
+| `--no-classes` | | Don't generate CSS classes | enabled |
+| `--no-absolute` | | Don't use absolute positioning | enabled |
+| `--no-responsive` | | Disable responsive design | enabled |
+| `--no-fonts` | | Don't include fonts | enabled |
+| `--interactive` | | Force interactive mode | auto |
 
 ## Programmatic Usage (TypeScript/JavaScript)
 
 ```typescript
-import { convertFigmaToReact } from 'vibefigma';
+import { VibeFigma } from 'vibefigma';
 
-// Basic conversion
-const result = await convertFigmaToReact({
-  figmaUrl: 'https://www.figma.com/design/FILE_ID/DESIGN_NAME?node-id=NODE_ID',
+const converter = new VibeFigma({
   figmaToken: process.env.FIGMA_TOKEN!,
-  outputDir: './src/components',
+  useTailwind: true,
+  optimize: false,
+  generateClasses: true,
+  useAbsolutePositioning: true,
+  responsiveDesign: true,
+  includeFonts: true
+});
+
+// Convert a Figma design
+const result = await converter.convert({
+  figmaUrl: 'https://www.figma.com/design/FILE_KEY/NAME?node-id=NODE_ID',
+  componentPath: './src/components/Hero.tsx',
   assetsDir: './public/assets'
 });
 
-console.log('Generated component:', result.componentPath);
+console.log('Generated:', result.componentPath);
 console.log('Assets:', result.assets);
-
-// With custom options
-const customResult = await convertFigmaToReact({
-  figmaUrl: 'FIGMA_URL',
-  figmaToken: process.env.FIGMA_TOKEN!,
-  outputDir: './src/components',
-  assetsDir: './public/images',
-  options: {
-    tailwind: true,           // Use Tailwind CSS
-    optimize: true,           // Optimize code
-    clean: false,             // AI code cleaning
-    generateClasses: true,    // Generate CSS classes
-    absolutePositioning: true,// Use absolute positioning
-    responsive: true,         // Responsive design
-    includeFonts: true,       // Include font imports
-    force: false              // Overwrite without confirmation
-  }
-});
 ```
 
-## API Server
+### Conversion Result Structure
 
-VibeFigma includes a REST API server for backend integration:
+```typescript
+interface ConversionResult {
+  componentPath: string;      // Path to generated component
+  assets: string[];           // Array of generated asset paths
+  code: string;               // Generated React code
+  warnings?: string[];        // Any conversion warnings
+}
+```
+
+## API Server Usage
+
+VibeFigma includes a REST API server for integration into other services.
 
 ### Starting the Server
 
 ```bash
-# Install dependencies
-bun install  # or npm install
+# Development
+bun run dev
 
-# Set up environment
-cat > .env << EOF
+# Production
+bun run build
+bun start
+```
+
+### Environment Variables
+
+```env
 GOOGLE_GENERATIVE_AI_API_KEY=your_google_ai_key
 PORT=3000
 HOST=0.0.0.0
 CORS_ORIGIN=*
-FIGMA_TOKEN=figd_your_token_here
-EOF
-
-# Run server
-bun run dev  # or npm run dev
+FIGMA_TOKEN=your_figma_token
 ```
 
 ### API Endpoint
 
-```http
-POST /v1/api/vibe-figma
-Content-Type: application/json
+**POST** `/v1/api/vibe-figma`
 
-{
-  "figmaUrl": "https://www.figma.com/design/FILE_ID/DESIGN_NAME?node-id=NODE_ID",
-  "figmaToken": "figd_your_token_here",
-  "options": {
-    "tailwind": true,
-    "optimize": false,
-    "clean": false
-  }
-}
-```
-
-**Response:**
-
-```json
-{
-  "success": true,
-  "component": "import React from 'react';\n\nexport default function Component() {\n  return (\n    <div className=\"flex flex-col items-center justify-center\">\n      ...\n    </div>\n  );\n}",
-  "assets": [
-    {
-      "name": "logo.png",
-      "url": "https://...",
-      "path": "/assets/logo.png"
-    }
-  ],
-  "metadata": {
-    "componentName": "Hero",
-    "hasImages": true,
-    "tailwindUsed": true
-  }
-}
-```
-
-### Using the API with curl
-
-```bash
-curl -X POST http://localhost:3000/v1/api/vibe-figma \
-  -H "Content-Type: application/json" \
-  -d '{
-    "figmaUrl": "YOUR_FIGMA_URL",
-    "figmaToken": "'$FIGMA_TOKEN'",
-    "options": {
-      "tailwind": true
-    }
-  }'
-```
-
-### Using the API with TypeScript
+Request body:
 
 ```typescript
-interface VibeFigmaRequest {
+interface ConvertRequest {
   figmaUrl: string;
-  figmaToken: string;
-  options?: {
-    tailwind?: boolean;
-    optimize?: boolean;
-    clean?: boolean;
-    generateClasses?: boolean;
-    absolutePositioning?: boolean;
-    responsive?: boolean;
-    includeFonts?: boolean;
-  };
+  token?: string;              // Optional if FIGMA_TOKEN env set
+  useTailwind?: boolean;       // default: true
+  optimize?: boolean;          // default: false
+  clean?: boolean;             // default: false
+  generateClasses?: boolean;   // default: true
+  useAbsolutePositioning?: boolean; // default: true
+  responsiveDesign?: boolean;  // default: true
+  includeFonts?: boolean;      // default: true
 }
+```
 
-async function convertFigmaDesign(request: VibeFigmaRequest) {
-  const response = await fetch('http://localhost:3000/v1/api/vibe-figma', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(request)
-  });
-  
-  if (!response.ok) {
-    throw new Error(`API error: ${response.statusText}`);
-  }
-  
-  return await response.json();
-}
+Example request:
 
-// Usage
-const result = await convertFigmaDesign({
-  figmaUrl: 'https://www.figma.com/design/...',
-  figmaToken: process.env.FIGMA_TOKEN!,
-  options: {
-    tailwind: true,
-    responsive: true
-  }
+```typescript
+const response = await fetch('http://localhost:3000/v1/api/vibe-figma', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    figmaUrl: 'https://www.figma.com/design/FILE_KEY/NAME?node-id=NODE_ID',
+    useTailwind: true,
+    optimize: true
+  })
 });
 
-// Save component to file
-import fs from 'fs/promises';
-await fs.writeFile('./src/components/Hero.tsx', result.component);
+const result = await response.json();
+console.log(result.code);      // React component code
+console.log(result.assets);    // Array of asset URLs
 ```
 
 ## Common Patterns
 
-### Converting Multiple Figma Frames
+### Converting Multiple Frames
+
+```bash
+# Convert each frame separately
+npx vibefigma "URL?node-id=FRAME1" -c ./src/components/Header.tsx
+npx vibefigma "URL?node-id=FRAME2" -c ./src/components/Footer.tsx
+npx vibefigma "URL?node-id=FRAME3" -c ./src/components/Hero.tsx
+```
+
+### Batch Conversion Script
 
 ```typescript
-const figmaUrls = [
-  'https://www.figma.com/design/FILE_ID?node-id=NODE_1',
-  'https://www.figma.com/design/FILE_ID?node-id=NODE_2',
-  'https://www.figma.com/design/FILE_ID?node-id=NODE_3'
+import { VibeFigma } from 'vibefigma';
+
+const frames = [
+  { nodeId: '26-2944', name: 'Hero' },
+  { nodeId: '26-2945', name: 'Features' },
+  { nodeId: '26-2946', name: 'Footer' }
 ];
 
-for (const url of figmaUrls) {
-  await convertFigmaToReact({
+const converter = new VibeFigma({
+  figmaToken: process.env.FIGMA_TOKEN!,
+  useTailwind: true
+});
+
+for (const frame of frames) {
+  const url = `https://www.figma.com/design/FILE_KEY/NAME?node-id=${frame.nodeId}`;
+  await converter.convert({
     figmaUrl: url,
-    figmaToken: process.env.FIGMA_TOKEN!,
-    outputDir: './src/components',
-    assetsDir: './public/assets',
-    options: { force: true }  // Auto-overwrite
+    componentPath: `./src/components/${frame.name}.tsx`,
+    assetsDir: './public/assets'
   });
+  console.log(`✓ Generated ${frame.name}`);
 }
 ```
 
-### Batch Processing with Custom Names
-
-```bash
-#!/bin/bash
-# batch-convert.sh
-
-declare -A components=(
-  ["Hero"]="https://www.figma.com/design/FILE_ID?node-id=NODE_1"
-  ["Footer"]="https://www.figma.com/design/FILE_ID?node-id=NODE_2"
-  ["Navbar"]="https://www.figma.com/design/FILE_ID?node-id=NODE_3"
-)
-
-for name in "${!components[@]}"; do
-  echo "Converting $name..."
-  npx vibefigma "${components[$name]}" \
-    --component "./src/components/${name}.tsx" \
-    --assets ./public/assets \
-    --force
-done
-```
-
-### Integrating with Build Pipeline
+### Integration with Build Pipeline
 
 ```typescript
-// scripts/sync-figma-designs.ts
-import { convertFigmaToReact } from 'vibefigma';
+// scripts/import-designs.ts
+import { VibeFigma } from 'vibefigma';
 import { config } from 'dotenv';
 
 config();
 
-const designs = [
-  { name: 'Hero', nodeId: '26-2944' },
-  { name: 'Features', nodeId: '27-3001' },
-  { name: 'Pricing', nodeId: '28-3150' }
-];
+const converter = new VibeFigma({
+  figmaToken: process.env.FIGMA_TOKEN!,
+  useTailwind: true,
+  optimize: true
+});
 
-const FILE_ID = '4i8Tp5btFPRqtkYXplnfT6';
-const BASE_URL = `https://www.figma.com/design/${FILE_ID}/Design-System`;
+async function importDesigns() {
+  const designs = [
+    { url: process.env.FIGMA_HERO_URL!, path: './src/components/Hero.tsx' },
+    { url: process.env.FIGMA_FOOTER_URL!, path: './src/components/Footer.tsx' }
+  ];
 
-async function syncDesigns() {
   for (const design of designs) {
-    console.log(`🎨 Converting ${design.name}...`);
-    
-    const figmaUrl = `${BASE_URL}?node-id=${design.nodeId}`;
-    
-    await convertFigmaToReact({
-      figmaUrl,
-      figmaToken: process.env.FIGMA_TOKEN!,
-      outputDir: `./src/components/${design.name}`,
-      assetsDir: './public/assets',
-      options: {
-        tailwind: true,
-        optimize: true,
-        force: true
-      }
-    });
-    
-    console.log(`✅ ${design.name} converted`);
+    try {
+      await converter.convert({
+        figmaUrl: design.url,
+        componentPath: design.path,
+        assetsDir: './public/assets'
+      });
+      console.log(`✓ ${design.path}`);
+    } catch (error) {
+      console.error(`✗ ${design.path}:`, error);
+    }
   }
 }
 
-syncDesigns().catch(console.error);
+importDesigns();
 ```
 
-### Custom Post-Processing
+### Without Tailwind (Custom CSS)
 
-```typescript
-import { convertFigmaToReact } from 'vibefigma';
-import fs from 'fs/promises';
-import path from 'path';
+```bash
+# Generate component with regular CSS classes
+npx vibefigma "FIGMA_URL" --no-tailwind -c ./src/components/Hero.tsx
+```
 
-async function convertWithPostProcessing(figmaUrl: string) {
-  const result = await convertFigmaToReact({
-    figmaUrl,
-    figmaToken: process.env.FIGMA_TOKEN!,
-    outputDir: './src/components',
-    assetsDir: './public/assets'
-  });
-  
-  // Read generated component
-  let componentCode = await fs.readFile(result.componentPath, 'utf-8');
-  
-  // Add custom imports
-  componentCode = `import { cn } from '@/lib/utils';\n${componentCode}`;
-  
-  // Replace className with cn() helper
-  componentCode = componentCode.replace(
-    /className="([^"]+)"/g,
-    'className={cn("$1")}'
+This generates:
+
+```tsx
+// Hero.tsx
+export const Hero = () => {
+  return (
+    <div className="hero-container">
+      <h1 className="hero-title">Welcome</h1>
+    </div>
   );
-  
-  // Write back
-  await fs.writeFile(result.componentPath, componentCode);
-  
-  // Generate index file
-  const componentName = path.basename(result.componentPath, '.tsx');
-  const indexPath = path.join(path.dirname(result.componentPath), 'index.ts');
-  await fs.writeFile(indexPath, `export { default } from './${componentName}';\n`);
-  
-  return result;
+};
+
+// Hero.css (separate file)
+.hero-container {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
 }
 ```
 
-## Configuration
+## Generated Component Structure
 
-### Environment Variables
+With Tailwind (default):
 
-```bash
-# Required for CLI and API
-FIGMA_TOKEN=figd_your_figma_access_token
+```tsx
+import React from 'react';
 
-# Optional for API server
-PORT=3000
-HOST=0.0.0.0
-CORS_ORIGIN=*
-
-# Optional for AI optimization
-GOOGLE_GENERATIVE_AI_API_KEY=your_google_ai_key
-```
-
-### Project Structure After Conversion
-
-```
-your-project/
-├── src/
-│   └── components/
-│       ├── Hero.tsx          # Generated component
-│       ├── Features.tsx
-│       └── Pricing.tsx
-├── public/
-│   └── assets/
-│       ├── logo.png          # Extracted images
-│       ├── hero-bg.jpg
-│       └── icon-feature.svg
-└── .env                      # Tokens
+export const ComponentName: React.FC = () => {
+  return (
+    <div className="relative w-full h-screen bg-white">
+      <div className="absolute top-0 left-0 w-full">
+        <h1 className="text-4xl font-bold text-gray-900">
+          Heading
+        </h1>
+      </div>
+      <img 
+        src="/assets/image-123.png" 
+        alt="Description"
+        className="absolute w-64 h-64 object-cover"
+      />
+    </div>
+  );
+};
 ```
 
 ## Troubleshooting
 
-### "Invalid Figma URL"
+### "Invalid Figma token"
 
-Ensure URL format is correct:
-```
-https://www.figma.com/design/{FILE_ID}/{DESIGN_NAME}?node-id={NODE_ID}
-```
-
-Extract from Figma:
-1. Open design in Figma
-2. Right-click frame → "Copy link"
-3. Use that URL
-
-### "Unauthorized" or 403 Errors
-
-- Verify Figma token is valid and not expired
-- Ensure token has access to the file (file must be shared with you)
-- Check token starts with `figd_`
+**Solution**: Verify your token is correct and hasn't expired:
 
 ```bash
-# Test token
+# Test your token
 curl -H "X-Figma-Token: $FIGMA_TOKEN" \
   https://api.figma.com/v1/me
 ```
 
-### No Component Generated
+### "Node not found"
 
-- Ensure node-id points to a Frame, not a Group
-- Check that the frame has visible content
-- Try with `--no-absolute` flag if positioning issues occur
-
-### Tailwind Classes Not Working
-
-Ensure Tailwind is configured in your project:
-
-```javascript
-// tailwind.config.js
-module.exports = {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-```
-
-### Missing Assets
-
-Assets are downloaded to the specified directory. Ensure:
-- Directory exists or is creatable
-- You have write permissions
-- Images in Figma are not hidden or locked
+**Solution**: Ensure the `node-id` is in your URL:
 
 ```bash
-# Create assets directory if missing
-mkdir -p public/assets
+# Correct format
+https://www.figma.com/design/FILE_KEY/NAME?node-id=26-2944
+
+# Get node ID: Right-click frame in Figma > Copy link
 ```
 
-### "File exists" Errors
+### "Permission denied"
 
-Use `--force` flag to auto-overwrite:
+**Solution**: Make sure you have access to the Figma file:
+- File must be shared with you
+- Or you must be in the same team/organization
+- Or file must be public (Community file)
+
+### AI Cleaner Requires API Key
+
+If using `--clean`:
 
 ```bash
-npx vibefigma "FIGMA_URL" --force
+export GOOGLE_GENERATIVE_AI_API_KEY=your_api_key
+npx vibefigma "FIGMA_URL" --clean
 ```
 
-Or delete existing files:
+### Generated Code Has Absolute Positioning Issues
 
 ```bash
-rm -rf src/components/Hero.tsx
-npx vibefigma "FIGMA_URL"
-```
-
-## Advanced Usage
-
-### Disable Specific Features
-
-```bash
-# No absolute positioning (use flexbox/grid)
+# Disable absolute positioning
 npx vibefigma "FIGMA_URL" --no-absolute
 
-# No responsive design
+# Or disable responsive design
 npx vibefigma "FIGMA_URL" --no-responsive
-
-# No fonts
-npx vibefigma "FIGMA_URL" --no-fonts
-
-# Combine multiple flags
-npx vibefigma "FIGMA_URL" \
-  --no-absolute \
-  --no-responsive \
-  --no-fonts \
-  --no-tailwind
 ```
 
-### AI-Powered Optimization
+### Assets Not Loading
 
-Requires Google Generative AI API key:
+**Solution**: Check asset paths match your public directory:
 
 ```bash
-export GOOGLE_GENERATIVE_AI_API_KEY=your_key_here
+# Default: ./public
+npx vibefigma "FIGMA_URL"
 
-npx vibefigma "FIGMA_URL" --optimize --clean
+# Custom assets directory
+npx vibefigma "FIGMA_URL" -a ./src/assets
 ```
 
-This will:
-- Optimize component structure
-- Clean up redundant code
-- Improve accessibility
-- Add semantic HTML
+Update your bundler config to serve the assets directory.
+
+### TypeScript Errors in Generated Code
+
+**Solution**: Ensure you have React types installed:
+
+```bash
+npm install --save-dev @types/react @types/react-dom
+```
+
+### Component Overwrites Existing File
+
+**Solution**: Use `--force` to skip confirmation, or choose a different path:
+
+```bash
+# Skip confirmation
+npx vibefigma "FIGMA_URL" --force
+
+# Different path
+npx vibefigma "FIGMA_URL" -c ./src/components/HeroV2.tsx
+```
+
+## Advanced Configuration
 
 ### Custom Component Template
 
 ```typescript
-import { convertFigmaToReact } from 'vibefigma';
+import { VibeFigma } from 'vibefigma';
+
+const converter = new VibeFigma({
+  figmaToken: process.env.FIGMA_TOKEN!,
+  useTailwind: true,
+  optimize: true
+});
+
+// Post-process generated code
+const result = await converter.convert({
+  figmaUrl: 'FIGMA_URL',
+  componentPath: './src/components/Hero.tsx',
+  assetsDir: './public/assets'
+});
+
+// Add custom imports or wrappers
+const enhancedCode = `import { motion } from 'framer-motion';
+${result.code.replace('export const', 'export const AnimatedHero = motion(').replace(/}\s*$/, ')}')}`;
+```
+
+### Integration with Storybook
+
+```typescript
+// scripts/generate-stories.ts
+import { VibeFigma } from 'vibefigma';
 import fs from 'fs/promises';
 
-const result = await convertFigmaToReact({
-  figmaUrl: 'FIGMA_URL',
+const converter = new VibeFigma({
   figmaToken: process.env.FIGMA_TOKEN!,
-  outputDir: './src/components'
+  useTailwind: true
 });
 
-// Wrap in custom template
-const template = `
-import React from 'react';
-import { ComponentProps } from '@/types';
+const result = await converter.convert({
+  figmaUrl: 'FIGMA_URL',
+  componentPath: './src/components/Hero.tsx',
+  assetsDir: './public/assets'
+});
 
-interface Props extends ComponentProps {
-  variant?: 'default' | 'dark';
-}
+const story = `
+import type { Meta, StoryObj } from '@storybook/react';
+import { Hero } from './Hero';
 
-export default function Component({ variant = 'default', ...props }: Props) {
-  return (
-    <div data-variant={variant} {...props}>
-      ${result.component}
-    </div>
-  );
-}
+const meta: Meta<typeof Hero> = {
+  component: Hero,
+};
+
+export default meta;
+type Story = StoryObj<typeof Hero>;
+
+export const Default: Story = {};
 `;
 
-await fs.writeFile(result.componentPath, template);
+await fs.writeFile('./src/components/Hero.stories.tsx', story);
 ```
 
-## Integration Examples
+## Best Practices
 
-### Next.js App Router
+1. **Use environment variables** for tokens, never commit them
+2. **Use `--force`** in CI/CD pipelines to avoid prompts
+3. **Version control** generated components to track design changes
+4. **Review generated code** before using in production
+5. **Use `--optimize`** for cleaner output
+6. **Organize by feature** when setting output paths
+7. **Keep Figma frames simple** for better conversion
+8. **Name Figma layers** descriptively for better component names
 
-```typescript
-// app/actions/sync-design.ts
-'use server';
+## License
 
-import { convertFigmaToReact } from 'vibefigma';
-import { revalidatePath } from 'next/cache';
-
-export async function syncFigmaDesign(figmaUrl: string) {
-  await convertFigmaToReact({
-    figmaUrl,
-    figmaToken: process.env.FIGMA_TOKEN!,
-    outputDir: './src/components',
-    assetsDir: './public/assets',
-    options: { force: true }
-  });
-  
-  revalidatePath('/');
-  return { success: true };
-}
-```
-
-### Vite/React Project
-
-```typescript
-// vite.config.ts
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
-export default defineConfig({
-  plugins: [
-    react(),
-    {
-      name: 'figma-sync',
-      buildStart: async () => {
-        if (process.env.SYNC_FIGMA === 'true') {
-          const { convertFigmaToReact } = await import('vibefigma');
-          await convertFigmaToReact({
-            figmaUrl: process.env.FIGMA_URL!,
-            figmaToken: process.env.FIGMA_TOKEN!,
-            outputDir: './src/components',
-            assetsDir: './public/assets'
-          });
-        }
-      }
-    }
-  ]
-});
-```
-
-This skill enables AI coding agents to help developers convert Figma designs to React components efficiently using VibeFigma's CLI, API, or programmatic interface.
+AGPL-3.0 - See LICENSE file for details.
