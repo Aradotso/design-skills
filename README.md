@@ -36,6 +36,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [interface-design-system](skills/interface-design-system/) | [install](https://skills.sh/aradotso/design-skills/interface-design-system) | [Dammyjay93/interface-design](https://github.com/Dammyjay93/interface-design) | 2026-05-16 |
 | [cc-design-html-prototyping](skills/cc-design-html-prototyping/) | [install](https://skills.sh/aradotso/design-skills/cc-design-html-prototyping) | [ZeroZ-lab/cc-design](https://github.com/ZeroZ-lab/cc-design) | 2026-05-16 |
 | [unity-ui-toolkit-design-system](skills/unity-ui-toolkit-design-system/) | [install](https://skills.sh/aradotso/design-skills/unity-ui-toolkit-design-system) | [sinanata/unity-ui-document-design-system](https://github.com/sinanata/unity-ui-document-design-system) | 2026-05-16 |
+| [designer-skills-collection](skills/designer-skills-collection/) | [install](https://skills.sh/aradotso/design-skills/designer-skills-collection) | [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills) | 2026-05-17 |
 <!-- SKILL_INDEX -->
 
 ---
