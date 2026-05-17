@@ -60,6 +60,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [web-to-figma-chrome-extension](skills/web-to-figma-chrome-extension/) | [install](https://skills.sh/aradotso/design-skills/web-to-figma-chrome-extension) | [Paidax01/web-to-figma](https://github.com/Paidax01/web-to-figma) | 2026-05-17 |
 | [figma-ui-mcp-bridge](skills/figma-ui-mcp-bridge/) | [install](https://skills.sh/aradotso/design-skills/figma-ui-mcp-bridge) | [TranHoaiHung/figma-ui-mcp](https://github.com/TranHoaiHung/figma-ui-mcp) | 2026-05-17 |
 | [claude2figma-design-system-harness](skills/claude2figma-design-system-harness/) | [install](https://skills.sh/aradotso/design-skills/claude2figma-design-system-harness) | [senlindesign/claude2figma](https://github.com/senlindesign/claude2figma) | 2026-05-17 |
+| [figma-capture-extension](skills/figma-capture-extension/) | [install](https://skills.sh/aradotso/design-skills/figma-capture-extension) | [vorbei/figma-capture](https://github.com/vorbei/figma-capture) | 2026-05-17 |
 <!-- SKILL_INDEX -->
 
 ---
