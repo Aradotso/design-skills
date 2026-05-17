@@ -54,6 +54,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [practical-digital-product-design-bengali](skills/practical-digital-product-design-bengali/) | [install](https://skills.sh/aradotso/design-skills/practical-digital-product-design-bengali) | [seeam/Practical-Digital-Product-Design-2025-Free](https://github.com/seeam/Practical-Digital-Product-Design-2025-Free) | 2026-05-17 |
 | [vibefigma-figma-to-react](skills/vibefigma-figma-to-react/) | [install](https://skills.sh/aradotso/design-skills/vibefigma-figma-to-react) | [vibeflowing-inc/vibe_figma](https://github.com/vibeflowing-inc/vibe_figma) | 2026-05-17 |
 | [materialdesigninxaml-wpf-toolkit](skills/materialdesigninxaml-wpf-toolkit/) | [install](https://skills.sh/aradotso/design-skills/materialdesigninxaml-wpf-toolkit) | [MaterialDesignInXAML/MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit) | 2026-05-17 |
+| [anvil-level-design-blender](skills/anvil-level-design-blender/) | [install](https://skills.sh/aradotso/design-skills/anvil-level-design-blender) | [alexjhetherington/anvil-level-design](https://github.com/alexjhetherington/anvil-level-design) | 2026-05-17 |
 <!-- SKILL_INDEX -->
 
 ---
