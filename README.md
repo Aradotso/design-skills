@@ -61,6 +61,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [figma-ui-mcp-bridge](skills/figma-ui-mcp-bridge/) | [install](https://skills.sh/aradotso/design-skills/figma-ui-mcp-bridge) | [TranHoaiHung/figma-ui-mcp](https://github.com/TranHoaiHung/figma-ui-mcp) | 2026-05-17 |
 | [claude2figma-design-system-harness](skills/claude2figma-design-system-harness/) | [install](https://skills.sh/aradotso/design-skills/claude2figma-design-system-harness) | [senlindesign/claude2figma](https://github.com/senlindesign/claude2figma) | 2026-05-17 |
 | [figma-capture-extension](skills/figma-capture-extension/) | [install](https://skills.sh/aradotso/design-skills/figma-capture-extension) | [vorbei/figma-capture](https://github.com/vorbei/figma-capture) | 2026-05-17 |
+| [figma-design-md-generator](skills/figma-design-md-generator/) | [install](https://skills.sh/aradotso/design-skills/figma-design-md-generator) | [bergside/design-md-figma](https://github.com/bergside/design-md-figma) | 2026-05-17 |
 <!-- SKILL_INDEX -->
 
 ---
