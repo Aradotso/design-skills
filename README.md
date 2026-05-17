@@ -50,6 +50,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [ui-design-brain-cursor-skill](skills/ui-design-brain-cursor-skill/) | [install](https://skills.sh/aradotso/design-skills/ui-design-brain-cursor-skill) | [carmahhawwari/ui-design-brain](https://github.com/carmahhawwari/ui-design-brain) | 2026-05-17 |
 | [awesome-software-design-patterns](skills/awesome-software-design-patterns/) | [install](https://skills.sh/aradotso/design-skills/awesome-software-design-patterns) | [QDenka/awesome-software-design](https://github.com/QDenka/awesome-software-design) | 2026-05-17 |
 | [figma-console-mcp-design-system-api](skills/figma-console-mcp-design-system-api/) | [install](https://skills.sh/aradotso/design-skills/figma-console-mcp-design-system-api) | [southleft/figma-console-mcp](https://github.com/southleft/figma-console-mcp) | 2026-05-17 |
+| [figma-use-cli](skills/figma-use-cli/) | [install](https://skills.sh/aradotso/design-skills/figma-use-cli) | [dannote/figma-use](https://github.com/dannote/figma-use) | 2026-05-17 |
 <!-- SKILL_INDEX -->
 
 ---
