@@ -52,6 +52,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [figma-console-mcp-design-system-api](skills/figma-console-mcp-design-system-api/) | [install](https://skills.sh/aradotso/design-skills/figma-console-mcp-design-system-api) | [southleft/figma-console-mcp](https://github.com/southleft/figma-console-mcp) | 2026-05-17 |
 | [figma-use-cli](skills/figma-use-cli/) | [install](https://skills.sh/aradotso/design-skills/figma-use-cli) | [dannote/figma-use](https://github.com/dannote/figma-use) | 2026-05-17 |
 | [practical-digital-product-design-bengali](skills/practical-digital-product-design-bengali/) | [install](https://skills.sh/aradotso/design-skills/practical-digital-product-design-bengali) | [seeam/Practical-Digital-Product-Design-2025-Free](https://github.com/seeam/Practical-Digital-Product-Design-2025-Free) | 2026-05-17 |
+| [vibefigma-figma-to-react](skills/vibefigma-figma-to-react/) | [install](https://skills.sh/aradotso/design-skills/vibefigma-figma-to-react) | [vibeflowing-inc/vibe_figma](https://github.com/vibeflowing-inc/vibe_figma) | 2026-05-17 |
 <!-- SKILL_INDEX -->
 
 ---
