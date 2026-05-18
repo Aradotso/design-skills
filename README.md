@@ -69,6 +69,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [talktofigma-desktop-mcp](skills/talktofigma-desktop-mcp/) | [install](https://skills.sh/aradotso/design-skills/talktofigma-desktop-mcp) | [grab/TalkToFigmaDesktop](https://github.com/grab/TalkToFigmaDesktop) | 2026-05-18 |
 | [figma-portfolio-nextjs](skills/figma-portfolio-nextjs/) | [install](https://skills.sh/aradotso/design-skills/figma-portfolio-nextjs) | [ibrahimmemonn/Figma-Portfolio](https://github.com/ibrahimmemonn/Figma-Portfolio) | 2026-05-18 |
 | [figma-bridge-html-export](skills/figma-bridge-html-export/) | [install](https://skills.sh/aradotso/design-skills/figma-bridge-html-export) | [kingkongshot/Figma-Bridge](https://github.com/kingkongshot/Figma-Bridge) | 2026-05-18 |
+| [figma-make-local-runner](skills/figma-make-local-runner/) | [install](https://skills.sh/aradotso/design-skills/figma-make-local-runner) | [likang/figma-make-local-runner](https://github.com/likang/figma-make-local-runner) | 2026-05-18 |
 <!-- SKILL_INDEX -->
 
 ---
