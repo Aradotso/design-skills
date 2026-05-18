@@ -65,6 +65,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [figma-design-md-plugin](skills/figma-design-md-plugin/) | [install](https://skills.sh/aradotso/design-skills/figma-design-md-plugin) | [bergside/design-md-figma](https://github.com/bergside/design-md-figma) | 2026-05-17 |
 | [figma-mcp-bridge](skills/figma-mcp-bridge/) | [install](https://skills.sh/aradotso/design-skills/figma-mcp-bridge) | [gethopp/figma-mcp-bridge](https://github.com/gethopp/figma-mcp-bridge) | 2026-05-18 |
 | [figma-context-mcp-cached](skills/figma-context-mcp-cached/) | [install](https://skills.sh/aradotso/design-skills/figma-context-mcp-cached) | [Pactortester/Figma-Context-MCP-Cached](https://github.com/Pactortester/Figma-Context-MCP-Cached) | 2026-05-18 |
+| [figma-make-extractor](skills/figma-make-extractor/) | [install](https://skills.sh/aradotso/design-skills/figma-make-extractor) | [albertsikkema/figma-make-extractor](https://github.com/albertsikkema/figma-make-extractor) | 2026-05-18 |
 <!-- SKILL_INDEX -->
 
 ---
