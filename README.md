@@ -74,6 +74,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [figma-to-ai-prompter](skills/figma-to-ai-prompter/) | [install](https://skills.sh/aradotso/design-skills/figma-to-ai-prompter) | [royvillasana/figma-to-ai-prompter](https://github.com/royvillasana/figma-to-ai-prompter) | 2026-05-18 |
 | [figmalint-design-system-auditing](skills/figmalint-design-system-auditing/) | [install](https://skills.sh/aradotso/design-skills/figmalint-design-system-auditing) | [southleft/figmalint](https://github.com/southleft/figmalint) | 2026-05-18 |
 | [sunnyside-figma-context-mcp](skills/sunnyside-figma-context-mcp/) | [install](https://skills.sh/aradotso/design-skills/sunnyside-figma-context-mcp) | [tercumantanumut/sunnysideFigma-Context-MCP](https://github.com/tercumantanumut/sunnysideFigma-Context-MCP) | 2026-05-18 |
+| [figma-pilot-mcp](skills/figma-pilot-mcp/) | [install](https://skills.sh/aradotso/design-skills/figma-pilot-mcp) | [youware-labs/figma-pilot](https://github.com/youware-labs/figma-pilot) | 2026-05-18 |
 <!-- SKILL_INDEX -->
 
 ---
