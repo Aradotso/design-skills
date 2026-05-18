@@ -72,6 +72,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [figma-make-local-runner](skills/figma-make-local-runner/) | [install](https://skills.sh/aradotso/design-skills/figma-make-local-runner) | [likang/figma-make-local-runner](https://github.com/likang/figma-make-local-runner) | 2026-05-18 |
 | [figma-flutter-mcp-design-to-code](skills/figma-flutter-mcp-design-to-code/) | [install](https://skills.sh/aradotso/design-skills/figma-flutter-mcp-design-to-code) | [mhmzdev/figma-flutter-mcp](https://github.com/mhmzdev/figma-flutter-mcp) | 2026-05-18 |
 | [figma-to-ai-prompter](skills/figma-to-ai-prompter/) | [install](https://skills.sh/aradotso/design-skills/figma-to-ai-prompter) | [royvillasana/figma-to-ai-prompter](https://github.com/royvillasana/figma-to-ai-prompter) | 2026-05-18 |
+| [figmalint-design-system-auditing](skills/figmalint-design-system-auditing/) | [install](https://skills.sh/aradotso/design-skills/figmalint-design-system-auditing) | [southleft/figmalint](https://github.com/southleft/figmalint) | 2026-05-18 |
 <!-- SKILL_INDEX -->
 
 ---
