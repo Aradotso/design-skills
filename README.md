@@ -70,6 +70,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [figma-portfolio-nextjs](skills/figma-portfolio-nextjs/) | [install](https://skills.sh/aradotso/design-skills/figma-portfolio-nextjs) | [ibrahimmemonn/Figma-Portfolio](https://github.com/ibrahimmemonn/Figma-Portfolio) | 2026-05-18 |
 | [figma-bridge-html-export](skills/figma-bridge-html-export/) | [install](https://skills.sh/aradotso/design-skills/figma-bridge-html-export) | [kingkongshot/Figma-Bridge](https://github.com/kingkongshot/Figma-Bridge) | 2026-05-18 |
 | [figma-make-local-runner](skills/figma-make-local-runner/) | [install](https://skills.sh/aradotso/design-skills/figma-make-local-runner) | [likang/figma-make-local-runner](https://github.com/likang/figma-make-local-runner) | 2026-05-18 |
+| [figma-flutter-mcp-design-to-code](skills/figma-flutter-mcp-design-to-code/) | [install](https://skills.sh/aradotso/design-skills/figma-flutter-mcp-design-to-code) | [mhmzdev/figma-flutter-mcp](https://github.com/mhmzdev/figma-flutter-mcp) | 2026-05-18 |
 <!-- SKILL_INDEX -->
 
 ---
