@@ -78,6 +78,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [swiftui-design-skill](skills/swiftui-design-skill/) | [install](https://skills.sh/aradotso/design-skills/swiftui-design-skill) | [Wholiver/swiftui-design-skill](https://github.com/Wholiver/swiftui-design-skill) | 2026-05-21 |
 | [ai-system-design-guide](skills/ai-system-design-guide/) | [install](https://skills.sh/aradotso/design-skills/ai-system-design-guide) | [ombharatiya/ai-system-design-guide](https://github.com/ombharatiya/ai-system-design-guide) | 2026-05-21 |
 | [figma-cracked-desktop](skills/figma-cracked-desktop/) | [install](https://skills.sh/aradotso/design-skills/figma-cracked-desktop) | [GatorChopper/Figma-cracked](https://github.com/GatorChopper/Figma-cracked) | 2026-05-21 |
+| [claude-design-studio-ui-generator](skills/claude-design-studio-ui-generator/) | [install](https://skills.sh/aradotso/design-skills/claude-design-studio-ui-generator) | [larajuniorlara/Claude-Design-Studio](https://github.com/larajuniorlara/Claude-Design-Studio) | 2026-05-23 |
 <!-- SKILL_INDEX -->
 
 ---
