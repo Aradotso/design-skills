@@ -82,6 +82,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [design-diversity-catalog](skills/design-diversity-catalog/) | [install](https://skills.sh/aradotso/design-skills/design-diversity-catalog) | [epoko77-ai/design-diversity](https://github.com/epoko77-ai/design-diversity) | 2026-05-27 |
 | [better-design-shadcn-themes](skills/better-design-shadcn-themes/) | [install](https://skills.sh/aradotso/design-skills/better-design-shadcn-themes) | [marvkr/better-design](https://github.com/marvkr/better-design) | 2026-05-27 |
 | [designmd-supply-generator](skills/designmd-supply-generator/) | [install](https://skills.sh/aradotso/design-skills/designmd-supply-generator) | [context-dot-dev/designmd-supply](https://github.com/context-dot-dev/designmd-supply) | 2026-05-28 |
+| [design-motion-principles](skills/design-motion-principles/) | [install](https://skills.sh/aradotso/design-skills/design-motion-principles) | [kylezantos/design-motion-principles](https://github.com/kylezantos/design-motion-principles) | 2026-05-28 |
 <!-- SKILL_INDEX -->
 
 ---
