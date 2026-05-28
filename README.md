@@ -81,6 +81,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [claude-design-studio-ui-generator](skills/claude-design-studio-ui-generator/) | [install](https://skills.sh/aradotso/design-skills/claude-design-studio-ui-generator) | [larajuniorlara/Claude-Design-Studio](https://github.com/larajuniorlara/Claude-Design-Studio) | 2026-05-23 |
 | [design-diversity-catalog](skills/design-diversity-catalog/) | [install](https://skills.sh/aradotso/design-skills/design-diversity-catalog) | [epoko77-ai/design-diversity](https://github.com/epoko77-ai/design-diversity) | 2026-05-27 |
 | [better-design-shadcn-themes](skills/better-design-shadcn-themes/) | [install](https://skills.sh/aradotso/design-skills/better-design-shadcn-themes) | [marvkr/better-design](https://github.com/marvkr/better-design) | 2026-05-27 |
+| [designmd-supply-generator](skills/designmd-supply-generator/) | [install](https://skills.sh/aradotso/design-skills/designmd-supply-generator) | [context-dot-dev/designmd-supply](https://github.com/context-dot-dev/designmd-supply) | 2026-05-28 |
 <!-- SKILL_INDEX -->
 
 ---
