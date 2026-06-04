@@ -87,6 +87,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [anydesign-analyzer](skills/anydesign-analyzer/) | [install](https://skills.sh/aradotso/design-skills/anydesign-analyzer) | [uxKero/anydesign](https://github.com/uxKero/anydesign) | 2026-06-02 |
 | [forzadesigner6-vinyl-converter](skills/forzadesigner6-vinyl-converter/) | [install](https://skills.sh/aradotso/design-skills/forzadesigner6-vinyl-converter) | [tokyubevoxelverse/ForzaDesigner6](https://github.com/tokyubevoxelverse/ForzaDesigner6) | 2026-06-02 |
 | [figma-console-mcp-skills](skills/figma-console-mcp-skills/) | [install](https://skills.sh/aradotso/design-skills/figma-console-mcp-skills) | [PercentProduction/figma-console-mcp-skills-347](https://github.com/PercentProduction/figma-console-mcp-skills-347) | 2026-06-04 |
+| [opencode-mcp-figma-auth](skills/opencode-mcp-figma-auth/) | [install](https://skills.sh/aradotso/design-skills/opencode-mcp-figma-auth) | [gberaudo/opencode-mcp-figma](https://github.com/gberaudo/opencode-mcp-figma) | 2026-06-04 |
 <!-- SKILL_INDEX -->
 
 ---
