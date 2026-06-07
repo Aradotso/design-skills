@@ -89,6 +89,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [figma-console-mcp-skills](skills/figma-console-mcp-skills/) | [install](https://skills.sh/aradotso/design-skills/figma-console-mcp-skills) | [PercentProduction/figma-console-mcp-skills-347](https://github.com/PercentProduction/figma-console-mcp-skills-347) | 2026-06-04 |
 | [opencode-mcp-figma-auth](skills/opencode-mcp-figma-auth/) | [install](https://skills.sh/aradotso/design-skills/opencode-mcp-figma-auth) | [gberaudo/opencode-mcp-figma](https://github.com/gberaudo/opencode-mcp-figma) | 2026-06-04 |
 | [ky-design-to-html-skill](skills/ky-design-to-html-skill/) | [install](https://skills.sh/aradotso/design-skills/ky-design-to-html-skill) | [KyrieCheungYep/ky-design-to-html-skill](https://github.com/KyrieCheungYep/ky-design-to-html-skill) | 2026-06-06 |
+| [baoyu-design-integration](skills/baoyu-design-integration/) | [install](https://skills.sh/aradotso/design-skills/baoyu-design-integration) | [JimLiu/baoyu-design](https://github.com/JimLiu/baoyu-design) | 2026-06-07 |
 <!-- SKILL_INDEX -->
 
 ---
