@@ -90,6 +90,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [opencode-mcp-figma-auth](skills/opencode-mcp-figma-auth/) | [install](https://skills.sh/aradotso/design-skills/opencode-mcp-figma-auth) | [gberaudo/opencode-mcp-figma](https://github.com/gberaudo/opencode-mcp-figma) | 2026-06-04 |
 | [ky-design-to-html-skill](skills/ky-design-to-html-skill/) | [install](https://skills.sh/aradotso/design-skills/ky-design-to-html-skill) | [KyrieCheungYep/ky-design-to-html-skill](https://github.com/KyrieCheungYep/ky-design-to-html-skill) | 2026-06-06 |
 | [baoyu-design-integration](skills/baoyu-design-integration/) | [install](https://skills.sh/aradotso/design-skills/baoyu-design-integration) | [JimLiu/baoyu-design](https://github.com/JimLiu/baoyu-design) | 2026-06-07 |
+| [rocket-design-manufacturing-automation-shenzhen22](skills/rocket-design-manufacturing-automation-shenzhen22/) | [install](https://skills.sh/aradotso/design-skills/rocket-design-manufacturing-automation-shenzhen22) | [Kevin100202/Rocket-Design-and-Manufacturing-Automation-Program-from-Shenzhen22highschool](https://github.com/Kevin100202/Rocket-Design-and-Manufacturing-Automation-Program-from-Shenzhen22highschool) | 2026-06-09 |
 <!-- SKILL_INDEX -->
 
 ---
