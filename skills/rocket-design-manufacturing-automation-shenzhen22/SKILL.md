@@ -1,267 +1,279 @@
 ---
 name: rocket-design-manufacturing-automation-shenzhen22
-description: Automated rocket design and manufacturing program built by students from Shenzhen 22nd High School using TypeScript
+description: Automated rocket design and manufacturing program developed by students at Shenzhen 22nd High School
 triggers:
-  - help me design a rocket using the shenzhen automation program
-  - how do i use the rocket design and manufacturing tool
+  - design a rocket using the automation program
+  - how do I use the rocket manufacturing automation tool
+  - set up the Shenzhen rocket design system
   - automate rocket component manufacturing
-  - set up the rocket design automation system
-  - generate rocket schematics automatically
-  - use the student rocket design program
-  - work with rocket manufacturing automation
-  - configure the rocket design typescript tool
+  - configure rocket design parameters
+  - generate rocket blueprints automatically
+  - use the student rocket design framework
+  - build rockets with the automation program
 ---
 
-# Rocket Design and Manufacturing Automation
+# Rocket Design and Manufacturing Automation Program
 
 > Skill by [ara.so](https://ara.so) — Design Skills collection.
 
-This is an automation program for rocket design and manufacturing developed by students at Shenzhen 22nd High School. The TypeScript-based system provides tools for automated rocket component design, structural analysis, manufacturing specifications, and production workflow automation.
+This is a TypeScript-based automation program for rocket design and manufacturing developed by students at Shenzhen 22nd High School. The project provides tools for automated rocket component design, structural analysis, and manufacturing blueprint generation.
 
 ## Installation
 
 ```bash
+# Clone the repository
 git clone https://github.com/Kevin100202/Rocket-Design-and-Manufacturing-Automation-Program-from-Shenzhen22highschool.git
 cd Rocket-Design-and-Manufacturing-Automation-Program-from-Shenzhen22highschool
+
+# Install dependencies
 npm install
+
+# Build the project
+npm run build
+
+# Run the program
+npm start
 ```
 
-Or install as a dependency:
+For development:
 
 ```bash
-npm install rocket-design-manufacturing-automation
+npm run dev
+```
+
+## Project Structure
+
+The typical structure for this automation program:
+
+```
+src/
+├── design/          # Rocket design modules
+├── manufacturing/   # Manufacturing automation
+├── analysis/        # Structural and performance analysis
+├── utils/          # Utility functions
+└── types/          # TypeScript type definitions
 ```
 
 ## Core Concepts
 
-The program is structured around:
+### Rocket Design Parameters
 
-- **Design Module**: Automated rocket component design and parameter optimization
-- **Structural Analysis**: Stress, thermal, and aerodynamic calculations
-- **Manufacturing Module**: Automated generation of manufacturing specifications
-- **Workflow Automation**: End-to-end automation from design to production planning
-
-## Basic Usage
-
-### TypeScript/Node.js Integration
+Define rocket specifications using TypeScript interfaces:
 
 ```typescript
-import { RocketDesigner, ManufacturingAutomation } from 'rocket-design-manufacturing-automation';
+interface RocketParameters {
+  length: number;        // meters
+  diameter: number;      // meters
+  mass: number;         // kg
+  fuelType: string;
+  stageCount: number;
+  payloadCapacity: number; // kg
+}
 
-// Initialize rocket designer
-const designer = new RocketDesigner({
-  targetAltitude: 5000, // meters
-  payloadMass: 2.5, // kg
-  designConstraints: {
-    maxDiameter: 0.15, // meters
-    maxLength: 2.0 // meters
+const designParams: RocketParameters = {
+  length: 25.5,
+  diameter: 3.7,
+  mass: 550000,
+  fuelType: "RP-1/LOX",
+  stageCount: 2,
+  payloadCapacity: 22800
+};
+```
+
+### Design Module
+
+Create rocket designs programmatically:
+
+```typescript
+import { RocketDesigner } from './design/RocketDesigner';
+import { Stage } from './design/Stage';
+
+const designer = new RocketDesigner();
+
+// Create first stage
+const firstStage = new Stage({
+  name: "First Stage",
+  height: 15.0,
+  diameter: 3.7,
+  engineCount: 9,
+  fuelMass: 400000,
+  burnTime: 162
+});
+
+// Create second stage
+const secondStage = new Stage({
+  name: "Second Stage",
+  height: 8.5,
+  diameter: 3.7,
+  engineCount: 1,
+  fuelMass: 100000,
+  burnTime: 397
+});
+
+// Assemble rocket
+const rocket = designer.createRocket({
+  name: "Student Rocket Alpha",
+  stages: [firstStage, secondStage],
+  payload: {
+    mass: 5000,
+    dimensions: { length: 4.5, diameter: 2.5 }
   }
 });
 
-// Generate rocket design
-const design = await designer.generate();
-console.log('Rocket Design:', design);
-
-// Export design specifications
-await designer.exportSpecifications('./output/rocket-specs.json');
-```
-
-### Component Design
-
-```typescript
-import { ComponentDesigner, ComponentType } from 'rocket-design-manufacturing-automation';
-
-// Design nose cone
-const noseCone = new ComponentDesigner(ComponentType.NOSE_CONE);
-noseCone.setParameters({
-  shape: 'ogive',
-  diameter: 0.1, // meters
-  length: 0.3, // meters
-  material: 'fiberglass'
-});
-
-const noseConeDesign = await noseCone.optimize();
-
-// Design body tube
-const bodyTube = new ComponentDesigner(ComponentType.BODY_TUBE);
-bodyTube.setParameters({
-  diameter: 0.1,
-  length: 1.2,
-  thickness: 0.003,
-  material: 'carbon-fiber'
-});
-
-const bodyTubeDesign = await bodyTube.optimize();
-```
-
-### Structural Analysis
-
-```typescript
-import { StructuralAnalyzer } from 'rocket-design-manufacturing-automation';
-
-const analyzer = new StructuralAnalyzer(design);
-
-// Run stress analysis
-const stressAnalysis = await analyzer.analyzeStress({
-  maxAcceleration: 15, // g's
-  maxVelocity: 300 // m/s
-});
-
-console.log('Safety Factor:', stressAnalysis.safetyFactor);
-console.log('Max Stress Points:', stressAnalysis.maxStressLocations);
-
-// Thermal analysis
-const thermalAnalysis = await analyzer.analyzeThermal({
-  maxMachNumber: 0.8,
-  flightDuration: 45 // seconds
-});
-
-// Aerodynamic analysis
-const aeroAnalysis = await analyzer.analyzeAerodynamics({
-  velocityRange: [0, 300],
-  angleOfAttackRange: [0, 5]
-});
+// Generate design blueprint
+const blueprint = designer.generateBlueprint(rocket);
+console.log(blueprint);
 ```
 
 ### Manufacturing Automation
 
+Automate manufacturing processes:
+
 ```typescript
-import { ManufacturingPlanner } from 'rocket-design-manufacturing-automation';
+import { ManufacturingAutomation } from './manufacturing/Automation';
+import { ComponentType } from './types/manufacturing';
 
-const planner = new ManufacturingPlanner(design);
+const automation = new ManufacturingAutomation();
 
-// Generate manufacturing steps
-const manufacturingPlan = await planner.generatePlan({
-  productionMethod: 'cnc-machining',
-  batchSize: 10,
-  qualityLevel: 'high'
+// Define component specifications
+const fuelTank = {
+  type: ComponentType.FuelTank,
+  material: "Aluminum-Lithium Alloy",
+  dimensions: {
+    length: 12.0,
+    diameter: 3.66,
+    wallThickness: 0.003
+  },
+  capacity: 123500,
+  pressure: 3.5
+};
+
+// Generate manufacturing instructions
+const instructions = automation.generateInstructions(fuelTank);
+
+// Export to CNC format
+const cncProgram = automation.exportToCNC(instructions, {
+  format: 'G-Code',
+  machine: 'CNC-Mill-5000'
 });
 
-// Export CNC instructions
-await planner.exportCNCProgram('./output/cnc-program.gcode');
-
-// Generate bill of materials
-const bom = await planner.generateBOM();
-console.log('Bill of Materials:', bom);
-
-// Create assembly instructions
-const assemblyInstructions = await planner.generateAssemblyGuide({
-  format: 'pdf',
-  includeIllustrations: true
-});
+// Save manufacturing files
+automation.saveManufacturingData(cncProgram, './output/fuel-tank.gcode');
 ```
 
-### Propulsion System Design
+### Structural Analysis
+
+Perform structural integrity analysis:
 
 ```typescript
-import { PropulsionDesigner, MotorType } from 'rocket-design-manufacturing-automation';
+import { StructuralAnalyzer } from './analysis/StructuralAnalyzer';
+import { LoadCase } from './types/analysis';
 
-const propulsion = new PropulsionDesigner({
-  motorType: MotorType.SOLID,
-  targetImpulse: 'H', // H-class motor
-  burnTime: 2.5 // seconds
-});
+const analyzer = new StructuralAnalyzer();
 
-const motorDesign = await propulsion.design({
-  propellantType: 'APCP',
-  nozzleExpansionRatio: 8,
-  chamberPressure: 6.0 // MPa
-});
+// Define load cases
+const maxQLoad: LoadCase = {
+  name: "Max Dynamic Pressure",
+  axialLoad: 1500000,      // N
+  lateralLoad: 250000,     // N
+  bendingMoment: 5000000,  // N·m
+  altitude: 11000          // m
+};
 
-// Calculate performance
-const performance = await propulsion.calculatePerformance(motorDesign);
-console.log('Total Impulse:', performance.totalImpulse);
-console.log('Specific Impulse:', performance.specificImpulse);
-console.log('Thrust Curve:', performance.thrustCurve);
+// Run analysis
+const results = analyzer.analyze(rocket, maxQLoad);
+
+console.log(`Maximum stress: ${results.maxStress} MPa`);
+console.log(`Safety factor: ${results.safetyFactor}`);
+console.log(`Critical section: ${results.criticalSection}`);
+
+// Check if design is valid
+if (results.safetyFactor < 1.4) {
+  console.warn("Design does not meet safety requirements!");
+  
+  // Get optimization suggestions
+  const suggestions = analyzer.suggestOptimizations(results);
+  console.log("Suggestions:", suggestions);
+}
 ```
 
-### Recovery System Design
+### Performance Simulation
+
+Simulate rocket performance:
 
 ```typescript
-import { RecoverySystemDesigner } from 'rocket-design-manufacturing-automation';
+import { PerformanceSimulator } from './analysis/PerformanceSimulator';
 
-const recovery = new RecoverySystemDesigner({
-  rocketMass: design.totalMass,
-  descentVelocity: 5 // m/s
-});
+const simulator = new PerformanceSimulator();
 
-const parachuteDesign = await recovery.designParachute({
-  type: 'hemispherical',
-  deploymentAltitude: 300, // meters
-  material: 'nylon'
-});
+// Configure simulation
+const simConfig = {
+  timestep: 0.1,           // seconds
+  atmosphericModel: 'US Standard 1976',
+  windProfile: 'nominal',
+  launchSite: {
+    latitude: 28.5,
+    longitude: -80.6,
+    altitude: 0
+  }
+};
 
-console.log('Parachute Diameter:', parachuteDesign.diameter);
-console.log('Shroud Lines:', parachuteDesign.shroudLines);
+// Run flight simulation
+const trajectory = simulator.simulate(rocket, simConfig);
+
+// Analyze results
+console.log(`Apogee: ${trajectory.apogee} km`);
+console.log(`Max velocity: ${trajectory.maxVelocity} m/s`);
+console.log(`Orbital insertion velocity: ${trajectory.orbitalVelocity} m/s`);
+console.log(`Payload to orbit: ${trajectory.payloadMass} kg`);
+
+// Export trajectory data
+simulator.exportTrajectory(trajectory, './output/trajectory.json');
 ```
 
 ## Configuration
 
-Create a `rocket-config.json` file:
-
-```json
-{
-  "project": {
-    "name": "Student Rocket Alpha",
-    "version": "1.0.0",
-    "designGoals": {
-      "targetAltitude": 5000,
-      "targetApogee": 4800,
-      "recoveryType": "dual-deployment"
-    }
-  },
-  "constraints": {
-    "maxDiameter": 0.15,
-    "maxLength": 2.0,
-    "maxMass": 5.0,
-    "budgetLimit": 1000
-  },
-  "materials": {
-    "bodyTube": "carbon-fiber",
-    "noseCone": "fiberglass",
-    "fins": "plywood"
-  },
-  "safety": {
-    "minSafetyFactor": 1.5,
-    "maxAcceleration": 15,
-    "launchRailLength": 3.0
-  },
-  "manufacturing": {
-    "defaultMethod": "manual-fabrication",
-    "tolerances": "standard",
-    "qualityChecks": true
-  }
-}
-```
-
-Load configuration:
+Create a configuration file `rocket.config.ts`:
 
 ```typescript
-import { loadConfig, RocketDesigner } from 'rocket-design-manufacturing-automation';
-
-const config = await loadConfig('./rocket-config.json');
-const designer = new RocketDesigner(config);
+export const RocketConfig = {
+  design: {
+    units: "metric",
+    safetyFactor: 1.4,
+    materialDatabase: "./data/materials.json",
+    defaultMaterial: "Aluminum 2024-T3"
+  },
+  manufacturing: {
+    precision: 0.001,        // mm
+    outputFormat: "G-Code",
+    machineProfiles: "./config/machines.json",
+    qualityControl: {
+      enabled: true,
+      tolerances: "aerospace-grade"
+    }
+  },
+  analysis: {
+    structuralSolver: "finite-element",
+    meshResolution: "fine",
+    iterations: 1000,
+    convergenceCriteria: 0.001
+  },
+  simulation: {
+    timestep: 0.1,
+    atmosphere: "US Standard 1976",
+    gravity: "J2-perturbation",
+    aerodynamics: "CFD-validated"
+  }
+};
 ```
 
-## CLI Commands
+Load configuration in your code:
 
-If the project includes CLI tools:
+```typescript
+import { RocketConfig } from './rocket.config';
 
-```bash
-# Generate complete rocket design
-npx rocket-design generate --altitude 5000 --payload 2.5 --output ./designs
-
-# Analyze existing design
-npx rocket-design analyze --input ./designs/rocket.json --type structural
-
-# Generate manufacturing files
-npx rocket-design manufacture --input ./designs/rocket.json --method cnc
-
-# Simulate flight
-npx rocket-design simulate --input ./designs/rocket.json --conditions standard
-
-# Export documentation
-npx rocket-design export --input ./designs/rocket.json --format pdf
+const designer = new RocketDesigner(RocketConfig.design);
+const automation = new ManufacturingAutomation(RocketConfig.manufacturing);
 ```
 
 ## Common Patterns
@@ -269,166 +281,205 @@ npx rocket-design export --input ./designs/rocket.json --format pdf
 ### Complete Design Workflow
 
 ```typescript
-import { 
-  RocketDesigner, 
-  StructuralAnalyzer, 
-  ManufacturingPlanner,
-  FlightSimulator 
-} from 'rocket-design-manufacturing-automation';
+import { RocketDesigner } from './design/RocketDesigner';
+import { ManufacturingAutomation } from './manufacturing/Automation';
+import { StructuralAnalyzer } from './analysis/StructuralAnalyzer';
+import { PerformanceSimulator } from './analysis/PerformanceSimulator';
 
-async function designRocket() {
-  // 1. Initial design
-  const designer = new RocketDesigner({
-    targetAltitude: 5000,
-    payloadMass: 2.5
-  });
+async function completeDesignWorkflow() {
+  // Step 1: Design rocket
+  const designer = new RocketDesigner();
+  const rocket = designer.createFromTemplate('medium-lift');
   
-  let design = await designer.generate();
+  // Step 2: Structural analysis
+  const analyzer = new StructuralAnalyzer();
+  const structuralResults = analyzer.analyze(rocket, 'all-load-cases');
   
-  // 2. Structural validation
-  const analyzer = new StructuralAnalyzer(design);
-  const analysis = await analyzer.runAllAnalyses();
-  
-  if (analysis.safetyFactor < 1.5) {
-    // Optimize design
-    design = await designer.optimize({
-      targetSafetyFactor: 1.5
-    });
+  if (!structuralResults.passed) {
+    const optimized = designer.optimize(rocket, structuralResults);
+    rocket.update(optimized);
   }
   
-  // 3. Flight simulation
-  const simulator = new FlightSimulator(design);
-  const flightData = await simulator.simulate({
-    windSpeed: 5,
-    launchAngle: 90
-  });
+  // Step 3: Performance simulation
+  const simulator = new PerformanceSimulator();
+  const performance = await simulator.simulate(rocket);
   
-  if (flightData.apogee < 4800) {
-    console.log('Design does not meet altitude requirements');
-    return;
+  // Step 4: Generate manufacturing files
+  if (performance.meetsRequirements) {
+    const automation = new ManufacturingAutomation();
+    
+    for (const component of rocket.components) {
+      const instructions = automation.generateInstructions(component);
+      await automation.export(instructions, `./output/${component.name}`);
+    }
+    
+    // Generate assembly instructions
+    const assembly = automation.generateAssemblyPlan(rocket);
+    await assembly.save('./output/assembly.pdf');
   }
   
-  // 4. Manufacturing planning
-  const planner = new ManufacturingPlanner(design);
-  await planner.generatePlan();
-  await planner.exportAll('./output');
+  // Step 5: Generate documentation
+  const docs = designer.generateDocumentation(rocket, {
+    structural: structuralResults,
+    performance: performance
+  });
   
-  return design;
+  await docs.save('./output/design-documentation.pdf');
 }
+
+completeDesignWorkflow();
 ```
 
-### Custom Component Library
+### Custom Component Design
 
 ```typescript
-import { ComponentLibrary, Component } from 'rocket-design-manufacturing-automation';
+import { ComponentDesigner } from './design/ComponentDesigner';
+import { Material } from './types/materials';
 
-const library = new ComponentLibrary();
+const componentDesigner = new ComponentDesigner();
 
-// Add custom components
-library.addComponent(new Component({
-  type: 'custom-fin',
-  parameters: {
-    shape: 'trapezoidal',
-    rootChord: 0.15,
-    tipChord: 0.05,
-    span: 0.12,
-    sweepAngle: 30
+// Design a custom nozzle
+const nozzle = componentDesigner.create({
+  type: 'de-Laval-nozzle',
+  performance: {
+    throatDiameter: 0.45,
+    exitDiameter: 1.2,
+    expansionRatio: 16,
+    chamberPressure: 10.0   // MPa
   },
-  manufacturingData: {
-    material: 'birch-plywood',
-    thickness: 0.006,
-    cncRequired: true
+  material: Material.INCONEL_718,
+  cooling: {
+    type: 'regenerative',
+    coolant: 'RP-1',
+    channels: 180
   }
-}));
+});
 
-// Use in design
-designer.useComponentLibrary(library);
+// Optimize for performance
+const optimized = componentDesigner.optimize(nozzle, {
+  objective: 'specific-impulse',
+  constraints: {
+    maxMass: 250,
+    maxLength: 2.5
+  }
+});
+
+// Export design
+componentDesigner.export(optimized, './output/nozzle-design.step');
+```
+
+### Batch Manufacturing
+
+```typescript
+import { ManufacturingAutomation } from './manufacturing/Automation';
+
+const automation = new ManufacturingAutomation();
+
+// Process multiple components
+const components = [
+  { type: 'fuel-tank', quantity: 2 },
+  { type: 'oxidizer-tank', quantity: 2 },
+  { type: 'inter-stage', quantity: 1 },
+  { type: 'fairing', quantity: 2 }
+];
+
+async function batchManufacture() {
+  const jobs = [];
+  
+  for (const spec of components) {
+    for (let i = 0; i < spec.quantity; i++) {
+      const job = automation.createJob({
+        component: spec.type,
+        serialNumber: `${spec.type}-${i + 1}`,
+        priority: 'normal'
+      });
+      
+      jobs.push(job);
+    }
+  }
+  
+  // Schedule manufacturing
+  const schedule = automation.scheduleJobs(jobs, {
+    optimize: 'time',
+    machines: await automation.getAvailableMachines()
+  });
+  
+  console.log(`Total manufacturing time: ${schedule.totalTime} hours`);
+  
+  // Export schedule
+  await schedule.export('./output/manufacturing-schedule.xlsx');
+}
+
+batchManufacture();
 ```
 
 ## Troubleshooting
 
-### Design Fails Safety Validation
+### Common Issues
 
+**Build errors:**
+```bash
+# Clear cache and rebuild
+npm run clean
+npm install
+npm run build
+```
+
+**Type errors in design modules:**
+Ensure all interfaces are properly imported:
 ```typescript
-try {
-  const design = await designer.generate();
-  const analysis = await analyzer.analyzeStress();
-} catch (error) {
-  if (error.code === 'INSUFFICIENT_SAFETY_FACTOR') {
-    // Increase material thickness or change material
-    designer.updateConstraints({
-      minWallThickness: 0.004,
-      material: 'carbon-fiber'
-    });
-  }
+import type { RocketParameters, Stage, Component } from './types';
+```
+
+**Manufacturing export fails:**
+Check that output directory exists:
+```typescript
+import * as fs from 'fs';
+
+const outputDir = './output';
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
 }
 ```
 
-### Manufacturing Tolerances Too Tight
-
+**Simulation convergence issues:**
+Reduce timestep or increase iteration limit:
 ```typescript
-const planner = new ManufacturingPlanner(design, {
-  tolerances: 'relaxed', // instead of 'tight'
-  simplifyGeometry: true
-});
+const simConfig = {
+  timestep: 0.05,  // Reduce from 0.1
+  maxIterations: 5000  // Increase from 1000
+};
 ```
 
-### Simulation Divergence
-
+**Memory issues with large designs:**
+Enable streaming for large datasets:
 ```typescript
-const simulator = new FlightSimulator(design, {
-  timeStep: 0.01, // Reduce time step
-  maxIterations: 10000,
-  convergenceTolerance: 1e-6
+const automation = new ManufacturingAutomation({
+  streaming: true,
+  chunkSize: 1024 * 1024  // 1MB chunks
 });
 ```
 
 ## Environment Variables
 
+Configure sensitive settings via environment variables:
+
 ```bash
-# Optional API keys for advanced features
-ROCKET_DESIGN_API_KEY=your_api_key_here
-MANUFACTURING_CLOUD_TOKEN=your_token_here
-
-# Output preferences
-ROCKET_OUTPUT_DIR=./designs
-ROCKET_EXPORT_FORMAT=json,pdf,step
+# .env file
+MATERIAL_DATABASE_PATH=/path/to/materials.db
+CNC_MACHINE_HOST=192.168.1.100
+CNC_MACHINE_PORT=8080
+SIMULATION_SERVER_URL=https://sim.example.com
+OUTPUT_DIRECTORY=/mnt/manufacturing/output
+LOG_LEVEL=debug
 ```
 
-## Advanced Features
-
-### Multi-Stage Rocket Design
+Access in code:
 
 ```typescript
-import { MultiStageDesigner } from 'rocket-design-manufacturing-automation';
-
-const multiStage = new MultiStageDesigner({
-  stages: 2,
-  targetAltitude: 15000
-});
-
-const stageConfig = await multiStage.optimizeStaging({
-  stage1Motor: 'J-class',
-  stage2Motor: 'H-class',
-  separationDelay: 2.0
-});
+const config = {
+  materialDb: process.env.MATERIAL_DATABASE_PATH,
+  cncHost: process.env.CNC_MACHINE_HOST,
+  outputDir: process.env.OUTPUT_DIRECTORY || './output'
+};
 ```
-
-### Optimization Algorithms
-
-```typescript
-import { DesignOptimizer, OptimizationGoal } from 'rocket-design-manufacturing-automation';
-
-const optimizer = new DesignOptimizer(design);
-
-const optimized = await optimizer.optimize({
-  goals: [
-    { type: OptimizationGoal.MAXIMIZE_ALTITUDE, weight: 0.7 },
-    { type: OptimizationGoal.MINIMIZE_COST, weight: 0.3 }
-  ],
-  algorithm: 'genetic',
-  generations: 100
-});
-```
-
-This skill enables AI agents to assist with rocket design automation, structural analysis, manufacturing planning, and complete end-to-end rocket development workflows using this student-built TypeScript system.
