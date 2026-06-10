@@ -1,22 +1,22 @@
 ---
 name: rocket-design-manufacturing-automation-shenzhen22
-description: Automation program for rocket design and manufacturing workflows built by students from Shenzhen 22 High School
+description: Automated rocket design and manufacturing program for model rocketry projects developed by Shenzhen 22nd High School students
 triggers:
-  - automate rocket design process
-  - generate rocket manufacturing specifications
-  - create rocket component designs
-  - simulate rocket design parameters
-  - optimize rocket manufacturing workflow
-  - use shenzhen rocket automation tools
-  - design rockets with automation program
-  - manufacturing automation for aerospace
+  - "help me design a rocket"
+  - "automate rocket manufacturing"
+  - "calculate rocket trajectory"
+  - "generate rocket CAD files"
+  - "simulate rocket flight"
+  - "optimize rocket design parameters"
+  - "create rocket manufacturing specifications"
+  - "design model rocket components"
 ---
 
-# Rocket Design and Manufacturing Automation Program
+# Rocket Design and Manufacturing Automation
 
 > Skill by [ara.so](https://ara.so) — Design Skills collection.
 
-This TypeScript-based automation program streamlines the rocket design and manufacturing process, developed by students at Shenzhen 22 High School. It provides tools for parametric rocket design, component generation, manufacturing specifications, and design validation.
+This TypeScript-based automation program provides tools for designing, simulating, and generating manufacturing specifications for model rockets. Developed by students at Shenzhen 22nd High School, it streamlines the rocket design workflow from initial parameters to production-ready specifications.
 
 ## Installation
 
@@ -37,441 +37,390 @@ npm start
 
 ## Core Concepts
 
-### Rocket Design Components
+The program handles three primary domains:
 
-The program models rockets as a composition of:
-- **Nose Cone**: Aerodynamic front section
-- **Body Tube**: Main structural cylinder
-- **Fins**: Stabilization surfaces
-- **Motor Mount**: Engine housing
-- **Recovery System**: Parachute deployment mechanism
-
-### Manufacturing Workflow
-
-1. **Design Phase**: Define parameters and constraints
-2. **Validation Phase**: Check structural integrity and aerodynamics
-3. **Specification Generation**: Output manufacturing documents
-4. **Optimization Phase**: Refine design for performance/cost
+1. **Rocket Design**: Parametric design of rocket components (body tube, nose cone, fins, motor mount)
+2. **Flight Simulation**: Physics-based trajectory and stability calculations
+3. **Manufacturing Automation**: Generate CAD files and cutting specifications
 
 ## Basic Usage
 
-### Creating a Rocket Design
+### Designing a Rocket
 
 ```typescript
-import { RocketDesigner } from './src/design/RocketDesigner';
-import { RocketConfig } from './src/types/RocketConfig';
+import { RocketDesigner, RocketParameters } from './src/design/RocketDesigner';
 
-// Define rocket configuration
-const config: RocketConfig = {
-  name: "Alpha-1",
-  targetAltitude: 1000, // meters
-  diameter: 0.05, // meters (50mm)
-  length: 0.8, // meters
-  mass: 0.5, // kg
-  motorClass: "D12",
-  finCount: 3,
-  recoveryType: "parachute"
-};
-
-// Create designer instance
-const designer = new RocketDesigner(config);
-
-// Generate design
-const design = await designer.generate();
-console.log(`Design complete: ${design.id}`);
-```
-
-### Validating Design Parameters
-
-```typescript
-import { DesignValidator } from './src/validation/DesignValidator';
-
-const validator = new DesignValidator();
-
-// Validate stability
-const stabilityCheck = validator.checkStability(design);
-if (!stabilityCheck.isValid) {
-  console.error(`Stability issues: ${stabilityCheck.errors.join(', ')}`);
-}
-
-// Validate structural integrity
-const structuralCheck = validator.checkStructuralIntegrity(design);
-if (structuralCheck.isValid) {
-  console.log(`Max load capacity: ${structuralCheck.maxLoad} N`);
-}
-
-// Comprehensive validation
-const validationReport = await validator.validate(design);
-console.log(`Overall score: ${validationReport.score}/100`);
-```
-
-## Manufacturing Automation
-
-### Generating Manufacturing Specifications
-
-```typescript
-import { ManufacturingSpecGenerator } from './src/manufacturing/SpecGenerator';
-import { OutputFormat } from './src/types/OutputFormat';
-
-const specGenerator = new ManufacturingSpecGenerator(design);
-
-// Generate technical drawings
-const drawings = await specGenerator.generateDrawings({
-  format: OutputFormat.PDF,
-  includeTolerances: true,
-  includeMaterialSpecs: true
-});
-
-// Generate bill of materials
-const bom = specGenerator.generateBOM();
-console.log(`Total components: ${bom.items.length}`);
-console.log(`Estimated cost: $${bom.totalCost.toFixed(2)}`);
-
-// Export CNC instructions
-const cncInstructions = await specGenerator.exportCNC({
-  format: 'gcode',
-  machine: 'mill',
-  material: 'aluminum-6061'
-});
-```
-
-### Component Design Generation
-
-```typescript
-import { ComponentDesigner } from './src/design/ComponentDesigner';
-
-const componentDesigner = new ComponentDesigner();
-
-// Design nose cone
-const noseCone = componentDesigner.createNoseCone({
-  shape: 'ogive',
-  length: 0.15, // meters
-  baseDiameter: 0.05,
-  material: 'pla',
-  wallThickness: 0.003 // 3mm
-});
-
-// Design fins
-const fins = componentDesigner.createFins({
-  count: 3,
-  rootChord: 0.08,
-  tipChord: 0.04,
-  span: 0.06,
-  sweepAngle: 30, // degrees
-  material: 'balsa-wood',
-  thickness: 0.003
-});
-
-// Export STL for 3D printing
-await noseCone.exportSTL('./output/nose-cone.stl');
-await fins.exportSTL('./output/fins.stl');
-```
-
-## Flight Simulation
-
-### Running Aerodynamic Simulations
-
-```typescript
-import { FlightSimulator } from './src/simulation/FlightSimulator';
-
-const simulator = new FlightSimulator(design);
-
-// Configure simulation parameters
-simulator.setEnvironment({
-  temperature: 288.15, // Kelvin
-  pressure: 101325, // Pa
-  windSpeed: 2.5, // m/s
-  windDirection: 45 // degrees
-});
-
-// Run simulation
-const flightData = await simulator.simulate();
-
-console.log(`Predicted apogee: ${flightData.maxAltitude.toFixed(2)} m`);
-console.log(`Max velocity: ${flightData.maxVelocity.toFixed(2)} m/s`);
-console.log(`Flight time: ${flightData.totalTime.toFixed(2)} s`);
-console.log(`Stability margin: ${flightData.stabilityMargin.toFixed(2)} calibers`);
-
-// Export simulation data
-await simulator.exportData('./output/flight-sim.json');
-```
-
-## Optimization
-
-### Design Optimization for Performance
-
-```typescript
-import { DesignOptimizer } from './src/optimization/DesignOptimizer';
-
-const optimizer = new DesignOptimizer();
-
-// Define optimization goals
-const optimizationConfig = {
-  primaryGoal: 'maximize-altitude',
-  constraints: {
-    maxMass: 0.6, // kg
-    maxDiameter: 0.05, // meters
-    maxLength: 1.0, // meters
-    minStabilityMargin: 1.5 // calibers
+// Define rocket parameters
+const params: RocketParameters = {
+  bodyTube: {
+    outerDiameter: 50, // mm
+    innerDiameter: 48, // mm
+    length: 500, // mm
+    material: 'cardboard'
   },
-  variables: ['finSpan', 'finSweep', 'noseConeLength', 'bodyLength']
+  noseCone: {
+    type: 'ogive', // 'cone', 'ogive', 'parabolic'
+    length: 150, // mm
+    baseDiameter: 50, // mm
+    material: 'plastic'
+  },
+  fins: {
+    count: 3,
+    rootChord: 100, // mm
+    tipChord: 50, // mm
+    span: 80, // mm
+    sweepAngle: 30, // degrees
+    thickness: 3, // mm
+    material: 'balsa'
+  },
+  motorMount: {
+    diameter: 24, // mm
+    length: 70, // mm
+    overhang: 10 // mm
+  }
 };
 
-// Run optimization
-const optimizedDesign = await optimizer.optimize(design, optimizationConfig);
+const designer = new RocketDesigner(params);
+const rocket = designer.generateDesign();
 
-console.log(`Altitude improvement: ${optimizedDesign.altitudeGain.toFixed(2)} m`);
-console.log(`Mass change: ${optimizedDesign.massChange.toFixed(3)} kg`);
-
-// Compare designs
-const comparison = optimizer.compare(design, optimizedDesign);
-console.log(comparison.summary);
+console.log(`Rocket mass: ${rocket.totalMass}g`);
+console.log(`Center of gravity: ${rocket.centerOfGravity}mm from nose`);
+console.log(`Center of pressure: ${rocket.centerOfPressure}mm from nose`);
+console.log(`Stability margin: ${rocket.stabilityMargin} calibers`);
 ```
 
-### Cost Optimization
+### Flight Simulation
 
 ```typescript
-import { CostOptimizer } from './src/optimization/CostOptimizer';
+import { FlightSimulator, SimulationConfig } from './src/simulation/FlightSimulator';
+import { Motor } from './src/motors/MotorDatabase';
 
-const costOptimizer = new CostOptimizer();
+// Configure simulation
+const simConfig: SimulationConfig = {
+  timestep: 0.01, // seconds
+  windSpeed: 5, // m/s
+  launchAngle: 90, // degrees (vertical)
+  launchAltitude: 0, // meters above sea level
+  temperature: 20, // Celsius
+  pressure: 101325 // Pa (sea level)
+};
 
-// Optimize for cost while maintaining performance
-const costOptimizedDesign = await costOptimizer.optimize(design, {
-  maxCostReduction: 0.30, // 30% max reduction
-  maintainPerformance: 0.95, // Keep 95% of performance
-  allowMaterialSubstitution: true
+// Select motor
+const motor: Motor = {
+  designation: 'C6-5',
+  totalImpulse: 10, // Ns
+  averageThrust: 5.5, // N
+  burnTime: 1.8, // seconds
+  propellantMass: 12.5, // grams
+  totalMass: 24, // grams
+  diameter: 24, // mm
+  length: 70 // mm
+};
+
+const simulator = new FlightSimulator(rocket, motor, simConfig);
+const trajectory = simulator.run();
+
+console.log(`Maximum altitude: ${trajectory.maxAltitude}m`);
+console.log(`Maximum velocity: ${trajectory.maxVelocity}m/s`);
+console.log(`Flight time: ${trajectory.totalTime}s`);
+console.log(`Landing distance: ${trajectory.landingDistance}m from pad`);
+```
+
+### Generating Manufacturing Files
+
+```typescript
+import { ManufacturingGenerator } from './src/manufacturing/ManufacturingGenerator';
+import { CADExporter } from './src/manufacturing/CADExporter';
+
+const generator = new ManufacturingGenerator(rocket);
+
+// Generate fin cutting template
+const finTemplate = generator.generateFinTemplate();
+finTemplate.exportDXF('./output/fin_template.dxf');
+finTemplate.exportSVG('./output/fin_template.svg');
+
+// Generate body tube cutting pattern
+const tubePattern = generator.generateTubePattern();
+tubePattern.exportPDF('./output/tube_pattern.pdf');
+
+// Generate complete assembly instructions
+const assembly = generator.generateAssemblyInstructions();
+assembly.exportPDF('./output/assembly_instructions.pdf');
+
+// Export 3D CAD model
+const cadExporter = new CADExporter(rocket);
+cadExporter.exportSTEP('./output/rocket_assembly.step');
+cadExporter.exportSTL('./output/rocket_assembly.stl');
+```
+
+## Advanced Features
+
+### Stability Analysis
+
+```typescript
+import { StabilityAnalyzer } from './src/analysis/StabilityAnalyzer';
+
+const analyzer = new StabilityAnalyzer(rocket);
+
+// Calculate stability at different Mach numbers
+const stabilityReport = analyzer.analyzeStabilityRange({
+  machStart: 0,
+  machEnd: 0.5,
+  steps: 50
 });
 
-console.log(`Cost savings: $${costOptimizedDesign.costSavings.toFixed(2)}`);
-console.log(`Performance retention: ${(costOptimizedDesign.performanceRatio * 100).toFixed(1)}%`);
+// Check for stability issues
+if (stabilityReport.isStable) {
+  console.log('Rocket is stable throughout flight');
+} else {
+  console.warn('Stability issues detected:');
+  stabilityReport.warnings.forEach(w => console.warn(`- ${w}`));
+}
+
+// Barrowman method for CP calculation
+const cpLocation = analyzer.calculateCenterOfPressure('barrowman');
+console.log(`CP location (Barrowman): ${cpLocation}mm`);
+```
+
+### Optimization
+
+```typescript
+import { RocketOptimizer, OptimizationGoal } from './src/optimization/RocketOptimizer';
+
+const optimizer = new RocketOptimizer(params);
+
+// Optimize for maximum altitude
+const optimized = optimizer.optimize({
+  goal: OptimizationGoal.MAX_ALTITUDE,
+  constraints: {
+    maxDiameter: 75, // mm
+    maxLength: 800, // mm
+    maxMass: 200, // grams
+    minStability: 1.5, // calibers
+    maxStability: 3.0 // calibers
+  },
+  iterations: 1000
+});
+
+console.log(`Optimized design achieves ${optimized.predictedAltitude}m`);
+console.log(`Changes applied: ${optimized.modifications.length}`);
+```
+
+### Material Database
+
+```typescript
+import { MaterialDatabase, Material } from './src/materials/MaterialDatabase';
+
+const materials = new MaterialDatabase();
+
+// Get material properties
+const balsa = materials.getMaterial('balsa_wood');
+console.log(`Balsa density: ${balsa.density}g/cm³`);
+console.log(`Balsa strength: ${balsa.tensileStrength}MPa`);
+
+// Add custom material
+materials.addMaterial({
+  name: 'carbon_fiber_3k',
+  density: 1.6, // g/cm³
+  tensileStrength: 3500, // MPa
+  youngsModulus: 230, // GPa
+  cost: 45.00 // USD per square meter
+});
+
+// Compare materials for fin application
+const comparison = materials.compareForApplication('fin', [
+  'balsa_wood',
+  'plywood',
+  'carbon_fiber_3k'
+]);
 ```
 
 ## Configuration
 
-### Project Configuration File
+Create a `rocket.config.json` file in your project root:
 
-Create a `rocket.config.ts` file in your project root:
-
-```typescript
-import { ProjectConfig } from './src/types/ProjectConfig';
-
-export const config: ProjectConfig = {
-  // Default units
-  units: {
-    length: 'meters',
-    mass: 'kilograms',
-    force: 'newtons',
-    temperature: 'kelvin'
+```json
+{
+  "units": {
+    "length": "mm",
+    "mass": "g",
+    "force": "N"
   },
-  
-  // Manufacturing preferences
-  manufacturing: {
-    defaultMaterial: 'pla',
-    tolerance: 0.001, // 1mm
-    preferredProcesses: ['3d-printing', 'laser-cutting'],
-    cnc: {
-      machine: 'mill',
-      feedRate: 1000, // mm/min
-      spindleSpeed: 10000 // rpm
-    }
+  "simulation": {
+    "defaultTimestep": 0.01,
+    "dragModel": "barrowman",
+    "windModel": "constant"
   },
-  
-  // Simulation settings
-  simulation: {
-    timeStep: 0.01, // seconds
-    maxIterations: 10000,
-    convergenceTolerance: 0.001
+  "manufacturing": {
+    "defaultMaterial": "cardboard",
+    "tolerance": 0.5,
+    "outputFormats": ["dxf", "svg", "pdf"]
   },
-  
-  // Export settings
-  export: {
-    outputDirectory: './output',
-    formats: ['pdf', 'stl', 'gcode', 'json'],
-    includeMetadata: true
-  },
-  
-  // Safety factors
-  safety: {
-    structural: 2.0,
-    stability: 1.5,
-    recovery: 1.3
+  "safety": {
+    "maxMotorImpulse": 160,
+    "minStabilityMargin": 1.0,
+    "maxStabilityMargin": 4.0
   }
-};
-```
-
-### Environment Variables
-
-```bash
-# .env file
-ROCKET_OUTPUT_DIR=./output
-ROCKET_CAD_ENGINE=opencascade
-ROCKET_SIMULATION_THREADS=4
-ROCKET_MATERIAL_DATABASE_PATH=./data/materials.json
-ROCKET_MOTOR_DATABASE_PATH=./data/motors.json
-```
-
-## Advanced Workflows
-
-### Complete Design-to-Manufacturing Pipeline
-
-```typescript
-import { Pipeline } from './src/pipeline/Pipeline';
-
-const pipeline = new Pipeline();
-
-// Define complete workflow
-const result = await pipeline
-  .design(config)
-  .validate()
-  .optimize({ goal: 'altitude' })
-  .simulate()
-  .generateSpecs()
-  .exportAll()
-  .execute();
-
-if (result.success) {
-  console.log(`Pipeline complete: ${result.outputFiles.length} files generated`);
-  result.outputFiles.forEach(file => {
-    console.log(`  - ${file}`);
-  });
 }
 ```
 
-### Batch Processing Multiple Designs
+Load configuration:
 
 ```typescript
-import { BatchProcessor } from './src/batch/BatchProcessor';
+import { Config } from './src/config/Config';
 
-const batchProcessor = new BatchProcessor();
-
-const configs = [
-  { name: "Alpha-1", targetAltitude: 1000, diameter: 0.05 },
-  { name: "Beta-2", targetAltitude: 1500, diameter: 0.06 },
-  { name: "Gamma-3", targetAltitude: 2000, diameter: 0.07 }
-];
-
-const results = await batchProcessor.processMultiple(configs, {
-  parallel: true,
-  maxConcurrent: 3,
-  onProgress: (current, total) => {
-    console.log(`Processing ${current}/${total}`);
-  }
-});
-
-// Generate comparison report
-const report = batchProcessor.compareResults(results);
-await report.exportPDF('./output/comparison-report.pdf');
+const config = Config.loadFromFile('./rocket.config.json');
+Config.setGlobal(config);
 ```
 
 ## Common Patterns
 
-### Design Iteration
+### Complete Design Workflow
 
 ```typescript
-// Iterative design refinement
-let currentDesign = initialDesign;
-let iteration = 0;
-const maxIterations = 10;
+import { DesignWorkflow } from './src/workflow/DesignWorkflow';
 
-while (iteration < maxIterations) {
-  const validation = await validator.validate(currentDesign);
-  
-  if (validation.score >= 90) {
-    console.log(`Acceptable design achieved at iteration ${iteration}`);
-    break;
-  }
-  
-  // Apply improvements based on validation feedback
-  currentDesign = await optimizer.refine(currentDesign, validation.suggestions);
-  iteration++;
+const workflow = new DesignWorkflow();
+
+// Step 1: Initial design
+const design = workflow.createDesign(params);
+
+// Step 2: Validate design
+const validation = workflow.validate(design);
+if (!validation.isValid) {
+  console.error('Design validation failed:', validation.errors);
+  process.exit(1);
 }
+
+// Step 3: Simulate flight
+const simulation = workflow.simulate(design, motor);
+
+// Step 4: Optimize if needed
+if (simulation.maxAltitude < 100) {
+  design = workflow.optimize(design, { targetAltitude: 100 });
+}
+
+// Step 5: Generate manufacturing files
+workflow.generateManufacturingFiles(design, './output');
+
+// Step 6: Export report
+workflow.exportReport(design, simulation, './output/report.pdf');
 ```
 
-### Material Selection
+### Multi-Stage Rockets
 
 ```typescript
-import { MaterialSelector } from './src/materials/MaterialSelector';
+import { MultiStageDesigner } from './src/design/MultiStageDesigner';
 
-const materialSelector = new MaterialSelector();
+const stage1 = new RocketDesigner(stage1Params).generateDesign();
+const stage2 = new RocketDesigner(stage2Params).generateDesign();
 
-// Select optimal material for component
-const optimalMaterial = materialSelector.selectForComponent({
-  componentType: 'body-tube',
-  requirements: {
-    minStrength: 50, // MPa
-    maxDensity: 1.5, // g/cm³
-    maxCost: 10, // $/kg
-    manufacturability: ['3d-printing', 'molding']
-  }
-});
+const multiStage = new MultiStageDesigner();
+multiStage.addStage(stage1, motor1, { separationDelay: 3 });
+multiStage.addStage(stage2, motor2, { separationDelay: 5 });
 
-console.log(`Recommended: ${optimalMaterial.name}`);
-console.log(`Properties: ${JSON.stringify(optimalMaterial.properties, null, 2)}`);
+const trajectory = multiStage.simulate();
+console.log(`Two-stage altitude: ${trajectory.maxAltitude}m`);
 ```
 
 ## Troubleshooting
 
-### Common Issues
-
-**Design validation fails with stability warnings:**
-```typescript
-// Increase fin span or move fins further back
-design.fins.span *= 1.2;
-design.fins.position = design.length * 0.85;
-
-// Or add weight to nose
-design.noseCone.ballastMass += 0.05; // 50g
-```
-
-**CNC export generates invalid G-code:**
-```typescript
-// Verify toolpath settings
-const cncConfig = {
-  safetyHeight: 5, // mm above workpiece
-  feedRate: 800, // slower for complex geometries
-  verify: true // enable verification before export
-};
-```
-
-**Simulation crashes with numerical instability:**
-```typescript
-// Reduce time step or increase convergence tolerance
-simulator.setTimeStep(0.001); // smaller steps
-simulator.setConvergenceTolerance(0.01); // less strict
-```
-
-**Memory issues with large batch processing:**
-```typescript
-// Process in smaller batches with cleanup
-batchProcessor.setMaxConcurrent(2);
-batchProcessor.enableGarbageCollection(true);
-```
-
-## API Reference
-
-### Core Classes
-
-- `RocketDesigner`: Main design interface
-- `DesignValidator`: Validation and verification
-- `ManufacturingSpecGenerator`: Manufacturing output generation
-- `FlightSimulator`: Aerodynamic simulation
-- `DesignOptimizer`: Performance optimization
-- `ComponentDesigner`: Individual component design
-- `Pipeline`: Workflow automation
-- `MaterialSelector`: Material selection logic
-
-### Helper Utilities
+### Unstable Rocket Design
 
 ```typescript
-import { Units } from './src/utils/Units';
-import { Geometry } from './src/utils/Geometry';
-
-// Unit conversions
-const inches = Units.convert(50, 'mm', 'inches');
-
-// Geometric calculations
-const cg = Geometry.calculateCenterOfGravity(components);
-const cp = Geometry.calculateCenterOfPressure(design);
+// Problem: Stability margin too low
+if (rocket.stabilityMargin < 1.0) {
+  // Solution 1: Increase fin size
+  params.fins.span += 20;
+  params.fins.rootChord += 20;
+  
+  // Solution 2: Move CG forward
+  params.noseCone.ballastMass = 15; // grams
+  
+  // Solution 3: Lengthen body tube
+  params.bodyTube.length += 100;
+}
 ```
 
-This skill enables AI agents to effectively use the Rocket Design and Manufacturing Automation Program for aerospace design workflows, component generation, and manufacturing automation.
+### Simulation Convergence Issues
+
+```typescript
+// Reduce timestep for better accuracy
+simConfig.timestep = 0.001; // from 0.01
+
+// Enable adaptive timestep
+simConfig.adaptiveTimestep = true;
+simConfig.maxTimestep = 0.01;
+simConfig.minTimestep = 0.0001;
+```
+
+### CAD Export Errors
+
+```typescript
+try {
+  cadExporter.exportSTEP('./output/rocket.step');
+} catch (error) {
+  if (error.code === 'INVALID_GEOMETRY') {
+    // Simplify geometry
+    cadExporter.setTolerance(0.1);
+    cadExporter.simplifyGeometry(true);
+    cadExporter.exportSTEP('./output/rocket.step');
+  }
+}
+```
+
+### Memory Issues with Large Simulations
+
+```typescript
+// Use streaming for large trajectory data
+const simulator = new FlightSimulator(rocket, motor, {
+  ...simConfig,
+  streaming: true,
+  outputFile: './output/trajectory.csv'
+});
+
+// Process in chunks
+simulator.on('data', (dataPoint) => {
+  // Process each point individually
+  processDataPoint(dataPoint);
+});
+
+await simulator.run();
+```
+
+## Environment Variables
+
+```bash
+# Set output directory
+export ROCKET_OUTPUT_DIR=./output
+
+# Enable debug logging
+export ROCKET_DEBUG=true
+
+# Set material database path
+export ROCKET_MATERIALS_DB=./data/materials.json
+
+# Set motor database path
+export ROCKET_MOTORS_DB=./data/motors.json
+```
+
+## Testing Your Design
+
+```typescript
+import { DesignTester } from './src/testing/DesignTester';
+
+const tester = new DesignTester(rocket);
+
+// Run all safety checks
+const safetyReport = tester.runSafetyChecks();
+console.log(`Safety score: ${safetyReport.score}/100`);
+
+// Structural analysis
+const structural = tester.analyzeStructuralIntegrity(motor);
+console.log(`Max G-force: ${structural.maxGForce}G`);
+console.log(`Safety factor: ${structural.safetyFactor}`);
+
+// Wind sensitivity
+const windTest = tester.testWindSensitivity({ maxWind: 20 });
+console.log(`Safe launch wind: < ${windTest.maxSafeWind}m/s`);
+```
