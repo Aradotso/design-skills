@@ -92,6 +92,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [baoyu-design-integration](skills/baoyu-design-integration/) | [install](https://skills.sh/aradotso/design-skills/baoyu-design-integration) | [JimLiu/baoyu-design](https://github.com/JimLiu/baoyu-design) | 2026-06-07 |
 | [rocket-design-manufacturing-automation-shenzhen22](skills/rocket-design-manufacturing-automation-shenzhen22/) | [install](https://skills.sh/aradotso/design-skills/rocket-design-manufacturing-automation-shenzhen22) | [Kevin100202/Rocket-Design-and-Manufacturing-Automation-Program-from-Shenzhen22highschool](https://github.com/Kevin100202/Rocket-Design-and-Manufacturing-Automation-Program-from-Shenzhen22highschool) | 2026-06-09 |
 | [shenzhen22-rocket-design-automation](skills/shenzhen22-rocket-design-automation/) | [install](https://skills.sh/aradotso/design-skills/shenzhen22-rocket-design-automation) | [Kevin100202/Rocket-Design-and-Manufacturing-Automation-Program-from-Shenzhen22highschool](https://github.com/Kevin100202/Rocket-Design-and-Manufacturing-Automation-Program-from-Shenzhen22highschool) | 2026-06-10 |
+| [figma-mcp-cached](skills/figma-mcp-cached/) | [install](https://skills.sh/aradotso/design-skills/figma-mcp-cached) | [Pactortester/figma-mcp-cached](https://github.com/Pactortester/figma-mcp-cached) | 2026-06-10 |
 <!-- SKILL_INDEX -->
 
 ---
