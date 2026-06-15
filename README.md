@@ -94,6 +94,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [shenzhen22-rocket-design-automation](skills/shenzhen22-rocket-design-automation/) | [install](https://skills.sh/aradotso/design-skills/shenzhen22-rocket-design-automation) | [Kevin100202/Rocket-Design-and-Manufacturing-Automation-Program-from-Shenzhen22highschool](https://github.com/Kevin100202/Rocket-Design-and-Manufacturing-Automation-Program-from-Shenzhen22highschool) | 2026-06-10 |
 | [figma-mcp-cached](skills/figma-mcp-cached/) | [install](https://skills.sh/aradotso/design-skills/figma-mcp-cached) | [Pactortester/figma-mcp-cached](https://github.com/Pactortester/figma-mcp-cached) | 2026-06-10 |
 | [designpowers-agent-team](skills/designpowers-agent-team/) | [install](https://skills.sh/aradotso/design-skills/designpowers-agent-team) | [Owl-Listener/designpowers](https://github.com/Owl-Listener/designpowers) | 2026-06-11 |
+| [huolala-figma-to-code-mcp](skills/huolala-figma-to-code-mcp/) | [install](https://skills.sh/aradotso/design-skills/huolala-figma-to-code-mcp) | [HuolalaTech/huolala-figma-mcp](https://github.com/HuolalaTech/huolala-figma-mcp) | 2026-06-15 |
 <!-- SKILL_INDEX -->
 
 ---
