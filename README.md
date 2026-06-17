@@ -97,6 +97,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [huolala-figma-to-code-mcp](skills/huolala-figma-to-code-mcp/) | [install](https://skills.sh/aradotso/design-skills/huolala-figma-to-code-mcp) | [HuolalaTech/huolala-figma-mcp](https://github.com/HuolalaTech/huolala-figma-mcp) | 2026-06-15 |
 | [prototype-to-figma-skill](skills/prototype-to-figma-skill/) | [install](https://skills.sh/aradotso/design-skills/prototype-to-figma-skill) | [alima-max/prototype-to-figma-skill](https://github.com/alima-max/prototype-to-figma-skill) | 2026-06-15 |
 | [esther-design-system](skills/esther-design-system/) | [install](https://skills.sh/aradotso/design-skills/esther-design-system) | [esthersjw/esther-design-system](https://github.com/esthersjw/esther-design-system) | 2026-06-16 |
+| [gamedesignos-workflow](skills/gamedesignos-workflow/) | [install](https://skills.sh/aradotso/design-skills/gamedesignos-workflow) | [DY-2026/GameDesignOS](https://github.com/DY-2026/GameDesignOS) | 2026-06-17 |
 <!-- SKILL_INDEX -->
 
 ---
