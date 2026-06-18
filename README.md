@@ -100,6 +100,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [gamedesignos-workflow](skills/gamedesignos-workflow/) | [install](https://skills.sh/aradotso/design-skills/gamedesignos-workflow) | [DY-2026/GameDesignOS](https://github.com/DY-2026/GameDesignOS) | 2026-06-17 |
 | [canva-design-workspace-toolkit](skills/canva-design-workspace-toolkit/) | [install](https://skills.sh/aradotso/design-skills/canva-design-workspace-toolkit) | [Electrondrastorm/Canva-Design-Workspace](https://github.com/Electrondrastorm/Canva-Design-Workspace) | 2026-06-17 |
 | [adobe-indesign-2026-workflow](skills/adobe-indesign-2026-workflow/) | [install](https://skills.sh/aradotso/design-skills/adobe-indesign-2026-workflow) | [Enameltireclaim/Adobe-InDesign-2026](https://github.com/Enameltireclaim/Adobe-InDesign-2026) | 2026-06-18 |
+| [claude-design-premium-harness](skills/claude-design-premium-harness/) | [install](https://skills.sh/aradotso/design-skills/claude-design-premium-harness) | [oalanicolas/claude-design-premium](https://github.com/oalanicolas/claude-design-premium) | 2026-06-18 |
 <!-- SKILL_INDEX -->
 
 ---
