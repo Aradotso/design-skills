@@ -103,6 +103,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [claude-design-premium-harness](skills/claude-design-premium-harness/) | [install](https://skills.sh/aradotso/design-skills/claude-design-premium-harness) | [oalanicolas/claude-design-premium](https://github.com/oalanicolas/claude-design-premium) | 2026-06-18 |
 | [vibe-nothing-ui-design](skills/vibe-nothing-ui-design/) | [install](https://skills.sh/aradotso/design-skills/vibe-nothing-ui-design) | [wangbh030722/vibe-nothing-ui-design](https://github.com/wangbh030722/vibe-nothing-ui-design) | 2026-06-19 |
 | [vibecoded-design-tells-analysis](skills/vibecoded-design-tells-analysis/) | [install](https://skills.sh/aradotso/design-skills/vibecoded-design-tells-analysis) | [JCarterJohnson/vibecoded-design-tells](https://github.com/JCarterJohnson/vibecoded-design-tells) | 2026-06-22 |
+| [design-qa-review-skill](skills/design-qa-review-skill/) | [install](https://skills.sh/aradotso/design-skills/design-qa-review-skill) | [ColourCloudSky/design-qa-review-skill](https://github.com/ColourCloudSky/design-qa-review-skill) | 2026-06-27 |
 <!-- SKILL_INDEX -->
 
 ---
