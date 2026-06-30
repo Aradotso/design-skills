@@ -109,6 +109,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [aipixelperfect-design-generator](skills/aipixelperfect-design-generator/) | [install](https://skills.sh/aradotso/design-skills/aipixelperfect-design-generator) | [abnormal-codex/Ai-Pixel-Design-Archive](https://github.com/abnormal-codex/Ai-Pixel-Design-Archive) | 2026-06-30 |
 | [aipixelperfect-design-engine](skills/aipixelperfect-design-engine/) | [install](https://skills.sh/aradotso/design-skills/aipixelperfect-design-engine) | [abnormal-codex/Ai-Pixel-Design-Archive](https://github.com/abnormal-codex/Ai-Pixel-Design-Archive) | 2026-06-30 |
 | [ai-pixel-perfect-design-generator](skills/ai-pixel-perfect-design-generator/) | [install](https://skills.sh/aradotso/design-skills/ai-pixel-perfect-design-generator) | [abnormal-codex/Ai-Pixel-Design-Archive](https://github.com/abnormal-codex/Ai-Pixel-Design-Archive) | 2026-06-30 |
+| [blogger-vault-elite-designs-templates](skills/blogger-vault-elite-designs-templates/) | [install](https://skills.sh/aradotso/design-skills/blogger-vault-elite-designs-templates) | [bungdollzdollz/Blogger-Vault-Elite-Designs](https://github.com/bungdollzdollz/Blogger-Vault-Elite-Designs) | 2026-06-30 |
 <!-- SKILL_INDEX -->
 
 ---
