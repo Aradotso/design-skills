@@ -105,6 +105,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [vibecoded-design-tells-analysis](skills/vibecoded-design-tells-analysis/) | [install](https://skills.sh/aradotso/design-skills/vibecoded-design-tells-analysis) | [JCarterJohnson/vibecoded-design-tells](https://github.com/JCarterJohnson/vibecoded-design-tells) | 2026-06-22 |
 | [design-qa-review-skill](skills/design-qa-review-skill/) | [install](https://skills.sh/aradotso/design-skills/design-qa-review-skill) | [ColourCloudSky/design-qa-review-skill](https://github.com/ColourCloudSky/design-qa-review-skill) | 2026-06-27 |
 | [power-bi-design-vault-dashboards](skills/power-bi-design-vault-dashboards/) | [install](https://skills.sh/aradotso/design-skills/power-bi-design-vault-dashboards) | [Lithiumgreentek/power-bi-design-vault](https://github.com/Lithiumgreentek/power-bi-design-vault) | 2026-06-30 |
+| [solidworks-design-vault-cad](skills/solidworks-design-vault-cad/) | [install](https://skills.sh/aradotso/design-skills/solidworks-design-vault-cad) | [fgiafrica/SolidWork-Design-Vault](https://github.com/fgiafrica/SolidWork-Design-Vault) | 2026-06-30 |
 <!-- SKILL_INDEX -->
 
 ---
