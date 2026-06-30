@@ -1,31 +1,31 @@
 ---
 name: aipixelperfect-design-generator
-description: AI-powered image generation platform for professional design creation with multilingual support and real-time collaboration
+description: AI-powered image generation platform for creating professional design assets from text prompts with real-time collaboration
 triggers:
-  - "how do I generate AI images with AiPixelPerfect"
-  - "create professional designs using AI image generator"
-  - "integrate AiPixelPerfect into my workflow"
-  - "use AI design synergy engine for graphics"
-  - "generate pixel-perfect visuals with AI"
-  - "export AI-generated designs to Figma or Adobe"
-  - "customize AI image generation prompts"
-  - "troubleshoot AiPixelPerfect design output"
+  - "generate an AI design with AiPixelPerfect"
+  - "create professional graphics using AI image generation"
+  - "how do I use AiPixelPerfect to make designs"
+  - "integrate AI design generator into my workflow"
+  - "export AI-generated images to Figma or Adobe"
+  - "refine and collaborate on AI design outputs"
+  - "troubleshoot AiPixelPerfect image generation"
+  - "use the AiPixelPerfect API for custom designs"
 ---
 
 # AiPixelPerfect Design Generator
 
 > Skill by [ara.so](https://ara.so) — Design Skills collection
 
-AiPixelPerfect is a next-generation AI image generation platform that translates textual prompts into pixel-perfect visual assets. It features a proprietary neural synthesis engine built on modified Stable Diffusion, supports 40+ languages with cultural adaptation, and provides real-time collaboration tools for design review and refinement.
+AiPixelPerfect is an AI-powered image generation platform that creates professional design assets from text prompts. It features a neural synthesis engine, responsive UI, multilingual support, real-time collaboration tools, and export integrations with Figma, Adobe Creative Cloud, and Canva.
 
 ## Installation
 
-### Web Platform Access
+### Web Interface Access
 
-Visit the platform through the GitHub Pages deployment:
+Access the platform through the hosted interface:
 
 ```bash
-# Access the web interface
+# Visit the main application
 https://abnormal-codex.github.io/Ai-Pixel-Design-Archive/
 ```
 
@@ -36,416 +36,426 @@ https://abnormal-codex.github.io/Ai-Pixel-Design-Archive/
 git clone https://github.com/abnormal-codex/Ai-Pixel-Design-Archive.git
 cd Ai-Pixel-Design-Archive
 
-# Install dependencies (if applicable for HTML/JS components)
+# Install dependencies (Next.js based)
 npm install
 
-# Start local server
-npx serve .
+# Set up environment variables
+cp .env.example .env.local
+
+# Configure required variables
+# NEXT_PUBLIC_API_ENDPOINT=your_api_endpoint
+# SYNTHESIS_ENGINE_KEY=your_engine_key
+# WEBSOCKET_URL=your_websocket_url
 ```
 
-### API Integration
+### Run Development Server
 
 ```bash
-# Install via npm (for API clients)
-npm install @aipixelperfect/client
+npm run dev
+# Access at http://localhost:3000
 ```
 
 ## Core Concepts
 
 ### Design Synthesis Engine
 
-The platform constructs images from scratch using neural synthesis rather than template-based generation. Key parameters:
+The platform uses a proprietary neural synthesis engine (modified Stable Diffusion) that generates images from text prompts with context awareness, style matching, and cultural adaptation.
 
-- **Prompt**: Descriptive text input (supports idioms and cultural expressions)
-- **Style Weight**: Controls artistic interpretation vs literal rendering
-- **Resolution**: Up to 8K raster output
-- **Variations**: Generates 4 alternatives per synthesis request
+### Generation Workflow
 
-### Multilingual Prompt Processing
+1. **Input**: Text prompt describing desired design
+2. **Synthesis**: Engine generates 4 variations
+3. **Refinement**: Adjust sliders for brightness, contrast, saturation, style weight
+4. **Export**: Download or push to external design tools
 
-Prompts are interpreted with cultural context awareness:
+## API Usage
 
-```javascript
-// Example: Japanese prompt with cultural styling
-const prompt_ja = "桜の下でお茶を飲む伝統的な女性";
-// Output respects Japanese design principles (minimalism, natural tones)
-
-// Example: Spanish prompt with regional aesthetics
-const prompt_es = "mercado vibrante con colores tropicales";
-// Output uses warmer, more vibrant Latin American palette
-```
-
-## JavaScript API Usage
-
-### Basic Image Generation
+### REST API Integration
 
 ```javascript
-import AiPixelPerfect from '@aipixelperfect/client';
+// Initialize the AiPixelPerfect client
+const AiPixelPerfect = require('aipixelperfect-client');
 
-// Initialize client with environment credentials
 const client = new AiPixelPerfect({
   apiKey: process.env.AIPIXELPERFECT_API_KEY,
-  endpoint: process.env.AIPIXELPERFECT_ENDPOINT || 'https://api.aipixelperfect.io/v1'
+  endpoint: process.env.AIPIXELPERFECT_ENDPOINT || 'https://api.aipixelperfect.com'
 });
 
-// Generate design from prompt
-async function generateDesign(prompt) {
-  const result = await client.synthesize({
-    prompt: prompt,
+// Generate a design from a text prompt
+async function generateDesign(prompt, options = {}) {
+  try {
+    const result = await client.synthesize({
+      prompt: prompt,
+      variations: options.variations || 4,
+      resolution: options.resolution || '2048x2048',
+      styleWeight: options.styleWeight || 0.7,
+      language: options.language || 'en'
+    });
+    
+    return result.images;
+  } catch (error) {
+    console.error('Generation failed:', error);
+    throw error;
+  }
+}
+
+// Example: Generate a logo design
+const logoImages = await generateDesign(
+  'minimalist tech startup logo with blue gradient',
+  {
     variations: 4,
-    resolution: '2048x2048',
-    styleWeight: 0.75
-  });
-  
-  return result.images; // Array of 4 image URLs
-}
-
-// Usage
-const images = await generateDesign("a futuristic cityscape at sunset with neon reflections");
-console.log(images);
-```
-
-### Refinement Mode
-
-```javascript
-// Refine a specific variation
-async function refineDesign(imageId, adjustments) {
-  const refined = await client.refine(imageId, {
-    brightness: adjustments.brightness || 0,
-    contrast: adjustments.contrast || 0,
-    saturation: adjustments.saturation || 0,
-    styleWeight: adjustments.styleWeight || 0.75
-  });
-  
-  return refined.imageUrl;
-}
-
-// Dial-in adjustments
-const refinedImage = await refineDesign('img_abc123', {
-  brightness: 10,
-  contrast: -5,
-  saturation: 15,
-  styleWeight: 0.85
-});
-```
-
-### Re-synthesis with Modified Prompt
-
-```javascript
-// Iterate on existing design
-async function iterateDesign(originalPrompt, modifications) {
-  const newPrompt = `${originalPrompt}, ${modifications}`;
-  
-  const result = await client.synthesize({
-    prompt: newPrompt,
-    variations: 4,
-    resolution: '4096x4096',
-    seed: Date.now() // For reproducibility
-  });
-  
-  return result.images;
-}
-
-// Add specific elements to existing concept
-const variants = await iterateDesign(
-  "minimalist logo for tech startup",
-  "with geometric shapes and blue gradient"
+    resolution: '1024x1024',
+    styleWeight: 0.8
+  }
 );
 ```
 
-## HTML Integration
+### Refinement and Iteration
 
-### Embedding the Generator
+```javascript
+// Refine a generated image with parameter adjustments
+async function refineDesign(imageId, adjustments) {
+  const refined = await client.refine(imageId, {
+    brightness: adjustments.brightness || 0,     // -1 to 1
+    contrast: adjustments.contrast || 0,         // -1 to 1
+    saturation: adjustments.saturation || 0,     // -1 to 1
+    styleWeight: adjustments.styleWeight || 0.7  // 0 to 1
+  });
+  
+  return refined.image;
+}
+
+// Re-synthesize with modified prompt
+async function iterateDesign(originalImageId, newPrompt) {
+  const iteration = await client.reSynthesize({
+    baseImageId: originalImageId,
+    prompt: newPrompt,
+    preserveComposition: true  // Keep layout structure
+  });
+  
+  return iteration.images;
+}
+```
+
+### Export Integration
+
+```javascript
+// Export to Figma
+async function exportToFigma(imageId, figmaConfig) {
+  const exported = await client.export({
+    imageId: imageId,
+    destination: 'figma',
+    config: {
+      fileKey: figmaConfig.fileKey,
+      nodeId: figmaConfig.nodeId,
+      accessToken: process.env.FIGMA_ACCESS_TOKEN,
+      maintainLayers: true
+    }
+  });
+  
+  return exported.figmaUrl;
+}
+
+// Export to Adobe Creative Cloud
+async function exportToAdobe(imageId) {
+  const exported = await client.export({
+    imageId: imageId,
+    destination: 'adobe',
+    config: {
+      application: 'photoshop',  // or 'illustrator'
+      accessToken: process.env.ADOBE_ACCESS_TOKEN,
+      format: 'psd'
+    }
+  });
+  
+  return exported.adobeCloudUrl;
+}
+
+// Download high-resolution file
+async function downloadImage(imageId, format = 'png') {
+  const download = await client.download(imageId, {
+    format: format,        // png, jpg, webp
+    resolution: '8K',      // 4K, 8K, original
+    includeMetadata: true
+  });
+  
+  return download.url;
+}
+```
+
+## HTML/JavaScript Integration
+
+### Basic Web Integration
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AiPixelPerfect Design Tool</title>
-  <script src="https://cdn.aipixelperfect.io/sdk/v1/aipixelperfect.min.js"></script>
+  <title>AiPixelPerfect Integration</title>
+  <style>
+    .design-canvas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .design-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .design-card img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
-  <div id="aipixelperfect-container">
-    <input type="text" id="prompt-input" placeholder="Describe your design..." />
-    <button id="synthesize-btn">Synthesize</button>
-    <div id="output-grid"></div>
+  <div id="prompt-input">
+    <textarea id="design-prompt" placeholder="Describe your design..."></textarea>
+    <button onclick="generateDesigns()">Generate</button>
   </div>
+  
+  <div id="design-canvas" class="design-canvas"></div>
 
+  <script src="https://cdn.aipixelperfect.com/sdk/v1/aipixelperfect.min.js"></script>
   <script>
-    const apiKey = localStorage.getItem('AIPIXELPERFECT_API_KEY');
-    const app = new AiPixelPerfectSDK({
-      container: '#aipixelperfect-container',
-      apiKey: apiKey,
-      responsive: true,
-      language: navigator.language || 'en'
+    const apClient = new AiPixelPerfectSDK({
+      apiKey: window.AIPIXELPERFECT_API_KEY
     });
 
-    document.getElementById('synthesize-btn').addEventListener('click', async () => {
-      const prompt = document.getElementById('prompt-input').value;
-      const images = await app.generate(prompt, { variations: 4 });
+    async function generateDesigns() {
+      const prompt = document.getElementById('design-prompt').value;
+      const canvas = document.getElementById('design-canvas');
       
-      const grid = document.getElementById('output-grid');
-      grid.innerHTML = '';
-      images.forEach(img => {
-        const imgElement = document.createElement('img');
-        imgElement.src = img.url;
-        imgElement.alt = prompt;
-        grid.appendChild(imgElement);
+      canvas.innerHTML = '<p>Generating designs...</p>';
+      
+      try {
+        const result = await apClient.synthesize({
+          prompt: prompt,
+          variations: 4
+        });
+        
+        canvas.innerHTML = '';
+        result.images.forEach(image => {
+          const card = document.createElement('div');
+          card.className = 'design-card';
+          card.innerHTML = `
+            <img src="${image.url}" alt="${prompt}">
+            <button onclick="refineImage('${image.id}')">Refine</button>
+            <button onclick="downloadImage('${image.id}')">Download</button>
+          `;
+          canvas.appendChild(card);
+        });
+      } catch (error) {
+        canvas.innerHTML = `<p>Error: ${error.message}</p>`;
+      }
+    }
+
+    async function refineImage(imageId) {
+      const refined = await apClient.refine(imageId, {
+        brightness: 0.2,
+        contrast: 0.1,
+        saturation: -0.1
       });
-    });
+      
+      // Update UI with refined image
+      console.log('Refined image:', refined);
+    }
+
+    async function downloadImage(imageId) {
+      const download = await apClient.download(imageId, {
+        format: 'png',
+        resolution: '4K'
+      });
+      
+      window.open(download.url, '_blank');
+    }
   </script>
 </body>
 </html>
 ```
 
-### Responsive UI Configuration
+### Responsive Design Canvas
 
 ```html
-<style>
-  #aipixelperfect-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
+<div class="aipixel-workspace">
+  <div class="prompt-panel">
+    <input type="text" id="main-prompt" placeholder="Describe your design">
+    <select id="language-select">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="ja">日本語</option>
+    </select>
+    <button onclick="synthesize()">Synthesize</button>
+  </div>
+  
+  <div class="refinement-panel">
+    <label>Brightness: <input type="range" id="brightness" min="-100" max="100" value="0"></label>
+    <label>Contrast: <input type="range" id="contrast" min="-100" max="100" value="0"></label>
+    <label>Saturation: <input type="range" id="saturation" min="-100" max="100" value="0"></label>
+    <label>Style Weight: <input type="range" id="style-weight" min="0" max="100" value="70"></label>
+    <button onclick="applyRefinements()">Apply</button>
+  </div>
+  
+  <div class="preview-panel" id="preview">
+    <!-- Generated images appear here -->
+  </div>
+</div>
+
+<script>
+  let currentImageId = null;
+
+  async function synthesize() {
+    const prompt = document.getElementById('main-prompt').value;
+    const language = document.getElementById('language-select').value;
+    
+    const result = await apClient.synthesize({
+      prompt: prompt,
+      language: language,
+      variations: 4
+    });
+    
+    displayImages(result.images);
+    currentImageId = result.images[0].id;
   }
 
-  #output-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
+  async function applyRefinements() {
+    if (!currentImageId) return;
+    
+    const adjustments = {
+      brightness: parseInt(document.getElementById('brightness').value) / 100,
+      contrast: parseInt(document.getElementById('contrast').value) / 100,
+      saturation: parseInt(document.getElementById('saturation').value) / 100,
+      styleWeight: parseInt(document.getElementById('style-weight').value) / 100
+    };
+    
+    const refined = await apClient.refine(currentImageId, adjustments);
+    displayImages([refined.image]);
   }
 
-  @media (min-width: 768px) {
-    #output-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  function displayImages(images) {
+    const preview = document.getElementById('preview');
+    preview.innerHTML = images.map(img => `
+      <div class="image-card" onclick="selectImage('${img.id}')">
+        <img src="${img.url}" alt="Generated design">
+      </div>
+    `).join('');
   }
 
-  @media (min-width: 1024px) {
-    #output-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
+  function selectImage(imageId) {
+    currentImageId = imageId;
   }
-</style>
+</script>
 ```
 
-## Export Integration Patterns
+## Collaboration Features
 
-### Figma Export
+### Real-Time Annotation System
 
 ```javascript
-// Export to Figma with layer preservation
-async function exportToFigma(imageId, projectId) {
-  const exported = await client.export({
-    imageId: imageId,
-    format: 'figma',
-    destination: {
+// Initialize WebSocket connection for collaboration
+const WebSocket = require('ws');
+
+function initCollaboration(projectId) {
+  const ws = new WebSocket(process.env.WEBSOCKET_URL);
+  
+  ws.on('open', () => {
+    ws.send(JSON.stringify({
+      action: 'join',
       projectId: projectId,
-      apiToken: process.env.FIGMA_API_TOKEN
-    },
-    preserveLayers: true
+      userId: process.env.USER_ID
+    }));
   });
   
-  return exported.figmaUrl;
+  ws.on('message', (data) => {
+    const message = JSON.parse(data);
+    handleCollaborationEvent(message);
+  });
+  
+  return ws;
 }
 
-// Usage
-const figmaLink = await exportToFigma('img_abc123', 'proj_xyz789');
-console.log(`Design exported to: ${figmaLink}`);
-```
-
-### Adobe Creative Cloud Export
-
-```javascript
-// Export to Adobe Creative Cloud
-async function exportToAdobe(imageId, cloudPath) {
-  const exported = await client.export({
+// Add annotation to a design
+async function addAnnotation(imageId, annotation) {
+  const result = await client.annotate({
     imageId: imageId,
-    format: 'psd',
-    destination: {
-      service: 'adobe-cc',
-      path: cloudPath,
-      credentials: {
-        clientId: process.env.ADOBE_CLIENT_ID,
-        clientSecret: process.env.ADOBE_CLIENT_SECRET
-      }
-    },
-    resolution: '8192x8192',
-    colorSpace: 'Adobe RGB'
-  });
-  
-  return exported.adobeUrl;
-}
-```
-
-### Canva Export
-
-```javascript
-// Export to Canva
-async function exportToCanva(imageId) {
-  const exported = await client.export({
-    imageId: imageId,
-    format: 'png',
-    destination: {
-      service: 'canva',
-      apiKey: process.env.CANVA_API_KEY
-    },
-    transparency: true
-  });
-  
-  return exported.canvaUrl;
-}
-```
-
-## Collaboration & Review System
-
-### Submit Design for Review
-
-```javascript
-// Create review request
-async function submitForReview(imageId, reviewers) {
-  const review = await client.reviews.create({
-    imageId: imageId,
-    reviewers: reviewers, // Array of user IDs
-    metadata: {
-      prompt: "Original prompt text",
-      generationTime: Date.now(),
-      resolution: '4096x4096'
-    }
-  });
-  
-  return review.reviewId;
-}
-
-// Usage
-const reviewId = await submitForReview('img_abc123', [
-  'user_reviewer1',
-  'user_reviewer2'
-]);
-```
-
-### Annotate Design
-
-```javascript
-// Add annotation to specific area
-async function addAnnotation(reviewId, annotation) {
-  const annotated = await client.reviews.annotate(reviewId, {
-    coordinates: {
-      x: annotation.x,
+    annotation: {
+      type: annotation.type,        // 'circle', 'highlight', 'comment'
+      x: annotation.x,               // Coordinate
       y: annotation.y,
-      width: annotation.width,
-      height: annotation.height
-    },
-    comment: annotation.text,
-    type: 'circle' // or 'rectangle', 'arrow'
-  });
-  
-  return annotated.annotationId;
-}
-
-// Mark specific zone for feedback
-await addAnnotation('review_xyz789', {
-  x: 100,
-  y: 150,
-  width: 200,
-  height: 150,
-  text: "Adjust brightness in this area"
-});
-```
-
-### Vote on Design
-
-```javascript
-// Submit review vote
-async function voteOnDesign(reviewId, vote) {
-  const result = await client.reviews.vote(reviewId, {
-    status: vote, // 'Approved', 'Needs Revision', 'Out of Scope'
-    comment: "Optional feedback text"
-  });
-  
-  return result.voteId;
-}
-
-// Approve design
-await voteOnDesign('review_xyz789', 'Approved');
-```
-
-## Advanced Configuration
-
-### Style Genesis Module (Custom Styles)
-
-```javascript
-// Create custom art style
-async function createCustomStyle(styleConfig) {
-  const style = await client.styles.create({
-    name: styleConfig.name,
-    baseModel: 'stable-diffusion-xl',
-    trainingImages: styleConfig.referenceImages, // Array of URLs
-    parameters: {
-      styleStrength: styleConfig.strength || 0.8,
-      detailLevel: styleConfig.detail || 'high',
-      colorProfile: styleConfig.colors || 'natural'
+      radius: annotation.radius,
+      text: annotation.text,
+      author: process.env.USER_ID
     }
   });
   
-  return style.styleId;
+  return result.annotationId;
 }
 
-// Use custom style in generation
-async function generateWithStyle(prompt, styleId) {
-  const result = await client.synthesize({
-    prompt: prompt,
-    styleId: styleId,
-    variations: 4
+// Suggest alternative prompt in review
+async function suggestAlternative(imageId, alternativePrompt) {
+  const suggestion = await client.review.suggest({
+    originalImageId: imageId,
+    alternativePrompt: alternativePrompt,
+    reason: 'Improved clarity and style consistency'
   });
   
-  return result.images;
+  return suggestion.previewImages;
+}
+
+// Vote on design approval
+async function voteOnDesign(imageId, vote) {
+  await client.review.vote({
+    imageId: imageId,
+    vote: vote  // 'approved', 'needs_revision', 'out_of_scope'
+  });
 }
 ```
 
-### Prompt Scribe Assistant
+## Configuration
 
-```javascript
-// Enhance simple prompt with AI assistant
-async function enhancePrompt(simpleKeywords) {
-  const enhanced = await client.prompts.enhance({
-    keywords: simpleKeywords.split(',').map(k => k.trim()),
-    language: 'en',
-    style: 'professional',
-    detailLevel: 'comprehensive'
-  });
-  
-  return enhanced.prompt;
-}
-
-// Convert keywords to detailed prompt
-const keywords = "logo, tech, modern, blue";
-const detailedPrompt = await enhancePrompt(keywords);
-console.log(detailedPrompt);
-// Output: "A modern minimalist logo for a technology company featuring 
-// geometric shapes with a gradient blue color scheme, clean lines, 
-// and professional corporate styling"
-```
-
-## Environment Variables
-
-Configure these environment variables for full functionality:
+### Environment Variables
 
 ```bash
-# Core API
+# API Configuration
 AIPIXELPERFECT_API_KEY=your_api_key_here
-AIPIXELPERFECT_ENDPOINT=https://api.aipixelperfect.io/v1
+AIPIXELPERFECT_ENDPOINT=https://api.aipixelperfect.com
 
-# Export Integrations
-FIGMA_API_TOKEN=your_figma_token
-ADOBE_CLIENT_ID=your_adobe_client_id
-ADOBE_CLIENT_SECRET=your_adobe_client_secret
-CANVA_API_KEY=your_canva_api_key
+# Neural Engine Settings
+SYNTHESIS_ENGINE_KEY=your_engine_key
+MAX_RESOLUTION=8192
+DEFAULT_VARIATIONS=4
 
-# Collaboration
-WEBHOOK_URL=https://your-domain.com/webhooks/aipixelperfect
+# WebSocket for Collaboration
+WEBSOCKET_URL=wss://collab.aipixelperfect.com
+
+# Export Integration Tokens
+FIGMA_ACCESS_TOKEN=your_figma_token
+ADOBE_ACCESS_TOKEN=your_adobe_token
+CANVA_API_KEY=your_canva_key
+
+# User Identification
+USER_ID=your_user_id
+```
+
+### Client Configuration
+
+```javascript
+const client = new AiPixelPerfect({
+  apiKey: process.env.AIPIXELPERFECT_API_KEY,
+  endpoint: process.env.AIPIXELPERFECT_ENDPOINT,
+  options: {
+    timeout: 60000,                    // Request timeout in ms
+    maxRetries: 3,                     // Retry failed requests
+    defaultResolution: '2048x2048',    // Default output resolution
+    cacheResults: true,                // Cache generated images
+    enableCollaboration: true,         // Enable WebSocket features
+    culturalAdaptation: true,          // Use language-aware styling
+    styleConflictDetection: true       // Check for copyright issues
+  }
+});
 ```
 
 ## Common Patterns
@@ -453,197 +463,255 @@ WEBHOOK_URL=https://your-domain.com/webhooks/aipixelperfect
 ### Batch Generation Workflow
 
 ```javascript
-// Generate multiple designs from prompt variations
-async function batchGenerate(basePrompt, variations) {
+// Generate multiple designs from a list of prompts
+async function batchGenerate(prompts) {
   const results = await Promise.all(
-    variations.map(variation => 
+    prompts.map(prompt => 
       client.synthesize({
-        prompt: `${basePrompt}, ${variation}`,
+        prompt: prompt,
         variations: 2,
-        resolution: '2048x2048'
+        resolution: '1024x1024'
       })
     )
   );
   
-  return results.flat();
+  return results.flatMap(r => r.images);
 }
 
-// Create logo variations
-const logos = await batchGenerate("minimalist tech logo", [
-  "with blue and white colors",
-  "with green accent",
-  "with abstract geometric shapes",
-  "with typography focus"
+// Example usage
+const socialMediaBatch = await batchGenerate([
+  'Instagram story background with gradient',
+  'LinkedIn banner with professional theme',
+  'Twitter header with tech aesthetic'
 ]);
 ```
 
-### Style Consistency Across Projects
+### Style Consistency Across Designs
 
 ```javascript
-// Save generation seed for reproducibility
-async function generateConsistent(prompt, previousSeed) {
-  const result = await client.synthesize({
-    prompt: prompt,
-    seed: previousSeed || Math.floor(Math.random() * 1000000),
-    variations: 1,
-    styleWeight: 0.85
+// Create a custom style and apply it to multiple generations
+async function createConsistentBrandAssets(brandStyle, prompts) {
+  // Define custom style
+  const style = await client.styles.create({
+    name: 'Brand Style 2026',
+    basePrompt: brandStyle,
+    colorPalette: ['#1a73e8', '#34a853', '#fbbc04'],
+    preserveAcrossGenerations: true
   });
   
-  // Store seed for future consistency
-  localStorage.setItem('last_seed', result.seed);
-  
-  return result.images[0];
-}
-
-// Maintain visual consistency
-const image1 = await generateConsistent("company banner design");
-const image2 = await generateConsistent(
-  "matching social media post", 
-  localStorage.getItem('last_seed')
-);
-```
-
-### Error Handling and Retry Logic
-
-```javascript
-// Robust generation with retry
-async function generateWithRetry(prompt, maxRetries = 3) {
-  let lastError;
-  
-  for (let i = 0; i < maxRetries; i++) {
-    try {
-      const result = await client.synthesize({
-        prompt: prompt,
-        variations: 4,
-        timeout: 60000 // 60 second timeout
-      });
-      
-      return result.images;
-    } catch (error) {
-      lastError = error;
-      console.warn(`Attempt ${i + 1} failed:`, error.message);
-      
-      // Wait before retry (exponential backoff)
-      await new Promise(resolve => 
-        setTimeout(resolve, Math.pow(2, i) * 1000)
-      );
-    }
+  // Generate assets with consistent style
+  const assets = [];
+  for (const prompt of prompts) {
+    const result = await client.synthesize({
+      prompt: prompt,
+      styleId: style.id,
+      variations: 1
+    });
+    assets.push(result.images[0]);
   }
   
-  throw new Error(`Generation failed after ${maxRetries} attempts: ${lastError.message}`);
+  return assets;
+}
+```
+
+### Iterative Refinement Loop
+
+```javascript
+// Iteratively refine until approval criteria met
+async function refineUntilApproved(initialPrompt, approvalFn) {
+  let currentImages = await generateDesign(initialPrompt);
+  let iteration = 0;
+  const maxIterations = 10;
+  
+  while (iteration < maxIterations) {
+    const approved = await approvalFn(currentImages[0]);
+    if (approved) {
+      return currentImages[0];
+    }
+    
+    // Adjust and regenerate
+    const refinedPrompt = await adjustPromptBasedOnFeedback(
+      initialPrompt,
+      currentImages[0]
+    );
+    
+    currentImages = await generateDesign(refinedPrompt);
+    iteration++;
+  }
+  
+  throw new Error('Max iterations reached without approval');
 }
 ```
 
 ## Troubleshooting
 
-### Copyright Conflict Detection
+### Generation Failures
 
-If generation fails with copyright warning:
+**Issue**: Synthesis times out or returns errors
 
 ```javascript
-try {
-  const result = await client.synthesize({
-    prompt: "image that resembles protected work"
-  });
-} catch (error) {
-  if (error.code === 'COPYRIGHT_CONFLICT') {
-    console.log('Conflict details:', error.details);
-    // Error provides alternative prompt suggestions
-    const alternatives = error.alternatives;
-    console.log('Try instead:', alternatives);
+// Implement retry logic with exponential backoff
+async function robustGenerate(prompt, maxRetries = 3) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      const result = await client.synthesize({
+        prompt: prompt,
+        timeout: 90000  // Increase timeout
+      });
+      return result.images;
+    } catch (error) {
+      if (error.code === 'TIMEOUT') {
+        const delay = Math.pow(2, i) * 1000;
+        await new Promise(resolve => setTimeout(resolve, delay));
+        continue;
+      }
+      throw error;
+    }
   }
+  throw new Error('Generation failed after retries');
 }
 ```
 
-### Low-Quality Output
+### Style Conflict Warnings
 
-Improve generation quality:
-
-```javascript
-// Increase resolution and style weight
-const result = await client.synthesize({
-  prompt: "detailed architectural visualization",
-  resolution: '4096x4096', // Higher resolution
-  styleWeight: 0.95, // More artistic interpretation
-  detailLevel: 'ultra', // Maximum detail
-  samplingSteps: 100 // More diffusion steps
-});
-```
-
-### Slow Generation Times
-
-Optimize for speed:
+**Issue**: Prompts flagged for potential copyright issues
 
 ```javascript
-// Use lower resolution for previews
-const preview = await client.synthesize({
-  prompt: prompt,
-  resolution: '1024x1024', // Lower resolution
-  variations: 2, // Fewer variations
-  priority: 'speed' // Speed over quality
-});
-
-// Generate full resolution after approval
-const final = await client.synthesize({
-  prompt: prompt,
-  resolution: '8192x8192',
-  variations: 1,
-  seed: preview.seed // Use approved variation's seed
-});
-```
-
-### API Rate Limits
-
-Handle rate limiting:
-
-```javascript
-async function generateWithRateLimit(prompt) {
+// Handle style conflict detection
+async function safeGenerate(prompt) {
   try {
-    return await client.synthesize({ prompt });
+    const result = await client.synthesize({ prompt });
+    return result.images;
   } catch (error) {
-    if (error.code === 'RATE_LIMIT_EXCEEDED') {
-      const retryAfter = error.retryAfter; // Seconds
-      console.log(`Rate limited. Retry after ${retryAfter}s`);
+    if (error.code === 'STYLE_CONFLICT') {
+      console.warn('Conflict detected:', error.conflicts);
       
-      await new Promise(resolve => 
-        setTimeout(resolve, retryAfter * 1000)
-      );
-      
-      return await client.synthesize({ prompt });
+      // Use suggested alternative
+      const alternative = error.suggestedPrompt;
+      return await client.synthesize({ prompt: alternative });
     }
     throw error;
   }
 }
 ```
 
-### Language/Cultural Mismatch
+### Resolution and Performance
 
-Force specific cultural styling:
+**Issue**: High-resolution outputs take too long
 
 ```javascript
-// Override automatic cultural detection
-const result = await client.synthesize({
-  prompt: "traditional tea ceremony",
-  language: 'ja', // Force Japanese interpretation
-  culturalContext: {
-    region: 'JP',
-    stylePreset: 'minimalist-zen',
-    colorPalette: 'natural-earth-tones'
-  }
-});
+// Progressive generation: start low, upscale if needed
+async function progressiveGenerate(prompt) {
+  // Generate at lower resolution first
+  const preview = await client.synthesize({
+    prompt: prompt,
+    resolution: '512x512',
+    variations: 4
+  });
+  
+  // User selects preferred variation
+  const selected = preview.images[0];
+  
+  // Upscale selected image
+  const highRes = await client.upscale({
+    imageId: selected.id,
+    targetResolution: '4096x4096'
+  });
+  
+  return highRes.image;
+}
 ```
 
-## Performance Tips
+### Export Integration Errors
 
-1. **Cache frequently used styles** - Store custom style IDs locally
-2. **Use webhooks for long operations** - Don't block on 8K generations
-3. **Batch similar requests** - Group prompts for better API utilization
-4. **Preview before full-res** - Generate low-res previews first
-5. **Store seeds for variations** - Reproduce successful generations reliably
+**Issue**: Figma/Adobe exports fail
 
-## Additional Resources
+```javascript
+// Validate export configuration before attempting
+async function validateAndExport(imageId, destination) {
+  const validation = await client.export.validate({
+    destination: destination,
+    config: {
+      accessToken: process.env[`${destination.toUpperCase()}_ACCESS_TOKEN`]
+    }
+  });
+  
+  if (!validation.valid) {
+    throw new Error(`Export validation failed: ${validation.errors.join(', ')}`);
+  }
+  
+  return await client.export({
+    imageId: imageId,
+    destination: destination,
+    config: validation.config
+  });
+}
+```
 
-- API Documentation: `https://docs.aipixelperfect.io`
-- Contributing Guidelines: `CONTRIBUTING.md` in repository
-- Issue Tracking: GitHub Issues for bug reports and feature requests
-- Community Forum: Design review discussions and prompt sharing
+### Language-Specific Prompt Issues
+
+**Issue**: Multilingual prompts not generating expected cultural styles
+
+```javascript
+// Explicitly set cultural context
+async function culturallyAwareGenerate(prompt, language, region) {
+  const result = await client.synthesize({
+    prompt: prompt,
+    language: language,
+    culturalContext: {
+      region: region,              // 'japan', 'latin_america', etc.
+      applyColorPalette: true,     // Use regional color preferences
+      applySymbolism: true,        // Respect cultural symbols
+      localizeComposition: true    // Adjust layout principles
+    }
+  });
+  
+  return result.images;
+}
+```
+
+## Advanced Features
+
+### Custom Neural Style Training
+
+```javascript
+// Train a custom style from reference images
+async function trainCustomStyle(styleImages) {
+  const training = await client.styles.train({
+    name: 'Custom Brand Style',
+    referenceImages: styleImages.map(img => img.url),
+    epochs: 50,
+    learningRate: 0.001
+  });
+  
+  // Poll training status
+  let status;
+  do {
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    status = await client.styles.getTrainingStatus(training.jobId);
+  } while (status.state === 'training');
+  
+  return status.styleId;
+}
+```
+
+### Prompt Scribe Assistant
+
+```javascript
+// Use AI to enhance prompts from simple keywords
+async function enhancePrompt(keywords) {
+  const enhanced = await client.promptScribe.enhance({
+    keywords: keywords,
+    targetLength: 'detailed',    // 'brief', 'detailed', 'verbose'
+    includeStyleTags: true,
+    optimizeForEngine: true
+  });
+  
+  return enhanced.prompt;
+}
+
+// Example
+const simpleInput = ['logo', 'tech', 'blue'];
+const detailedPrompt = await enhancePrompt(simpleInput);
+// Returns: "A modern minimalist tech startup logo featuring blue gradient transitions..."
+```
