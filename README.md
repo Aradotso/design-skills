@@ -108,6 +108,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [solidworks-design-vault-cad](skills/solidworks-design-vault-cad/) | [install](https://skills.sh/aradotso/design-skills/solidworks-design-vault-cad) | [fgiafrica/SolidWork-Design-Vault](https://github.com/fgiafrica/SolidWork-Design-Vault) | 2026-06-30 |
 | [aipixelperfect-design-generator](skills/aipixelperfect-design-generator/) | [install](https://skills.sh/aradotso/design-skills/aipixelperfect-design-generator) | [abnormal-codex/Ai-Pixel-Design-Archive](https://github.com/abnormal-codex/Ai-Pixel-Design-Archive) | 2026-06-30 |
 | [aipixelperfect-design-engine](skills/aipixelperfect-design-engine/) | [install](https://skills.sh/aradotso/design-skills/aipixelperfect-design-engine) | [abnormal-codex/Ai-Pixel-Design-Archive](https://github.com/abnormal-codex/Ai-Pixel-Design-Archive) | 2026-06-30 |
+| [ai-pixel-perfect-design-generator](skills/ai-pixel-perfect-design-generator/) | [install](https://skills.sh/aradotso/design-skills/ai-pixel-perfect-design-generator) | [abnormal-codex/Ai-Pixel-Design-Archive](https://github.com/abnormal-codex/Ai-Pixel-Design-Archive) | 2026-06-30 |
 <!-- SKILL_INDEX -->
 
 ---
