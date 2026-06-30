@@ -104,6 +104,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [vibe-nothing-ui-design](skills/vibe-nothing-ui-design/) | [install](https://skills.sh/aradotso/design-skills/vibe-nothing-ui-design) | [wangbh030722/vibe-nothing-ui-design](https://github.com/wangbh030722/vibe-nothing-ui-design) | 2026-06-19 |
 | [vibecoded-design-tells-analysis](skills/vibecoded-design-tells-analysis/) | [install](https://skills.sh/aradotso/design-skills/vibecoded-design-tells-analysis) | [JCarterJohnson/vibecoded-design-tells](https://github.com/JCarterJohnson/vibecoded-design-tells) | 2026-06-22 |
 | [design-qa-review-skill](skills/design-qa-review-skill/) | [install](https://skills.sh/aradotso/design-skills/design-qa-review-skill) | [ColourCloudSky/design-qa-review-skill](https://github.com/ColourCloudSky/design-qa-review-skill) | 2026-06-27 |
+| [power-bi-design-vault-dashboards](skills/power-bi-design-vault-dashboards/) | [install](https://skills.sh/aradotso/design-skills/power-bi-design-vault-dashboards) | [Lithiumgreentek/power-bi-design-vault](https://github.com/Lithiumgreentek/power-bi-design-vault) | 2026-06-30 |
 <!-- SKILL_INDEX -->
 
 ---
