@@ -106,6 +106,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [design-qa-review-skill](skills/design-qa-review-skill/) | [install](https://skills.sh/aradotso/design-skills/design-qa-review-skill) | [ColourCloudSky/design-qa-review-skill](https://github.com/ColourCloudSky/design-qa-review-skill) | 2026-06-27 |
 | [power-bi-design-vault-dashboards](skills/power-bi-design-vault-dashboards/) | [install](https://skills.sh/aradotso/design-skills/power-bi-design-vault-dashboards) | [Lithiumgreentek/power-bi-design-vault](https://github.com/Lithiumgreentek/power-bi-design-vault) | 2026-06-30 |
 | [solidworks-design-vault-cad](skills/solidworks-design-vault-cad/) | [install](https://skills.sh/aradotso/design-skills/solidworks-design-vault-cad) | [fgiafrica/SolidWork-Design-Vault](https://github.com/fgiafrica/SolidWork-Design-Vault) | 2026-06-30 |
+| [aipixelperfect-design-generator](skills/aipixelperfect-design-generator/) | [install](https://skills.sh/aradotso/design-skills/aipixelperfect-design-generator) | [abnormal-codex/Ai-Pixel-Design-Archive](https://github.com/abnormal-codex/Ai-Pixel-Design-Archive) | 2026-06-30 |
 <!-- SKILL_INDEX -->
 
 ---
