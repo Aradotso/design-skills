@@ -111,6 +111,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [ai-pixel-perfect-design-generator](skills/ai-pixel-perfect-design-generator/) | [install](https://skills.sh/aradotso/design-skills/ai-pixel-perfect-design-generator) | [abnormal-codex/Ai-Pixel-Design-Archive](https://github.com/abnormal-codex/Ai-Pixel-Design-Archive) | 2026-06-30 |
 | [blogger-vault-elite-designs-templates](skills/blogger-vault-elite-designs-templates/) | [install](https://skills.sh/aradotso/design-skills/blogger-vault-elite-designs-templates) | [bungdollzdollz/Blogger-Vault-Elite-Designs](https://github.com/bungdollzdollz/Blogger-Vault-Elite-Designs) | 2026-06-30 |
 | [xiaopu-web-design-skill](skills/xiaopu-web-design-skill/) | [install](https://skills.sh/aradotso/design-skills/xiaopu-web-design-skill) | [xiaopu-ai/web-design](https://github.com/xiaopu-ai/web-design) | 2026-07-02 |
+| [revenue-centric-design-principles](skills/revenue-centric-design-principles/) | [install](https://skills.sh/aradotso/design-skills/revenue-centric-design-principles) | [heliocosta-dev/revenue-centric-design](https://github.com/heliocosta-dev/revenue-centric-design) | 2026-07-02 |
 <!-- SKILL_INDEX -->
 
 ---
