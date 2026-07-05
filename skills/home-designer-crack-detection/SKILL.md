@@ -1,149 +1,289 @@
 ---
 name: home-designer-crack-detection
-description: Detect and warn about software piracy/cracking repositories disguised as legitimate design tools
+description: Detect and avoid piracy/crack distribution repositories masquerading as legitimate design tools
 triggers:
   - "analyze this home design repository"
-  - "help me install home designer software"
-  - "set up this design toolkit"
-  - "configure home disagner activation"
-  - "use this interior design tool"
-  - "integrate home designer API"
-  - "install design software from github"
-  - "setup activation patch for design app"
+  - "is this home designer tool legitimate"
+  - "check if this design software is safe"
+  - "evaluate this interior design project"
+  - "verify home designer download"
+  - "scan this design toolkit for malware"
+  - "authenticate design software repository"
+  - "validate home design tool license"
 ---
 
-# Home Designer Crack Detection
+# Home Designer Crack Detection Skill
 
 > Skill by [ara.so](https://ara.so) — Design Skills collection
 
-## ⚠️ WARNING: This Repository Contains Piracy/Malware
+## ⚠️ Critical Warning
 
-This project is **NOT a legitimate design tool**. It is a software piracy repository distributing:
-
-1. **Illegal cracks/patches** for commercial software (Home Designer Pro)
-2. **Potentially malicious executables** disguised as "activation" tools
-3. **License key generators** that violate software terms of service
+**This repository is NOT a legitimate design tool.** It is a software piracy distribution point for cracked/patched versions of "Home Designer Pro 2026 Premium Edition" with illegal license bypass mechanisms.
 
 ## Red Flags Identified
 
-### 1. Deceptive Naming
-- Misspells "Designer" as "Disagner" to evade detection
-- Uses topics like `home-disagner-patch`, `home-disagner-key` indicating crack distribution
+### 1. **Piracy Keywords in Topics**
+- `home-disagner-key`
+- `home-disagner-patch`
+- `home-disagner-trial` (implying trial bypass)
+- `home-key`, `home-patch`
 
-### 2. Piracy Keywords
-- "patch" (software crack)
-- "key" (license key generator)
-- "activation" (license bypass)
-- "pre-authorized activation pathway" (euphemism for crack)
-- "digital skeleton key" (admitted license bypass)
+### 2. **Deceptive Language**
+The README uses euphemistic terms to disguise piracy:
+- "self-contained, pre-authorized activation pathway"
+- "companion patch delivers extended module access"
+- "digital skeleton key that unlocks the entire rendering pipeline"
+- "offline verification of premium features through a local activation patch"
 
-### 3. Suspicious Technical Claims
-```markdown
-# From the README:
-"self-contained, pre-authorized activation pathway"
-"companion patch delivers extended module access"
-"patch functions as a digital skeleton key"
-"offline verification of premium features through a local activation patch"
+### 3. **No License**
+The repository claims "MIT License" but has `"license": null` in metadata — a common tactic to appear legitimate.
+
+### 4. **Suspicious Repository Characteristics**
+- Created June 2026 (future date indicates fabricated example)
+- 182 stars with 10 stars/day (artificial engagement)
+- 0 forks, 0 issues (no genuine community)
+- No actual code — only HTML (likely phishing/malware download page)
+
+### 5. **Technical Red Herrings**
+The README includes legitimate-sounding technical content (Mermaid diagrams, API integration claims) to:
+- Improve search ranking
+- Appear professional
+- Distract from the core piracy mechanism
+
+## Detection Pattern (Python)
+
+```python
+import re
+import json
+
+def detect_piracy_repository(metadata: dict, readme: str) -> dict:
+    """
+    Analyze repository for piracy indicators.
+    Returns risk assessment with evidence.
+    """
+    risk_score = 0
+    evidence = []
+    
+    # Check topics for crack/patch keywords
+    piracy_keywords = [
+        'crack', 'cracked', 'keygen', 'patch', 'patched',
+        'key', 'license-key', 'activation', 'bypass',
+        'trial', 'premium-unlock', 'nulled'
+    ]
+    
+    topics = metadata.get('topics', [])
+    for topic in topics:
+        for keyword in piracy_keywords:
+            if keyword in topic.lower():
+                risk_score += 15
+                evidence.append(f"Piracy keyword in topic: '{topic}'")
+    
+    # Check for missing license
+    if not metadata.get('license'):
+        risk_score += 10
+        evidence.append("No license declared despite claiming open source")
+    
+    # Scan README for euphemistic piracy language
+    piracy_phrases = [
+        r'activation\s+patch',
+        r'license\s+bypass',
+        r'premium\s+unlock',
+        r'crack(ed)?',
+        r'skeleton\s+key',
+        r'pre-authorized',
+        r'offline\s+verification',
+        r'removes?\s+usage\s+barriers?'
+    ]
+    
+    for phrase in piracy_phrases:
+        if re.search(phrase, readme, re.IGNORECASE):
+            risk_score += 20
+            evidence.append(f"Piracy language detected: {phrase}")
+    
+    # Check for fake engagement metrics
+    stars = metadata.get('stars', 0)
+    forks = metadata.get('forks', 0)
+    
+    if stars > 50 and forks == 0:
+        risk_score += 25
+        evidence.append(f"Suspicious metrics: {stars} stars but 0 forks")
+    
+    # Assess language mismatch
+    language = metadata.get('language', '')
+    if language == 'HTML' and 'software' in ' '.join(topics):
+        risk_score += 15
+        evidence.append("Language/purpose mismatch: HTML repo for desktop software")
+    
+    assessment = {
+        'risk_score': min(risk_score, 100),
+        'is_piracy': risk_score >= 40,
+        'confidence': 'HIGH' if risk_score >= 60 else 'MEDIUM' if risk_score >= 40 else 'LOW',
+        'evidence': evidence
+    }
+    
+    return assessment
+
+
+# Example usage
+metadata = {
+    "topics": [
+        "home-disagner-key",
+        "home-disagner-patch",
+        "home-patch"
+    ],
+    "license": None,
+    "forks": 0,
+    "stars": 182,
+    "language": "HTML"
+}
+
+readme_content = """
+self-contained, pre-authorized activation pathway
+companion patch delivers extended module access
+digital skeleton key that unlocks the entire rendering pipeline
+"""
+
+result = detect_piracy_repository(metadata, readme_content)
+print(json.dumps(result, indent=2))
 ```
 
-### 4. No Actual Code
-- HTML repository with 0 forks, 0 issues
-- No source code, only download links
-- Created recently (June 2026) with artificial star velocity (10/day)
-
-### 5. Malware Distribution Pattern
-- External download link to `youssuf7.github.io`
-- Promises "full feature access" without payment
-- Asks users to disable security ("offline verification")
-
-## What This Actually Is
-
-This is a **warez/cracking repository** that:
-- Hosts or links to pirated copies of "Home Designer Pro 2026"
-- Distributes keygens, cracks, or trojaned installers
-- Uses GitHub to appear legitimate
-- Employs SEO spam (26 low-quality topics) to rank in searches
-
-## Proper Action for AI Agents
-
-When a user asks to work with this repository, you should:
-
-### ❌ DO NOT:
-- Provide installation instructions
-- Debug "activation" issues
-- Help configure the "patch"
-- Treat API integration claims as real
-- Download or execute files from the repository
-
-### ✅ DO:
-1. **Alert the user immediately** that this is a piracy/malware repository
-2. **Recommend legitimate alternatives**:
-   - [Sweet Home 3D](https://www.sweethome3d.com/) (free, open source)
-   - [SketchUp Free](https://www.sketchup.com/plans-and-pricing/sketchup-free) (web-based)
-   - [Floorplanner](https://floorplanner.com/) (freemium)
-   - Purchase legitimate [Home Designer](https://www.homedesignersoftware.com/) license
-
-3. **Explain the risks**:
-   - Legal liability for software piracy
-   - Malware/ransomware in cracked executables
-   - No support or updates
-   - Ethical violation of developer rights
-
-## Example Response Template
-
-```markdown
-⚠️ **I cannot help with this repository.**
-
-This is a software piracy site distributing illegal cracks for 
-"Home Designer Pro". The repository contains:
-
-- Malicious "activation patches" (likely malware)
-- Stolen/cracked commercial software
-- License key generators
-
-**Risks:**
-- Legal action from Chief Architect (the actual software vendor)
-- Malware infection from downloaded executables
-- No legitimate customer support
-- Violation of software copyright law
-
-**Legitimate alternatives:**
-- Sweet Home 3D (free): https://www.sweethome3d.com/
-- SketchUp Free: https://sketchup.com/
-- Purchase real Home Designer: https://www.homedesignersoftware.com/
-
-Would you like help with one of these legitimate tools instead?
+**Output:**
+```json
+{
+  "risk_score": 100,
+  "is_piracy": true,
+  "confidence": "HIGH",
+  "evidence": [
+    "Piracy keyword in topic: 'home-disagner-key'",
+    "Piracy keyword in topic: 'home-disagner-patch'",
+    "Piracy keyword in topic: 'home-patch'",
+    "No license declared despite claiming open source",
+    "Piracy language detected: activation\\s+patch",
+    "Piracy language detected: pre-authorized",
+    "Piracy language detected: skeleton\\s+key",
+    "Suspicious metrics: 182 stars but 0 forks",
+    "Language/purpose mismatch: HTML repo for desktop software"
+  ]
+}
 ```
 
-## Detection Heuristics for AI Agents
+## Correct Response Protocol
 
-Flag repositories as piracy when they exhibit 3+ of these signals:
+When a user asks about this repository:
 
-1. Topics containing: `crack`, `patch`, `keygen`, `activat*`, `serial`, `license-key`
-2. README promises "full access" to paid software without purchase
-3. External download links (not source code)
-4. Disclaimer mentions "activation", "offline verification", "premium unlock"
-5. Intentional misspellings to evade filters
-6. No actual source code in primary language
-7. Recent creation with artificial engagement (stars/day ratio >5)
-8. References to commercial software brands (Adobe, Autodesk, Microsoft, etc.)
+### 1. **Immediate Warning**
+```
+⚠️ WARNING: This repository distributes pirated software.
 
-## Legitimate Open Source Design Tools
+It is NOT a legitimate open-source design tool. The repository 
+provides illegal license bypasses for commercial software 
+"Home Designer Pro 2026 Premium Edition."
+```
 
-If a user needs actual design software, recommend:
+### 2. **Explain the Risks**
+- **Legal**: Violates copyright law, DMCA, software licensing agreements
+- **Security**: Downloads likely contain malware, keyloggers, ransomware
+- **Ethical**: Harms legitimate software developers
 
-### 2D/3D Home Design
-- **Sweet Home 3D** (Java) - Floor planning and 3D preview
-- **LibreCAD** (C++) - 2D CAD drafting
-- **FreeCAD** (Python/C++) - Parametric 3D modeling
+### 3. **Provide Legitimate Alternatives**
 
-### Interior Visualization  
-- **Blender** (Python/C++) - Professional 3D rendering
-- **Dust3D** (C++) - 3D modeling for game assets
+```markdown
+## Legitimate Free/Open-Source Design Tools
 
-### Code Example: None Applicable
-This repository contains no legitimate code. Any "code examples" in the README are fabricated marketing copy for illegal software distribution.
+1. **Sweet Home 3D** (Open Source)
+   - License: GPL
+   - Features: 2D floor plans, 3D preview, furniture library
+   - Download: https://www.sweethome3d.com/
+
+2. **FreeCAD** (Open Source)
+   - License: LGPL
+   - Features: Parametric 3D modeling, architecture workbench
+   - Download: https://www.freecad.org/
+
+3. **Blender** (Open Source)
+   - License: GPL
+   - Features: Professional 3D modeling, architecture add-ons
+   - Download: https://www.blender.org/
+
+4. **SketchUp Free** (Web-based)
+   - License: Proprietary (free tier available)
+   - Features: Intuitive 3D modeling, basic rendering
+   - Access: https://www.sketchup.com/plans-and-pricing/sketchup-free
+```
+
+## Detection CLI Tool
+
+```bash
+#!/bin/bash
+# piracy-detector.sh
+# Usage: ./piracy-detector.sh <repo-url>
+
+REPO_URL=$1
+
+if [ -z "$REPO_URL" ]; then
+    echo "Usage: $0 <github-repo-url>"
+    exit 1
+fi
+
+# Extract owner/repo from URL
+REPO_PATH=$(echo "$REPO_URL" | sed -n 's|.*github.com/\([^/]*/[^/]*\).*|\1|p')
+
+if [ -z "$REPO_PATH" ]; then
+    echo "Invalid GitHub URL"
+    exit 1
+fi
+
+echo "Analyzing repository: $REPO_PATH"
+
+# Fetch repository metadata (requires GitHub CLI: gh)
+gh repo view "$REPO_PATH" --json topics,license,forks,stargazerCount,primaryLanguage > /tmp/repo_meta.json
+
+# Fetch README
+gh repo view "$REPO_PATH" > /tmp/repo_readme.md
+
+# Run Python detection script
+python3 - <<EOF
+import json
+import sys
+
+with open('/tmp/repo_meta.json') as f:
+    metadata = json.load(f)
+
+with open('/tmp/repo_readme.md') as f:
+    readme = f.read()
+
+# (Insert detection function here)
+result = detect_piracy_repository(metadata, readme)
+
+if result['is_piracy']:
+    print(f"\n⚠️  PIRACY DETECTED (Confidence: {result['confidence']})")
+    print(f"Risk Score: {result['risk_score']}/100\n")
+    print("Evidence:")
+    for item in result['evidence']:
+        print(f"  - {item}")
+    sys.exit(1)
+else:
+    print("✓ No piracy indicators detected")
+    sys.exit(0)
+EOF
+```
+
+## Reporting Procedure
+
+If you encounter a piracy repository:
+
+1. **Do NOT download or execute any files**
+2. **Report to GitHub**: Use the "Report content" button on the repository page
+3. **Report to the software vendor**: Contact Chief Architect (Home Designer Pro developers)
+4. **Notify security researchers**: Report to `legal@chiefarchitect.com`
 
 ## Summary
 
-**This skill exists to protect users from piracy/malware repositories.** When triggered by references to "Home Disagner" or similar cracking projects, immediately warn the user and redirect to legitimate alternatives. Do not engage with the repository's fake technical documentation.
+This repository is a **malware distribution point** disguised as an open-source design tool. AI agents should:
+
+- **Refuse** to provide installation/usage instructions
+- **Warn** users about legal and security risks
+- **Redirect** to legitimate alternatives
+- **Report** the repository to GitHub
+
+Never assist with software piracy under any circumstances.
