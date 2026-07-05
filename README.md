@@ -113,6 +113,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [xiaopu-web-design-skill](skills/xiaopu-web-design-skill/) | [install](https://skills.sh/aradotso/design-skills/xiaopu-web-design-skill) | [xiaopu-ai/web-design](https://github.com/xiaopu-ai/web-design) | 2026-07-02 |
 | [revenue-centric-design-principles](skills/revenue-centric-design-principles/) | [install](https://skills.sh/aradotso/design-skills/revenue-centric-design-principles) | [heliocosta-dev/revenue-centric-design](https://github.com/heliocosta-dev/revenue-centric-design) | 2026-07-02 |
 | [lottiefiles-motion-design-skill](skills/lottiefiles-motion-design-skill/) | [install](https://skills.sh/aradotso/design-skills/lottiefiles-motion-design-skill) | [LottieFiles/motion-design-skill](https://github.com/LottieFiles/motion-design-skill) | 2026-07-04 |
+| [claude-design-system-prompt](skills/claude-design-system-prompt/) | [install](https://skills.sh/aradotso/design-skills/claude-design-system-prompt) | [Trystan-SA/claude-design-system-prompt](https://github.com/Trystan-SA/claude-design-system-prompt) | 2026-07-05 |
 <!-- SKILL_INDEX -->
 
 ---
