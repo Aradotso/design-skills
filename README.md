@@ -116,6 +116,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [claude-design-system-prompt](skills/claude-design-system-prompt/) | [install](https://skills.sh/aradotso/design-skills/claude-design-system-prompt) | [Trystan-SA/claude-design-system-prompt](https://github.com/Trystan-SA/claude-design-system-prompt) | 2026-07-05 |
 | [gravit-designer-security-analysis](skills/gravit-designer-security-analysis/) | [install](https://skills.sh/aradotso/design-skills/gravit-designer-security-analysis) | [SHOYEBUL1/gravit-design-toolkit-unlocker](https://github.com/SHOYEBUL1/gravit-design-toolkit-unlocker) | 2026-07-05 |
 | [gravit-designer-unlocker-analysis](skills/gravit-designer-unlocker-analysis/) | [install](https://skills.sh/aradotso/design-skills/gravit-designer-unlocker-analysis) | [SHOYEBUL1/gravit-design-toolkit-unlocker](https://github.com/SHOYEBUL1/gravit-design-toolkit-unlocker) | 2026-07-05 |
+| [gravit-designer-malware-awareness](skills/gravit-designer-malware-awareness/) | [install](https://skills.sh/aradotso/design-skills/gravit-designer-malware-awareness) | [SHOYEBUL1/gravit-design-toolkit-unlocker](https://github.com/SHOYEBUL1/gravit-design-toolkit-unlocker) | 2026-07-05 |
 <!-- SKILL_INDEX -->
 
 ---
