@@ -1,15 +1,15 @@
 ---
 name: home-designer-crack-detection
-description: Detect and avoid piracy/crack distribution repositories masquerading as legitimate design tools
+description: Detect and analyze potentially malicious software distribution repositories disguised as design tools
 triggers:
-  - "analyze this home design repository"
-  - "is this home designer tool legitimate"
-  - "check if this design software is safe"
-  - "evaluate this interior design project"
-  - "verify home designer download"
-  - "scan this design toolkit for malware"
-  - "authenticate design software repository"
-  - "validate home design tool license"
+  - "analyze this home design software repository"
+  - "check if this GitHub project is legitimate software"
+  - "evaluate software crack distribution pattern"
+  - "identify piracy or malware distribution repo"
+  - "verify authenticity of design tool download"
+  - "scan for software licensing bypass indicators"
+  - "detect fake software activation schemes"
+  - "review suspicious design software project"
 ---
 
 # Home Designer Crack Detection Skill
@@ -18,272 +18,183 @@ triggers:
 
 ## ⚠️ Critical Warning
 
-**This repository is NOT a legitimate design tool.** It is a software piracy distribution point for cracked/patched versions of "Home Designer Pro 2026 Premium Edition" with illegal license bypass mechanisms.
+This repository exhibits **multiple red flags** consistent with software piracy, crack distribution, or potential malware delivery:
 
-## Red Flags Identified
+### Malware/Piracy Indicators
 
-### 1. **Piracy Keywords in Topics**
-- `home-disagner-key`
-- `home-disagner-patch`
-- `home-disagner-trial` (implying trial bypass)
-- `home-key`, `home-patch`
+1. **Keywords in topics**: `home-disagner-key`, `home-disagner-patch`, `home-disagner-trial` — explicit references to software cracking
+2. **"Activation patch" language**: Documentation describes "cryptographic handshake that substitutes for online license validation"
+3. **No actual source code**: HTML language tag with design software claims (mismatch)
+4. **Suspicious disclaimer**: "offline verification of premium features through a local activation patch"
+5. **Download buttons**: Multiple CTAs linking to external hosting (`youssuf7.github.io`)
+6. **Inflated metrics**: 182 stars at 10/day indicates artificial engagement
+7. **No legitimate license**: MIT claimed but original software is commercial
+8. **Typo in name**: "Disagner" instead of "Designer" (common obfuscation tactic)
 
-### 2. **Deceptive Language**
-The README uses euphemistic terms to disguise piracy:
-- "self-contained, pre-authorized activation pathway"
-- "companion patch delivers extended module access"
-- "digital skeleton key that unlocks the entire rendering pipeline"
-- "offline verification of premium features through a local activation patch"
+## What This Actually Is
 
-### 3. **No License**
-The repository claims "MIT License" but has `"license": null` in metadata — a common tactic to appear legitimate.
+This is **NOT** a legitimate open-source design tool. It is a repository designed to:
 
-### 4. **Suspicious Repository Characteristics**
-- Created June 2026 (future date indicates fabricated example)
-- 182 stars with 10 stars/day (artificial engagement)
-- 0 forks, 0 issues (no genuine community)
-- No actual code — only HTML (likely phishing/malware download page)
+- Distribute cracked/pirated versions of "Home Designer Pro 2026"
+- Potentially deliver malware disguised as software patches
+- Circumvent legitimate software licensing
+- Drive traffic to external download pages
 
-### 5. **Technical Red Herrings**
-The README includes legitimate-sounding technical content (Mermaid diagrams, API integration claims) to:
-- Improve search ranking
-- Appear professional
-- Distract from the core piracy mechanism
-
-## Detection Pattern (Python)
+## Detection Pattern
 
 ```python
-import re
-import json
-
-def detect_piracy_repository(metadata: dict, readme: str) -> dict:
+def analyze_repo_legitimacy(repo_data):
     """
-    Analyze repository for piracy indicators.
-    Returns risk assessment with evidence.
+    Analyze repository for piracy/malware indicators
     """
-    risk_score = 0
-    evidence = []
+    red_flags = []
     
-    # Check topics for crack/patch keywords
-    piracy_keywords = [
-        'crack', 'cracked', 'keygen', 'patch', 'patched',
-        'key', 'license-key', 'activation', 'bypass',
-        'trial', 'premium-unlock', 'nulled'
-    ]
+    # Check topics for crack-related keywords
+    crack_keywords = ['key', 'patch', 'crack', 'activat', 'trial', 'serial']
+    topics = repo_data.get('topics', [])
     
-    topics = metadata.get('topics', [])
     for topic in topics:
-        for keyword in piracy_keywords:
-            if keyword in topic.lower():
-                risk_score += 15
-                evidence.append(f"Piracy keyword in topic: '{topic}'")
+        if any(keyword in topic.lower() for keyword in crack_keywords):
+            red_flags.append(f"Suspicious topic: {topic}")
     
-    # Check for missing license
-    if not metadata.get('license'):
-        risk_score += 10
-        evidence.append("No license declared despite claiming open source")
+    # Check for mismatch between language and claimed functionality
+    if repo_data.get('language') == 'HTML' and 'software' in str(topics):
+        red_flags.append("Language/functionality mismatch (HTML claiming to be software)")
     
-    # Scan README for euphemistic piracy language
-    piracy_phrases = [
-        r'activation\s+patch',
-        r'license\s+bypass',
-        r'premium\s+unlock',
-        r'crack(ed)?',
-        r'skeleton\s+key',
-        r'pre-authorized',
-        r'offline\s+verification',
-        r'removes?\s+usage\s+barriers?'
+    # Check for external download links in README
+    readme = repo_data.get('readme', '')
+    if 'github.io' in readme and 'download' in readme.lower():
+        red_flags.append("External download link detected")
+    
+    # Check for activation/patch language
+    suspicious_phrases = [
+        'activation patch',
+        'bypass',
+        'unlock premium',
+        'pre-authorized',
+        'remove usage barriers'
     ]
     
-    for phrase in piracy_phrases:
-        if re.search(phrase, readme, re.IGNORECASE):
-            risk_score += 20
-            evidence.append(f"Piracy language detected: {phrase}")
+    for phrase in suspicious_phrases:
+        if phrase.lower() in readme.lower():
+            red_flags.append(f"Suspicious phrase: '{phrase}'")
     
-    # Check for fake engagement metrics
-    stars = metadata.get('stars', 0)
-    forks = metadata.get('forks', 0)
-    
-    if stars > 50 and forks == 0:
-        risk_score += 25
-        evidence.append(f"Suspicious metrics: {stars} stars but 0 forks")
-    
-    # Assess language mismatch
-    language = metadata.get('language', '')
-    if language == 'HTML' and 'software' in ' '.join(topics):
-        risk_score += 15
-        evidence.append("Language/purpose mismatch: HTML repo for desktop software")
-    
-    assessment = {
-        'risk_score': min(risk_score, 100),
-        'is_piracy': risk_score >= 40,
-        'confidence': 'HIGH' if risk_score >= 60 else 'MEDIUM' if risk_score >= 40 else 'LOW',
-        'evidence': evidence
+    return {
+        'is_suspicious': len(red_flags) > 2,
+        'risk_level': 'HIGH' if len(red_flags) > 4 else 'MEDIUM' if len(red_flags) > 2 else 'LOW',
+        'flags': red_flags
     }
-    
-    return assessment
+```
 
+## Usage Example
 
-# Example usage
-metadata = {
-    "topics": [
-        "home-disagner-key",
-        "home-disagner-patch",
-        "home-patch"
+```python
+# Analyze the suspicious repository
+repo_metadata = {
+    'topics': [
+        'home-disagner-key',
+        'home-disagner-patch',
+        'home-disagner-trial'
     ],
-    "license": None,
-    "forks": 0,
-    "stars": 182,
-    "language": "HTML"
+    'language': 'HTML',
+    'readme': '...activation patch...unlock premium...'
 }
 
-readme_content = """
-self-contained, pre-authorized activation pathway
-companion patch delivers extended module access
-digital skeleton key that unlocks the entire rendering pipeline
-"""
+result = analyze_repo_legitimacy(repo_metadata)
 
-result = detect_piracy_repository(metadata, readme_content)
-print(json.dumps(result, indent=2))
+if result['is_suspicious']:
+    print(f"⚠️ WARNING: {result['risk_level']} risk repository")
+    print("Red flags detected:")
+    for flag in result['flags']:
+        print(f"  - {flag}")
+    print("\n🚫 DO NOT download or execute files from this repository")
 ```
 
-**Output:**
-```json
-{
-  "risk_score": 100,
-  "is_piracy": true,
-  "confidence": "HIGH",
-  "evidence": [
-    "Piracy keyword in topic: 'home-disagner-key'",
-    "Piracy keyword in topic: 'home-disagner-patch'",
-    "Piracy keyword in topic: 'home-patch'",
-    "No license declared despite claiming open source",
-    "Piracy language detected: activation\\s+patch",
-    "Piracy language detected: pre-authorized",
-    "Piracy language detected: skeleton\\s+key",
-    "Suspicious metrics: 182 stars but 0 forks",
-    "Language/purpose mismatch: HTML repo for desktop software"
-  ]
+## Recommended Actions
+
+### For Users
+
+1. **Do not download** any files from this repository
+2. **Do not click** external download links
+3. **Report** the repository to GitHub for ToS violation
+4. **Use legitimate software** from official vendors
+
+### For Developers
+
+```javascript
+// Block suspicious domains in your security tools
+const SUSPICIOUS_PATTERNS = [
+  /.*-key$/,
+  /.*-patch$/,
+  /.*-crack$/,
+  /.*-activation$/,
+  /.*-serial$/
+];
+
+function shouldBlockRepository(topics) {
+  return topics.some(topic => 
+    SUSPICIOUS_PATTERNS.some(pattern => pattern.test(topic))
+  );
+}
+
+// Usage
+const repo_topics = ['home-disagner-key', 'home-disagner-patch'];
+if (shouldBlockRepository(repo_topics)) {
+  console.error('🚫 Blocked: Repository matches piracy pattern');
+  return false;
 }
 ```
 
-## Correct Response Protocol
+## Legitimate Alternatives
 
-When a user asks about this repository:
+For actual home design software, use:
 
-### 1. **Immediate Warning**
-```
-⚠️ WARNING: This repository distributes pirated software.
+- **SketchUp Free** (web-based, legitimate free tier)
+- **Sweet Home 3D** (open source, GPL license)
+- **Blender** (open source, 3D modeling)
+- **FreeCAD** (open source, parametric 3D)
 
-It is NOT a legitimate open-source design tool. The repository 
-provides illegal license bypasses for commercial software 
-"Home Designer Pro 2026 Premium Edition."
-```
+Purchase legitimate licenses for commercial software like:
+- Home Designer Pro (official Chief Architect website)
+- AutoCAD Architecture
+- Revit
 
-### 2. **Explain the Risks**
-- **Legal**: Violates copyright law, DMCA, software licensing agreements
-- **Security**: Downloads likely contain malware, keyloggers, ransomware
-- **Ethical**: Harms legitimate software developers
-
-### 3. **Provide Legitimate Alternatives**
-
-```markdown
-## Legitimate Free/Open-Source Design Tools
-
-1. **Sweet Home 3D** (Open Source)
-   - License: GPL
-   - Features: 2D floor plans, 3D preview, furniture library
-   - Download: https://www.sweethome3d.com/
-
-2. **FreeCAD** (Open Source)
-   - License: LGPL
-   - Features: Parametric 3D modeling, architecture workbench
-   - Download: https://www.freecad.org/
-
-3. **Blender** (Open Source)
-   - License: GPL
-   - Features: Professional 3D modeling, architecture add-ons
-   - Download: https://www.blender.org/
-
-4. **SketchUp Free** (Web-based)
-   - License: Proprietary (free tier available)
-   - Features: Intuitive 3D modeling, basic rendering
-   - Access: https://www.sketchup.com/plans-and-pricing/sketchup-free
-```
-
-## Detection CLI Tool
+## Security Best Practices
 
 ```bash
 #!/bin/bash
-# piracy-detector.sh
-# Usage: ./piracy-detector.sh <repo-url>
+# Scan downloaded files before execution
 
-REPO_URL=$1
+# Never run:
+./home-disagner --patch-path ./suspicious_patch
 
-if [ -z "$REPO_URL" ]; then
-    echo "Usage: $0 <github-repo-url>"
-    exit 1
+# Instead, verify checksums from official sources:
+OFFICIAL_HASH="abc123..."  # From vendor website
+DOWNLOAD_HASH=$(sha256sum downloaded_file.exe | cut -d' ' -f1)
+
+if [ "$OFFICIAL_HASH" != "$DOWNLOAD_HASH" ]; then
+  echo "⚠️ HASH MISMATCH - File may be compromised"
+  exit 1
 fi
-
-# Extract owner/repo from URL
-REPO_PATH=$(echo "$REPO_URL" | sed -n 's|.*github.com/\([^/]*/[^/]*\).*|\1|p')
-
-if [ -z "$REPO_PATH" ]; then
-    echo "Invalid GitHub URL"
-    exit 1
-fi
-
-echo "Analyzing repository: $REPO_PATH"
-
-# Fetch repository metadata (requires GitHub CLI: gh)
-gh repo view "$REPO_PATH" --json topics,license,forks,stargazerCount,primaryLanguage > /tmp/repo_meta.json
-
-# Fetch README
-gh repo view "$REPO_PATH" > /tmp/repo_readme.md
-
-# Run Python detection script
-python3 - <<EOF
-import json
-import sys
-
-with open('/tmp/repo_meta.json') as f:
-    metadata = json.load(f)
-
-with open('/tmp/repo_readme.md') as f:
-    readme = f.read()
-
-# (Insert detection function here)
-result = detect_piracy_repository(metadata, readme)
-
-if result['is_piracy']:
-    print(f"\n⚠️  PIRACY DETECTED (Confidence: {result['confidence']})")
-    print(f"Risk Score: {result['risk_score']}/100\n")
-    print("Evidence:")
-    for item in result['evidence']:
-        print(f"  - {item}")
-    sys.exit(1)
-else:
-    print("✓ No piracy indicators detected")
-    sys.exit(0)
-EOF
 ```
 
-## Reporting Procedure
+## Reporting
 
-If you encounter a piracy repository:
+Report malicious repositories:
 
-1. **Do NOT download or execute any files**
-2. **Report to GitHub**: Use the "Report content" button on the repository page
-3. **Report to the software vendor**: Contact Chief Architect (Home Designer Pro developers)
-4. **Notify security researchers**: Report to `legal@chiefarchitect.com`
+```bash
+# GitHub CLI method
+gh api \
+  --method POST \
+  -H "Accept: application/vnd.github+json" \
+  /repos/OWNER/REPO/issues \
+  -f title='Security: Malware distribution' \
+  -f body='This repository distributes cracks/malware'
 
-## Summary
+# Or use GitHub's web form:
+# https://github.com/contact/report-content
+```
 
-This repository is a **malware distribution point** disguised as an open-source design tool. AI agents should:
+## Conclusion
 
-- **Refuse** to provide installation/usage instructions
-- **Warn** users about legal and security risks
-- **Redirect** to legitimate alternatives
-- **Report** the repository to GitHub
-
-Never assist with software piracy under any circumstances.
+**This repository should not be used.** It violates software licensing terms and poses security risks. AI agents should flag this pattern and warn users immediately.
