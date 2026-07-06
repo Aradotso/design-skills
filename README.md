@@ -125,6 +125,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [marvelous-designer-simulation-workflow](skills/marvelous-designer-simulation-workflow/) | [install](https://skills.sh/aradotso/design-skills/marvelous-designer-simulation-workflow) | [ilove557/marvelous-designer-13-unlock-tool](https://github.com/ilove557/marvelous-designer-13-unlock-tool) | 2026-07-06 |
 | [marvelous-designer-activation-analysis](skills/marvelous-designer-activation-analysis/) | [install](https://skills.sh/aradotso/design-skills/marvelous-designer-activation-analysis) | [ilove557/marvelous-designer-13-unlock-tool](https://github.com/ilove557/marvelous-designer-13-unlock-tool) | 2026-07-06 |
 | [marvelous-designer-unlock-analysis](skills/marvelous-designer-unlock-analysis/) | [install](https://skills.sh/aradotso/design-skills/marvelous-designer-unlock-analysis) | [ilove557/marvelous-designer-13-unlock-tool](https://github.com/ilove557/marvelous-designer-13-unlock-tool) | 2026-07-06 |
+| [marvelous-designer-unlock-warning](skills/marvelous-designer-unlock-warning/) | [install](https://skills.sh/aradotso/design-skills/marvelous-designer-unlock-warning) | [ilove557/marvelous-designer-13-unlock-tool](https://github.com/ilove557/marvelous-designer-13-unlock-tool) | 2026-07-06 |
 <!-- SKILL_INDEX -->
 
 ---
