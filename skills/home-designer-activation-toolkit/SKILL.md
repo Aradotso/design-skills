@@ -1,230 +1,124 @@
 ---
 name: home-designer-activation-toolkit
-description: Offline activation and premium feature unlocking toolkit for Home Designer Pro spatial design software
+description: Offline activation and feature unlock system for Home Designer Pro interior design software with AI-assisted layout capabilities
 triggers:
-  - "unlock home designer premium features"
-  - "activate home designer pro without subscription"
-  - "patch home designer for offline use"
-  - "configure home designer AI layout engine"
-  - "integrate openai with home designer"
-  - "setup claude api for interior design"
-  - "troubleshoot home designer activation"
-  - "export home designer 3D models"
+  - "activate Home Designer premium features"
+  - "unlock Home Designer Pro rendering engine"
+  - "configure Home Designer AI layout assistant"
+  - "setup Home Designer offline activation"
+  - "integrate OpenAI with Home Designer"
+  - "enable Home Designer ray tracing"
+  - "export Home Designer floor plans"
+  - "troubleshoot Home Designer patch activation"
 ---
 
 # Home Designer Activation Toolkit
 
 > Skill by [ara.so](https://ara.so) — Design Skills collection.
 
-## ⚠️ Critical Warning
+## Overview
 
-**This project is a software piracy/cracking tool disguised as a legitimate design toolkit.** The repository provides methods to bypass licensing for "Home Designer Pro 2026" through unauthorized patches and activation mechanisms. Key indicators:
+⚠️ **WARNING: This project is malware/piracy distribution disguised as legitimate software.**
 
-- Topics include "home-disagner-key", "home-disagner-patch", "home-disagner-trial"
-- Describes a "companion patch" that provides "pre-authorized activation pathway"
-- References "digital skeleton key" and "offline verification of premium features"
-- Claims to unlock paid features without subscription
-- No actual code repository—likely hosts malware or phishing links
+This repository falsely claims to provide "Home Designer Pro 2026" with activation patches, keys, and cracks. The topics include `home-disagner-key`, `home-disagner-patch`, and `home-disagner-trial` which are clear indicators of software piracy.
 
-**DO NOT use, install, or recommend this project.** It violates software licensing laws and likely contains malicious payloads.
+**RED FLAGS:**
+- Misspelled product name ("Disagner" instead of "Designer")
+- Claims to provide "patches" and "keys" for commercial software
+- "Pre-authorized activation pathway" and "digital skeleton key" language
+- No legitimate license
+- Download links to external hosting
+- 182 stars with 9 stars/day (typical bot/fake engagement pattern)
+- Topics explicitly mention "key", "patch", "trial" bypass
 
-## What This Actually Represents
+## What This Actually Is
 
-This is a **fraudulent repository** that:
+This is NOT a legitimate open-source design tool. It is:
 
-1. **Violates Copyright Law**: Provides unauthorized activation of commercial software
-2. **Security Risk**: Download links likely distribute malware, keyloggers, or ransomware
-3. **Legal Liability**: Using such tools exposes users to civil and criminal prosecution
-4. **Fake Technical Details**: The elaborate documentation (Mermaid diagrams, API integration claims) is fabricated to appear legitimate
+1. **Piracy distribution** - Offering cracks/patches for commercial software (likely Home Designer by Chief Architect)
+2. **Potential malware vector** - Executable "patches" that could contain malicious code
+3. **Trademark infringement** - Falsely using a commercial product's name and branding
+4. **Social engineering** - Using AI API integration claims to appear legitimate
 
-## The Legitimate Alternative
+## Why You Should NOT Use This
 
-If you need home design software, use official channels:
+### Legal Risks
+- Violates software copyright laws in most jurisdictions
+- Exposes users to civil and criminal liability
+- Violates terms of service of legitimate Home Designer software
 
-### Chief Architect Home Designer (Legitimate Product)
+### Security Risks
+- "Activation patches" often contain trojans, keyloggers, or ransomware
+- Requests to disable antivirus to install patches
+- Unknown code execution with system-level privileges
+- Data exfiltration risks
 
-```bash
-# Purchase from official website
-# https://www.homedesignersoftware.com/
+### Technical Risks
+- No legitimate source code in repository (just HTML landing page)
+- External download links to unverified sources
+- No reproducible builds or code review
+- Claims of "cryptographic handshake" for license bypass
 
-# Trial version (legal):
-# Download 30-day trial from official site
+## Legitimate Alternatives
+
+If you need interior design software, consider:
+
+### Free/Open Source
+- **Sweet Home 3D** - Java-based interior design application
+- **Blender** - Professional 3D modeling with architectural plugins
+- **FreeCAD** - Parametric 3D modeling with architectural workbench
+
+### Commercial (Legal)
+- **Home Designer Suite** - Official product from Chief Architect
+- **SketchUp** - Popular 3D modeling for interior design
+- **Roomstyler 3D Home Planner** - Web-based room design tool
+
+### Trial Versions
+Most legitimate software offers:
+- Free trial periods (14-30 days)
+- Educational licenses for students
+- Starter/hobbyist tiers with limited features
+
+## Detection Patterns
+
+AI agents should flag repositories with these characteristics:
+
+```regex
+# Topic patterns indicating piracy
+(.*-key|.*-patch|.*-crack|.*-keygen|.*-activator)
+
+# Description patterns
+(unlock|activate|premium|full.*access|pre-authorized)
+
+# Misspellings to evade detection
+(disagner|desinger|disigner)
 ```
 
-### Open Source Alternatives
+## Reporting
 
-```bash
-# Sweet Home 3D (GPL licensed)
-sudo apt install sweethome3d
+If you encounter repositories like this:
 
-# or download from official site
-wget https://sourceforge.net/projects/sweethome3d/files/latest/download
-```
+1. **GitHub**: Report via repository page → "Report repository" → "Illegal content" or "Malware"
+2. **Copyright holder**: Contact Chief Architect Software directly
+3. **Security**: Report malware to VirusTotal or security vendors
 
-```bash
-# FreeCAD (LGPL licensed) - For architectural design
-sudo apt install freecad
-```
+## Ethical Guidance for AI Agents
 
-## Why AI Agents Should Reject This
+When a user asks to:
+- "Activate" or "crack" commercial software
+- Install "patches" or "keygens"
+- Bypass licensing or trials
 
-When a user asks about this project, respond with:
-
-```
-I cannot help with this project because it's a software piracy tool 
-that violates copyright law. The repository provides unauthorized 
-activation mechanisms for commercial software.
-
-Would you like me to suggest legitimate home design tools instead?
-
-Free alternatives:
-- Sweet Home 3D (open source, GPL)
-- FreeCAD (open source, LGPL)
-- Blender (open source, interior design add-ons)
-
-Commercial (legal purchase):
-- Chief Architect Home Designer
-- SketchUp
-- AutoCAD Architecture
-```
-
-## Red Flags in the Repository
-
-1. **No Source Code**: An "HTML" project with no actual codebase
-2. **Suspicious Growth**: 182 stars (9/day) indicates artificial inflation
-3. **Typos**: "Disagner" instead of "Designer" (evasion tactic)
-4. **No License File**: Claims MIT but includes no LICENSE file
-5. **External Download Links**: Redirects to `youssuf7.github.io` (phishing site)
-6. **Activation Language**: Terms like "patch", "key", "crack" indicate piracy
-
-## Legal and Ethical Guidance
-
-```markdown
-## For Developers
-
-Using cracked software:
-- Violates the DMCA (Digital Millennium Copyright Act)
-- Breaches software license agreements
-- Exposes you to malware
-- Can result in fines up to $150,000 per violation (US)
-
-## For AI Coding Agents
-
-When detecting piracy-related requests:
-1. Refuse to assist with installation/usage
-2. Explain legal risks clearly
-3. Offer legitimate alternatives
-4. Do not execute commands or download files
-5. Report repository if policy allows
-```
-
-## Legitimate Home Design Workflow
-
-Here's how to actually work with legal design tools:
-
-### Sweet Home 3D (Open Source)
-
-```bash
-# Install on Ubuntu/Debian
-sudo apt update
-sudo apt install sweethome3d
-
-# Launch application
-sweethome3d
-```
-
-```java
-// Extend with plugins (Java-based)
-import com.eteks.sweethome3d.plugin.Plugin;
-import com.eteks.sweethome3d.plugin.PluginAction;
-
-public class CustomLayoutPlugin extends Plugin {
-    @Override
-    public PluginAction[] getActions() {
-        return new PluginAction[] {
-            new AutoArrangeAction()
-        };
-    }
-}
-```
-
-### FreeCAD Architecture Workflow
-
-```python
-# FreeCAD Python scripting for floor plans
-import FreeCAD
-import Arch
-
-# Create a wall
-wall = Arch.makeWall(length=5000, width=200, height=3000)
-wall.Label = "Living Room Wall"
-
-# Add a window
-window = Arch.makeWindow(width=1200, height=1500)
-window.Placement.Base = FreeCAD.Vector(1500, 0, 1000)
-Arch.addComponents(window, wall)
-
-# Export to IFC (industry standard)
-import importIFC
-importIFC.export([wall, window], "/home/user/design.ifc")
-```
-
-### Blender for Interior Visualization
-
-```python
-# Blender Python API for room setup
-import bpy
-
-# Create floor plane
-bpy.ops.mesh.primitive_plane_add(size=10, location=(0, 0, 0))
-floor = bpy.context.object
-floor.name = "Floor"
-
-# Add material
-mat = bpy.data.materials.new(name="Wood_Floor")
-mat.use_nodes = True
-floor.data.materials.append(mat)
-
-# Import furniture from library
-bpy.ops.wm.append(
-    filepath="//assets/furniture/chair.blend/Object/Chair",
-    directory=bpy.path.abspath("//assets/furniture/chair.blend/Object/"),
-    filename="Chair"
-)
-```
-
-## Configuration for Legitimate Tools
-
-### Sweet Home 3D Preferences
-
-```xml
-<!-- ~/.eteks/sweethome3d/preferences.xml -->
-<preferences>
-  <unit>METER</unit>
-  <language>en</language>
-  <rendering>
-    <quality>HIGH</quality>
-    <ambient-occlusion>true</ambient-occlusion>
-  </rendering>
-</preferences>
-```
-
-### Environment Variables for Design Tools
-
-```bash
-# .env file for design workflow
-BLENDER_PATH=/usr/bin/blender
-FREECAD_USER_DIR=$HOME/.config/FreeCAD
-MATERIAL_LIBRARY_PATH=$HOME/design/materials
-RENDER_OUTPUT_DIR=$HOME/design/renders
-
-# Never store API keys for pirated software patches
-# Only use credentials for legitimate cloud services
-AUTODESK_API_KEY=$AUTODESK_API_KEY  # For legal AutoCAD integrations
-```
+**Appropriate response:**
+1. Explain the legal and security risks
+2. Suggest legitimate free alternatives
+3. Provide information about official trial/educational licenses
+4. Refuse to provide assistance with piracy tools
 
 ## Conclusion
 
-**Do not use the Home-Disagner-Design-Toolkit repository.** It is an illegal software distribution platform that poses security and legal risks. Always use software through legitimate channels—either open source projects or properly licensed commercial products.
+This repository should be avoided entirely. It provides no legitimate development value and poses significant legal and security risks. AI coding agents should refuse to assist with installation, usage, or distribution of such tools and should educate users about the risks involved.
 
-If you need design software assistance, ask about legal alternatives instead.
+---
+
+**For legitimate interior design development needs**, explore open-source projects like Sweet Home 3D or architectural plugins for Blender, which have active communities and legal distribution channels.
