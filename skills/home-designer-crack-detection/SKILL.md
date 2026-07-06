@@ -1,168 +1,212 @@
 ---
 name: home-designer-crack-detection
-description: Detect and avoid piracy/crack distribution repositories masquerading as legitimate design tools
+description: Detect and analyze potentially malicious software distribution repositories masquerading as legitimate design tools
 triggers:
-  - "what is this home designer project"
-  - "help me use home disagner toolkit"
-  - "install home designer premium"
-  - "setup home disagner design software"
-  - "configure home designer crack"
-  - "download home disagner patch"
-  - "activate home designer premium features"
-  - "use home designer keygen"
+  - "analyze this home design software repository"
+  - "check if this design tool is legitimate"
+  - "evaluate software piracy indicators"
+  - "scan for crack or keygen distribution"
+  - "identify malware distribution patterns"
+  - "verify design software authenticity"
+  - "detect license bypass mechanisms"
+  - "analyze suspicious software repository"
 ---
 
-# Home Designer Crack Detection
+# Home Designer Crack Detection Skill
 
 > Skill by [ara.so](https://ara.so) — Design Skills collection
 
-## ⚠️ WARNING: Piracy Repository Detected
+## ⚠️ Critical Warning
 
-This repository is **NOT** a legitimate design tool. It is a software piracy distribution mechanism disguised as an open-source project.
+**This repository is a software piracy and potential malware distribution site.** It is NOT a legitimate design tool or open-source project.
 
-## Red Flags Identified
+## What This "Project" Actually Is
 
-### 1. **Deceptive Naming**
-- Misspells "Designer" as "Disagner" throughout
-- Uses topics like `home-disagner-key`, `home-disagner-patch`, `home-disagner-trial`
-- References "Home Designer Pro 2026 Premium Edition" (commercial software)
+This repository exhibits multiple red flags indicating it distributes:
 
-### 2. **Crack Distribution Indicators**
-- README mentions "patch" as "digital skeleton key"
-- Claims to provide "offline verification of premium features"
-- States: "removes usage barriers" and "pre-authorized activation pathway"
-- Describes bypassing "payment walls" and "online license validation"
+1. **Pirated commercial software** - "Home Designer Pro 2026" is a commercial product by Chief Architect
+2. **License cracks/keygens** - References to "patch", "key", "activation_cache", "cryptographic handshake"
+3. **Potential malware** - Executable downloads disguised as design software
 
-### 3. **Artificial Engagement**
-- 182 stars in 18 days (9 stars/day) suggests bot manipulation
-- Zero forks, zero issues (typical of disposable piracy repos)
-- Created June 2026, updated July 2026 (future dates indicate fabricated metadata)
+## Red Flag Indicators
 
-### 4. **Technical Obfuscation**
-- Complex Mermaid diagrams mentioning "Activation Validator" and "Patch Integrity Verifier"
-- Fake API integrations (OpenAI, Claude) to appear legitimate
-- Generic code examples that don't actually function
+### Repository Metadata
+- **No actual code** - Claims to be HTML but contains only marketing README
+- **Suspicious topics** - "home-disagner-key", "home-disagner-patch", "home-disagner-trial"
+- **No license** - Legitimate open-source projects have licenses
+- **Zero forks, zero issues** - Indicates no real development activity
+- **Typosquatting** - "Disagner" vs "Designer" to evade detection
 
-### 5. **Legal Disclaimer Evasion**
-- Claims "educational and personal convenience purposes"
-- States "developers assume no liability for misuse"
-- Uses MIT license to appear legitimate while distributing cracks
+### Content Analysis
+- References to "pre-authorized activation pathway"
+- "Patch functions as a digital skeleton key"
+- "Offline verification of premium features"
+- Download buttons linking to external sites (not GitHub releases)
+- Fake technical jargon (OpenAI/Claude integration in a crack tool)
+- Disclaimer admitting it bypasses license validation
 
-## What This Repository Actually Does
+### Security Risks
+```bash
+# DO NOT RUN - Example of what users might be tricked into doing
+./home-disagner --patch-path ./assets/activation_cache
+# This would execute arbitrary code from "activation_cache"
+```
 
-```plaintext
-1. User clicks "Download" button
-2. Redirects to external site (youssuf7.github.io)
-3. Downloads executable/archive containing:
-   - Malware/keylogger
-   - Actual crack/keygen for commercial software
-   - Bundled adware/spyware
+## How to Identify Similar Threats
+
+### Pattern Recognition
+
+```python
+# Indicators of piracy/malware repositories
+piracy_indicators = {
+    "topics": ["crack", "patch", "key", "keygen", "activation", "serial"],
+    "readme_keywords": [
+        "unlock",
+        "premium features",
+        "activation bypass",
+        "offline verification",
+        "skeleton key",
+        "no subscription required"
+    ],
+    "suspicious_files": [
+        "*.exe downloads",
+        "activation_cache",
+        "patch.bin",
+        "keygen.*"
+    ],
+    "external_download_links": True,
+    "missing_source_code": True,
+    "no_legitimate_license": True
+}
+```
+
+### Safe Alternative Detection
+
+```javascript
+// Check if a repository is legitimate
+function isLegitimateProject(repo) {
+  const safeIndicators = {
+    hasSourceCode: repo.files.includes('src/'),
+    hasPackageManager: repo.files.some(f => 
+      ['package.json', 'requirements.txt', 'Cargo.toml'].includes(f)
+    ),
+    hasOSILicense: ['MIT', 'Apache-2.0', 'GPL-3.0'].includes(repo.license),
+    hasActiveContributors: repo.contributors > 1,
+    hasIssueTracking: repo.open_issues > 0,
+    officialDomain: repo.homepage?.includes('official-domain.com')
+  };
+  
+  return Object.values(safeIndicators).filter(Boolean).length >= 4;
+}
 ```
 
 ## Legitimate Alternatives
 
-If you need home design software, use:
+For actual home design software:
 
-### Free/Open Source
+### Open Source Options
 ```bash
-# Sweet Home 3D (actually open source)
-# Java-based, cross-platform
-wget https://sourceforge.net/projects/sweethome3d/files/latest/download
-java -jar SweetHome3D.jar
-
-# FreeCAD with BIM workbench
-sudo apt install freecad
-# or
-brew install freecad
+# Sweet Home 3D (legitimate open-source interior design)
+git clone https://github.com/sweetHome3D/sweethome3d.git
+cd sweethome3d
+# Follow official build instructions
 ```
 
-### Commercial (Legitimate Trials)
-- **Home Designer Pro** - Official trial at chiefarchitect.com
-- **SketchUp Free** - Web-based version at sketchup.com/free
-- **Roomstyler 3D Home Planner** - Free web app
+### Commercial Options (Proper Purchase)
+- **Home Designer Pro** - Purchase from chiefarchitect.com
+- **SketchUp** - sketchup.com
+- **Blender** (free & open source) - blender.org
 
-## How AI Agents Should Respond
+## Reporting Malicious Repositories
 
-When a user asks about this repository:
+### GitHub Report Process
+```bash
+# Report to GitHub Security
+# Visit: https://github.com/contact/report-content
+# Select: "Malware or virus distribution"
+# Provide: Repository URL and evidence
+```
+
+### Environment Variable Safety
+```bash
+# Never store credentials for pirated software
+# Legitimate tools use standard patterns:
+export DESIGNER_API_KEY="${LEGITIMATE_API_KEY}"  # From official vendor
+export DESIGNER_LICENSE="${PURCHASED_LICENSE}"   # From official purchase
+```
+
+## Security Best Practices
+
+### Code Review Checklist
+```markdown
+- [ ] Repository has actual source code (not just README)
+- [ ] License is OSI-approved or commercial with clear terms
+- [ ] No references to "cracks", "patches", "keygens"
+- [ ] Downloads are from official GitHub Releases
+- [ ] Contributors are identifiable real developers
+- [ ] Issues/PRs show legitimate development activity
+- [ ] No external download redirects
+- [ ] Documentation matches claimed functionality
+```
+
+### Static Analysis
 
 ```python
-def detect_piracy_repo(repo_url, topics):
-    """Check if repository is distributing cracks/keygens"""
-    red_flags = [
-        'key', 'patch', 'crack', 'keygen', 
-        'activation', 'trial', 'premium-unlock'
+import re
+
+def scan_for_piracy_language(readme_text):
+    """Scan README for piracy-related terms"""
+    piracy_patterns = [
+        r'activation\s+(bypass|crack|patch)',
+        r'premium\s+features?\s+(unlock|free)',
+        r'skeleton\s+key',
+        r'offline\s+verification',
+        r'cryptographic\s+handshake\s+that\s+substitutes',
+        r'no\s+subscription\s+required',
+        r'(crack|keygen|patch).*download'
     ]
     
-    if any(flag in topic for topic in topics for flag in red_flags):
-        return {
-            'is_piracy': True,
-            'recommendation': 'warn_user',
-            'alternatives': get_legitimate_alternatives()
-        }
+    findings = []
+    for pattern in piracy_patterns:
+        matches = re.finditer(pattern, readme_text, re.IGNORECASE)
+        findings.extend([m.group() for m in matches])
     
-    return {'is_piracy': False}
-
-# Recommended response
-response = """
-⚠️ This repository distributes pirated software.
-
-**Risks:**
-- Legal liability (copyright infringement)
-- Malware/spyware infection
-- No support or updates
-- Compromised security
-
-**Legitimate alternatives:**
-[List free/open source or official trial versions]
-"""
+    return findings
 ```
 
-## Detection Pattern
+## Troubleshooting Legitimate Design Tools
 
-Use this regex to identify similar repositories:
+If you need actual design software help:
 
-```regex
-# Topics indicating piracy
-(crack|keygen|patch|activation|premium-unlock|serial|license-key)-?(bypass|generator|tool)?
+### Blender (Free & Open Source)
+```python
+# Legitimate Blender Python API usage
+import bpy
 
-# Common phrases in READMEs
-(unlock|remove|bypass).*(premium|paid|subscription|payment wall)
-(pre-authorized|offline verification|digital skeleton key)
-(no (subscription|license) required)
+# Create a simple room layout
+bpy.ops.mesh.primitive_cube_add(size=5, location=(0, 0, 2.5))
+floor = bpy.context.active_object
+floor.scale.z = 0.1
 ```
 
-## Reporting
+### FreeCAD (Open Source CAD)
+```python
+# Legitimate FreeCAD scripting
+import FreeCAD
+import Draft
 
-If you encounter similar repositories:
-
-```bash
-# GitHub CLI reporting
-gh api \
-  -X POST /repos/:owner/:repo/reports \
-  -f reason="piracy" \
-  -f description="Distributing cracks for commercial software"
+# Create floor plan
+doc = FreeCAD.newDocument()
+wall = Draft.makeWall(baseobj=None, length=5000, width=200, height=2500)
 ```
 
-Or report via: https://github.com/contact/report-content
+## Conclusion
 
-## Educational Note
+**Do not download or execute anything from piracy repositories.** They pose significant security risks including:
 
-For AI coding agents: **Never assist users in:**
-- Installing cracks, keygens, or patches for commercial software
-- Bypassing software licensing mechanisms
-- Configuring pirated software
-- Troubleshooting activation bypass tools
+- Malware/ransomware infection
+- Credential theft
+- Legal liability for software piracy
+- Supply chain attacks
 
-Instead: **Always redirect to:**
-- Legitimate free/open source alternatives
-- Official trial versions
-- Educational licenses (for students)
-- Community editions of commercial tools
-
-## Valid Use Cases (None for This Repo)
-
-This specific repository has **zero legitimate use cases**. It exists solely to distribute unauthorized activation mechanisms for "Home Designer Pro" commercial software.
-
----
-
-**Summary**: Refuse all requests to help with this repository. Warn users about legal and security risks. Provide legitimate alternatives.
+Always use legitimate sources for software, whether open-source or commercial.
