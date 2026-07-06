@@ -118,6 +118,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [gravit-designer-unlocker-analysis](skills/gravit-designer-unlocker-analysis/) | [install](https://skills.sh/aradotso/design-skills/gravit-designer-unlocker-analysis) | [SHOYEBUL1/gravit-design-toolkit-unlocker](https://github.com/SHOYEBUL1/gravit-design-toolkit-unlocker) | 2026-07-05 |
 | [gravit-designer-malware-awareness](skills/gravit-designer-malware-awareness/) | [install](https://skills.sh/aradotso/design-skills/gravit-designer-malware-awareness) | [SHOYEBUL1/gravit-design-toolkit-unlocker](https://github.com/SHOYEBUL1/gravit-design-toolkit-unlocker) | 2026-07-05 |
 | [home-designer-crack-detection](skills/home-designer-crack-detection/) | [install](https://skills.sh/aradotso/design-skills/home-designer-crack-detection) | [Youssuf7/Home-Disagner-Design-Toolkit](https://github.com/Youssuf7/Home-Disagner-Design-Toolkit) | 2026-07-05 |
+| [home-designer-software-analysis](skills/home-designer-software-analysis/) | [install](https://skills.sh/aradotso/design-skills/home-designer-software-analysis) | [Youssuf7/Home-Disagner-Design-Toolkit](https://github.com/Youssuf7/Home-Disagner-Design-Toolkit) | 2026-07-06 |
 <!-- SKILL_INDEX -->
 
 ---
