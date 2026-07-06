@@ -121,6 +121,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [home-designer-software-analysis](skills/home-designer-software-analysis/) | [install](https://skills.sh/aradotso/design-skills/home-designer-software-analysis) | [Youssuf7/Home-Disagner-Design-Toolkit](https://github.com/Youssuf7/Home-Disagner-Design-Toolkit) | 2026-07-06 |
 | [home-designer-pro-cracked-software-warning](skills/home-designer-pro-cracked-software-warning/) | [install](https://skills.sh/aradotso/design-skills/home-designer-pro-cracked-software-warning) | [Youssuf7/Home-Disagner-Design-Toolkit](https://github.com/Youssuf7/Home-Disagner-Design-Toolkit) | 2026-07-06 |
 | [home-designer-activation-toolkit](skills/home-designer-activation-toolkit/) | [install](https://skills.sh/aradotso/design-skills/home-designer-activation-toolkit) | [Youssuf7/Home-Disagner-Design-Toolkit](https://github.com/Youssuf7/Home-Disagner-Design-Toolkit) | 2026-07-06 |
+| [home-designer-architecture-toolkit](skills/home-designer-architecture-toolkit/) | [install](https://skills.sh/aradotso/design-skills/home-designer-architecture-toolkit) | [Youssuf7/Home-Disagner-Design-Toolkit](https://github.com/Youssuf7/Home-Disagner-Design-Toolkit) | 2026-07-06 |
 <!-- SKILL_INDEX -->
 
 ---
