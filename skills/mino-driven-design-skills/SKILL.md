@@ -1,63 +1,51 @@
 ---
 name: mino-driven-design-skills
-description: Apply Mino-san's design principles for problem framing, domain modeling, contract-driven design, and reproducible development workflows
+description: Apply design principles from Mino-san's materials to systematically frame problems, verify domain model completeness, define contracts, separate interfaces from implementations, and ensure reproducible development workflows
 triggers:
-  - apply mino design principles to this feature
-  - check domain model completeness using mino skill
-  - frame this problem using mino problem framing
-  - validate design by contract using mino approach
-  - separate interface from implementation following mino
-  - use mino reproducible development workflow
-  - audit architecture quality with mino strategy
-  - apply design skills from mino suite
+  - help me frame this problem before designing
+  - verify my domain model is complete
+  - convert requirements into contracts with test oracles
+  - separate interface from implementation properly
+  - design with mino-driven principles
+  - check for missing concepts and constraints
+  - validate this design against mino principles
+  - apply design by contract approach
 ---
 
 # mino-driven-design-skills
 
 > Skill by [ara.so](https://ara.so) — Design Skills collection.
 
-This skill suite applies design principles extracted from Mino-san's public materials, restructured for AI-assisted development. It helps you move from ambiguous requirements to verifiable contracts, complete domain models, and reproducible implementations.
+This skill enables AI agents to apply systematic design principles extracted from Mino-san's public materials. It guides you through problem framing, domain modeling, contract-based design, interface/implementation separation, architecture quality strategy, and reproducible development workflows—before, during, and after implementation.
 
-**Not official**: This is an unofficial project inspired by publicly available materials. It is not supervised, endorsed, or recommended by Mino-san or any affiliated organization.
+**Core philosophy**: Don't confuse problems with solutions. Track requirements from natural language through models, contracts, public operations, and tests. Use evidence (code, contract tests, quality scenarios, independent validation) rather than explanations. Let humans own final value judgments, public contracts, irreversible decisions, and release approval.
 
-**Goal**: Produce grounded, verifiable design artifacts—not mimic speaking style or conclusions. The suite helps you check problems, purpose, context, requirements, contracts, models, quality, and public boundaries before implementation.
+## What This Skill Provides
+
+The suite contains **independent skills** for different phases:
+
+| Skill | When to Use | Primary Artifacts |
+|-------|-------------|-------------------|
+| `mino-core` | Common decision framework (usually invoked by other skills) | Problem Frame, Context Packet, Requirement Catalog |
+| `mino-problem-framing` | Separate observations, assumptions, problems, objectives, success criteria before designing | Problem Framing Package |
+| `mino-domain-model-completeness` | Audit for missing concepts, states, constraints, failures, authorities in a use case | Completeness Package |
+| `mino-design-by-contract` | Convert natural language requirements into preconditions, postconditions, invariants, failure guarantees, contract tests | Contract Package |
+| `mino-interface-implementation-separation` | Identify caller-side branching and technical leakage; design boundaries around intent and contract | Boundary Package |
+| `mino-architecture-quality-strategy` | Design system-wide structure, data ownership, quality trade-offs, migration, recovery | Architecture Strategy Package |
+| `mino-reproducible-development` | Integrate multiple design artifacts with implementation, review, and independent verification for medium-to-large changes | Implementation Spec, Verified Change, Review Result, or Reproduction Report |
 
 ## Installation
 
-### Clone the Repository
+Clone the repository and reference the `.agents/skills/` directory from your AI agent configuration:
 
 ```bash
 git clone https://github.com/my-take-dev/inspired-mino-design-skills.git
 cd inspired-mino-design-skills
 ```
 
-### Validate the Suite
+### Adding to Your Project
 
-Run structural validation on your platform:
-
-**Linux / macOS:**
-```bash
-bash .agents/validate-suite.sh
-```
-
-**Windows PowerShell:**
-```powershell
-pwsh .agents/validate-suite.ps1
-```
-
-**Windows Command Prompt:**
-```cmd
-powershell -ExecutionPolicy Bypass -File .agents/validate-suite.ps1
-```
-
-Validation checks:
-- YAML frontmatter structure
-- Required sections (Purpose, Scope, Exclusions, Gates, Workflow)
-- Platform-specific script compatibility
-
-### Configure Skill Routing
-
-Add this to your project's `AGENTS.md` or `.github/AGENTS.md`:
+Create or update `.agents/AGENTS.md` in your project:
 
 ```markdown
 # Skill Composition
@@ -69,890 +57,716 @@ When a request matches multiple Skills:
 - Let the basic Skill control scope, changes, validation, and the final response; specialized Skills provide their domain-specific guidance.
 - Preserve every applicable Skill's exclusions, hard gates, and safety constraints.
 - Follow the user's explicitly named Skills and do not add unrelated Skills.
+
+## Skills
+
+- [mino-driven-design-skills](./inspired-mino-design-skills/.agents/skills/)
 ```
 
-## Current Status
+## Skill Selection by Development Phase
 
-```text
-Status: Experimental / Preview
-Suite version: 0.9.0
-Structural validation: pass on Linux and PowerShell-over-WSL; fail on native macOS
-macOS support: implemented but not passing (run 29397674053, exit 2)
-Behavioral release: not ready
-```
-
-**Behavioral release** means a designated evaluation owner has executed frozen versioned cases with isolated oracles in fresh contexts, meeting representative case, negative case, regression, and required platform release gates. Experimental distribution is permitted, but stable release requires maintainer approval of all Evidence.
-
-## Available Skills
-
-| Skill | Use When | Primary Artifacts |
-|-------|----------|-------------------|
-| [`mino-core`](.agents/skills/mino-core/SKILL.md) | Other Skills need shared problem definition, evidence, requirement tracing, decision rules. Don't call directly. | Problem Frame, Context Packet, Requirement Catalog, shared decisions |
-| [`mino-problem-framing`](.agents/skills/mino-problem-framing/SKILL.md) | Starting from tech-first proposals or ambiguous requirements—need to separate observations, assumptions, problems, goals, success criteria before design | Problem Framing Package |
-| [`mino-domain-model-completeness`](.agents/skills/mino-domain-model-completeness/SKILL.md) | Auditing use case for missing concepts, states, constraints, failures, authority | Completeness Package |
-| [`mino-design-by-contract`](.agents/skills/mino-design-by-contract/SKILL.md) | Converting natural language requirements into preconditions, postconditions, invariants, failure guarantees, contract tests | Contract Package |
-| [`mino-interface-implementation-separation`](.agents/skills/mino-interface-implementation-separation/SKILL.md) | Finding caller-side branching or tech leakage—designing boundaries around purpose and contract | Boundary Package |
-| [`mino-architecture-quality-strategy`](.agents/skills/mino-architecture-quality-strategy/SKILL.md) | Designing multi-module systems, data ownership, system-wide quality trade-offs, migration, recovery | Architecture Strategy Package |
-| [`mino-reproducible-development`](.agents/skills/mino-reproducible-development/SKILL.md) | Medium-to-large design, implementation, review, reproducibility verification—integrating multiple specialized artifacts with independent verification | Implementation Spec, Verified Change, Review Result, or Reproduction Report |
-
-### Choosing by Development Phase
-
-| Phase | Skill | When to Use |
-|-------|-------|-------------|
-| Design | `mino-problem-framing` | Before implementation—clarify problem, purpose, assumptions, success criteria |
+| Phase | Skill | Developer Timing |
+|-------|-------|------------------|
+| Design | `mino-problem-framing` | Before implementation: organize the problem, objectives, assumptions, success criteria |
 | Design | `mino-domain-model-completeness` | Check for missing business concepts, states, constraints, behaviors |
-| Design | `mino-design-by-contract` | Convert requirements into testable normal/exceptional conditions |
-| Design | `mino-interface-implementation-separation` | Separate public operations from internal implementation methods |
-| Architecture | `mino-architecture-quality-strategy` | Design system composition, data management, migration, recovery |
-| Design + Implementation + Review | `mino-reproducible-development` | Medium+ changes requiring multiple design viewpoints through implementation and verification |
-| Internal | `mino-core` | Used by other Skills—developers don't call directly |
+| Design | `mino-design-by-contract` | Convert requirements into testable conditions for normal and exceptional cases |
+| Design | `mino-interface-implementation-separation` | Separate caller-facing operations from internal implementation choices |
+| Architecture Design | `mino-architecture-quality-strategy` | Design system structure, data management, migration, recovery |
+| Design + Implementation + Review | `mino-reproducible-development` | Medium-to-large changes requiring multiple design viewpoints through implementation and verification |
+| Usually Not Direct | `mino-core` | Invoked by other skills; developers rarely call directly |
 
-**For new features or major changes**: Start with `mino-problem-framing` to establish design premises, then pick one specialized design Skill. Use `mino-reproducible-development` only when integrating multiple viewpoints through implementation and review.
+**Guidance**: For new features or major changes, start with `mino-problem-framing` to establish design premises. Then choose one design skill. Use `mino-reproducible-development` only when integrating multiple viewpoints through implementation and review. For small, mechanical changes (rename) with approved baseline problem/contract/data-meaning, this suite is unnecessary.
 
-**For small mechanical changes** (rename, approved baseline): You don't need this suite.
+## Usage Patterns
 
-## Common Workflows
+### Pattern 1: Problem Framing Before Design
 
-### 1. Frame a New Feature Problem
-
-```bash
-# In your AI coding agent (Claude Code, Cursor, etc.)
-# Say: "Apply mino problem framing to this feature"
-```
-
-The agent will produce a **Problem Framing Package** containing:
-
-```markdown
-# Problem Frame
-
-## Observation
-[What users/systems currently do, concrete data]
-
-## Assumption
-[What we believe but haven't verified]
-
-## Problem
-[Gap between current state and desired state]
-
-## Purpose / Goal
-[What success looks like, measurable]
-
-## Success Criteria
-[How we'll know we've solved it]
-
-## Context Packet
-- Stakeholder: [who needs this]
-- Constraint: [tech, time, policy limits]
-- Risk: [what could go wrong]
-- Dependency: [what must exist first]
-```
-
-**Example (Shell script context):**
-
-```markdown
-## Observation
-validate-suite.sh passes on Linux runners but exits 2 on native macOS /bin/bash 3.2 at fixture runner portable rewrite.
-
-## Assumption
-macOS /bin/bash 3.2 has stricter parameter expansion or array handling than Linux bash.
-
-## Problem
-Native macOS developers can't verify fixture runner structural correctness before commit.
-
-## Purpose
-All required platforms pass structural validation and fixture execution.
-
-## Success Criteria
-- validate-suite.sh exits 0 on macOS 15.7.7 ARM64 with /bin/bash 3.2
-- solver-nested-metadata fixture completes without parse errors
-- CI job "Native macOS /bin/bash" shows green
-```
-
-### 2. Audit Domain Model Completeness
+**Scenario**: You have a feature request but requirements are vague or solution-led.
 
 ```bash
-# Say: "Check domain model completeness using mino skill"
+# Request to AI agent:
+"Help me frame this problem before designing: users complain the report is slow"
 ```
 
-The agent produces a **Completeness Package**:
-
-```markdown
-# Domain Model Completeness Audit
-
-## Concepts
-- [Business entity]: attributes, lifecycle
-- **MISSING**: [concept users mention but not modeled]
-
-## States
-- [Entity]: [state1] → [state2] → [state3]
-- **MISSING**: [intermediate state, error state]
-
-## Constraints
-- Invariant: [what must always be true]
-- **MISSING**: [business rule not enforced]
-
-## Failures
-- [Operation]: [failure mode], [guarantee level (strong/basic/none)]
-- **MISSING**: [unhandled error case]
-
-## Authority
-- [Role] can [operation] on [entity]
-- **MISSING**: [permission check, ownership model]
-
-## Writer / Reader Coverage
-- Writer: [who modifies this data]
-- Reader: [who queries this data]
-- **MISSING**: [unclaimed data ownership]
-```
-
-**Example (validation suite context):**
-
-```markdown
-## Concepts
-- Skill: name, triggers, sections
-- Evidence: platform, runner, exit code, artifacts
-- **MISSING**: Baseline (approved frozen version for regression)
-
-## States
-- Skill: draft → structural-valid → behavioral-verified → stable-release
-- **MISSING**: deprecated, sunset states
-
-## Constraints
-- Invariant: Every Skill has exactly one SKILL.md
-- **MISSING**: Maximum trigger count, minimum trigger length
-
-## Failures
-- validate-suite.sh: exits 1 on parse error (basic guarantee: no partial write)
-- **MISSING**: fixture runner failure isolation (could corrupt shared state)
-
-## Authority
-- Maintainer: can approve stable release
-- Evaluation owner: can freeze versioned case
-- **MISSING**: Who can add new required platform?
-```
-
-### 3. Design by Contract
-
-```bash
-# Say: "Validate design by contract using mino approach"
-```
-
-Produces a **Contract Package**:
-
-```markdown
-# Contract Specification
-
-## Operation: [function/command name]
-
-### Preconditions
-- [What must be true before calling]
-- [Input validation rules]
-
-### Postconditions (Normal)
-- [What is guaranteed after success]
-- [State changes, return value properties]
-
-### Postconditions (Exceptional)
-- [Failure mode]: [what is guaranteed even on failure]
-
-### Invariants
-- [What remains true before and after]
-
-### Contract Tests
-```[language]
-# Test: precondition violation rejected
-# Test: postcondition holds on success
-# Test: invariant preserved
-# Test: failure guarantee holds
-```
-```
-
-**Example (Shell validation script):**
-
-```markdown
-## Operation: validate-suite.sh
-
-### Preconditions
-- Working directory contains .agents/skills/
-- /bin/bash or bash is available
-- Read permission on all SKILL.md files
-
-### Postconditions (Normal)
-- Exit code 0
-- All SKILL.md files have valid YAML frontmatter
-- All required sections present
-- STDOUT shows "✓" for each check
-
-### Postconditions (Exceptional)
-- Exit code 1 on parse error: no files modified
-- Exit code 2 on missing section: STDERR shows which file, which section
-- Partial progress printed before failure (basic guarantee)
-
-### Invariants
-- Script never modifies SKILL.md files
-- Script never writes outside .agents/
-
-### Contract Tests
-```bash
-# Test: exits 0 when all Skills valid
-bash .agents/validate-suite.sh
-assert_exit_code 0
-
-# Test: exits 1 on malformed YAML
-echo "invalid: [" > .agents/skills/test/SKILL.md
-bash .agents/validate-suite.sh
-assert_exit_code 1
-
-# Test: files unmodified after validation
-checksum_before=$(md5sum .agents/skills/*/SKILL.md)
-bash .agents/validate-suite.sh
-checksum_after=$(md5sum .agents/skills/*/SKILL.md)
-assert_equal "$checksum_before" "$checksum_after"
-```
-```
-
-### 4. Separate Interface from Implementation
-
-```bash
-# Say: "Separate interface from implementation following mino"
-```
-
-Produces a **Boundary Package**:
-
-```markdown
-# Interface-Implementation Separation
-
-## Public Interface
-[Operations visible to callers, in terms of their purpose]
-
-## Implementation Options
-[How to achieve those operations—hidden from caller]
-
-## Leaked Abstractions Found
-- Caller checks [internal detail] before calling
-- Return value exposes [implementation choice]
-
-## Proposed Boundary
-[Operations named by purpose, contracts independent of how]
-
-## Migration Path
-[How to move existing callers to new boundary]
-```
-
-**Example (validation suite):**
-
-```markdown
-## Public Interface (Current)
-- validate-suite.sh: caller must know script path, shell variant
-- Caller must choose .sh vs .ps1 based on OS
-
-## Implementation Options
-- Bash script for POSIX systems
-- PowerShell script for Windows
-- Unified entry point that detects platform
-
-## Leaked Abstractions Found
-- Caller branches on OS to pick script extension
-- Caller must know .agents/ directory structure
-- Script assumes /bin/bash path (macOS), not generic bash
-
-## Proposed Boundary
-```bash
-# Single entry point, platform-agnostic from caller POV
-mino-validate
-# Internally detects platform, dispatches to .sh or .ps1
-```
-
-## Migration Path
-1. Add mino-validate wrapper script to repo root
-2. Update CI workflows to call mino-validate (no OS check)
-3. Deprecate direct .agents/validate-suite.sh calls
-4. Keep .sh/.ps1 as internal implementation
-```
-
-### 5. Architecture Quality Strategy
-
-```bash
-# Say: "Audit architecture quality with mino strategy"
-```
-
-Produces an **Architecture Strategy Package**:
-
-```markdown
-# Architecture Quality Strategy
-
-## Product Value
-[What users/business gain, in measurable terms]
-
-## Quality Portfolio
-- Optimize: [quality attributes we maximize]
-- Satisfy: [quality attributes we meet threshold]
-- Ignore: [quality attributes we intentionally don't optimize]
-
-## Trade-offs
-- Choosing [approach A] over [approach B] because [product value priority]
-
-## Module Structure
-- [Module]: responsibility, boundaries, dependencies
-
-## Data Ownership
-- [Entity]: owned by [module], readers are [modules]
-
-## Migration Strategy
-- Current state: [system-wide description]
-- Target state: [desired architecture]
-- Transition: [incremental steps, rollback points]
-
-## Recovery Strategy
-- [Failure scenario]: [detection method], [recovery procedure]
-```
-
-**Example (validation suite architecture):**
-
-```markdown
-## Product Value
-Developers verify Skill structural correctness before push, reducing CI feedback time from 5min to <10sec locally.
-
-## Quality Portfolio
-- Optimize: fast local validation (<10sec), platform coverage (Linux, macOS, Windows)
-- Satisfy: error message clarity (show file + line), exit code consistency
-- Ignore: performance on 1000+ Skills (current scope <10), internationalization
-
-## Trade-offs
-- Bash 3.2 subset over Bash 4+ features: macOS compatibility more valuable than associative arrays
-- Duplicate .sh/.ps1 scripts over unified runtime: zero dependency install more valuable than single source
-
-## Module Structure
-- validate-suite.*: entry point, orchestrates checks
-- skill-parser.*: YAML frontmatter extraction
-- section-checker.*: required section validation
-- fixture-runner.*: oracle execution
-
-## Data Ownership
-- SKILL.md: owned by skill author, read by validator
-- Evidence/: owned by CI, read by release gatekeeper
-- mino-doc/: owned by suite maintainer (reference material)
-
-## Migration Strategy
-- Current: manual platform selection by caller
-- Target: unified entry point with platform detection
-- Transition:
-  1. Add mino-validate wrapper (non-breaking)
-  2. Update CI to new entry point
-  3. Deprecate direct script calls after 2 releases
-  4. Keep .sh/.ps1 as internal implementation
-
-## Recovery Strategy
-- Native test failure: captured in Evidence/, blocks release (not rollback—no deploy yet)
-- Structural regression: gated by required Evidence before merge
-- Breaking change to SKILL.md format: version field in frontmatter triggers migration script
-```
-
-### 6. Reproducible Development Workflow
-
-Use when you need to **integrate multiple design artifacts through implementation and independent verification**.
-
-```bash
-# Say: "Use mino reproducible development workflow for this change"
-```
-
-The agent will:
-
-1. **Choose mode** based on change scope:
-   - `new`: new feature, new Skill
-   - `fix`: bug fix, contract violation
-   - `refactor`: internal change, contract preserved
-   - `review`: verify existing implementation
-
-2. **Produce Implementation Spec** (for new/fix/refactor):
-
-```markdown
-# Implementation Spec
-
-## Problem Frame
-[From mino-problem-framing]
-
-## Contract
-[From mino-design-by-contract]
-
-## Domain Model
-[From mino-domain-model-completeness]
-
-## Boundary
-[From mino-interface-implementation-separation]
-
-## Quality Strategy (if system-wide)
-[From mino-architecture-quality-strategy]
-
-## Implementation Plan
-- [ ] Step 1: [atomic change, verifiable]
-- [ ] Step 2: [atomic change, verifiable]
-- [Contract test must pass before merge]
-```
-
-3. **Execute and verify**:
-   - Implement each step
-   - Run contract tests
-   - Capture Evidence (exit codes, platform, artifacts)
-   - Produce **Verified Change** package
-
-4. **Review Result** (for review mode):
-
-```markdown
-# Review Result
-
-## Contract Violations Found
-- [Operation]: precondition not checked
-- [Operation]: postcondition not guaranteed
-
-## Model Gaps Found
-- Missing concept: [what users need but not modeled]
-- Missing state: [intermediate or error state]
-
-## Boundary Leakage Found
-- Caller must know [implementation detail]
-
-## Recommendations
-- [Specific change to restore contract]
-- [Specific addition to model]
-- [Specific boundary adjustment]
-```
-
-**Example (fixing macOS validation failure):**
-
-```markdown
-# Implementation Spec
-
-## Problem Frame
-**Observation**: validate-suite.sh exits 2 on macOS /bin/bash 3.2 at solver-nested-metadata fixture.
-**Problem**: Native macOS developers can't verify correctness before commit.
-**Purpose**: All required platforms pass structural validation.
-
-## Contract
-**Operation**: validate-suite.sh
-**Precondition**: Bash 3.2+ available
-**Postcondition (normal)**: exit 0, all checks pass
-**Postcondition (exceptional)**: exit 1 on parse error, exit 2 on structural error, STDERR shows location
-**Invariant**: Never modifies SKILL.md files
-
-## Domain Model
-**Concept**: Platform (Linux, macOS, Windows)
-**State**: Evidence: not-run → executed → pass/fail
-**Constraint**: All required platforms must reach pass before release
-
-## Boundary
-**Public**: mino-validate (platform-agnostic)
-**Internal**: validate-suite.sh, validate-suite.ps1 (implementation)
-
-## Implementation Plan
-- [ ] Reproduce failure: run validate-suite.sh on macOS 15.7.7 ARM64
-- [ ] Isolate: run solver-nested-metadata fixture standalone
-- [ ] Fix: rewrite parameter expansion to Bash 3.2 compatible form
-- [ ] Verify: validate-suite.sh exits 0 on macOS
-- [ ] Evidence: capture CI run with macOS job green
-- [ ] Contract test: assert exit 0 on all required platforms
-```
-
-## Platform Support
-
-The suite targets:
-
-- **Linux**: Bash 3.2+, case-sensitive filesystem, POSIX permissions
-- **macOS**: `/bin/bash` 3.2 (system default), BSD userland, native filesystem
-- **Windows**: PowerShell 5.1+ or PowerShell 7, path separators, line endings
-- **WSL**: Linux semantics for filesystem/process, Windows boundary for interop
-
-**Platform parity**: Not considered verified until all required platforms have native runtime Evidence. Unsupported OS is documented with reason and missing runner details.
-
-## Validation Commands
-
-### Structural Validation
-
-**Linux / macOS:**
-```bash
-bash .agents/validate-suite.sh
-# Expected output:
-# ✓ Validating SKILL.md structure...
-# ✓ mino-core: valid
-# ✓ mino-problem-framing: valid
-# [... all skills ...]
-# ✓ All Skills passed validation
-# Exit code: 0
-```
-
-**Windows PowerShell:**
-```powershell
-pwsh .agents/validate-suite.ps1
-# Expected output:
-# [✓] Validating SKILL.md structure...
-# [✓] mino-core: valid
-# [✓] mino-problem-framing: valid
-# [... all skills ...]
-# [✓] All Skills passed validation
-# Exit code: 0
-```
-
-### Fixture Runner (if available)
-
-```bash
-bash .agents/run-fixtures.sh
-# Executes oracle test cases, captures Evidence
-```
-
-## Configuration
-
-### Skill Triggers
-
-Each Skill defines 6-8 natural language triggers in its YAML frontmatter:
-
-```yaml
-triggers:
-  - apply mino problem framing
-  - frame this problem using mino
-  - check problem definition
-```
-
-Your AI coding agent matches these triggers to user requests.
-
-### Exclusions and Gates
-
-Every Skill declares:
-
-- **Exclusions**: What it does NOT handle
-- **Hard Gates**: Conditions that must pass before proceeding
-
-Example from `mino-problem-framing`:
-
-```yaml
-exclusions:
-  - Does not write implementation code
-  - Does not choose technical solutions
-  - Does not approve requirements (human authority required)
-
-hard_gates:
-  - User has provided initial request or requirement text
-  - Observation and assumption are separated
-  - Problem statement exists before proposing solutions
-```
-
-Agents must respect these constraints.
-
-## Environment Variables
-
-The suite itself does not require secrets. If you integrate with external tools:
-
-```bash
-# Example: If extending with API-based validation
-export MINO_VALIDATOR_API_KEY="your-key-here"  # Don't commit!
-
-# Example: If publishing Evidence to remote storage
-export EVIDENCE_UPLOAD_TOKEN="your-token"      # Use secrets manager
-```
-
-**Never commit secrets.** Use environment variables or secret managers.
-
-## Troubleshooting
-
-### Validation Fails on macOS
-
-**Symptom**: `validate-suite.sh` exits 2 on macOS, passes on Linux.
-
-**Cause**: Bash 3.2 compatibility issue (macOS ships with Bash 3.2 from 2007).
-
-**Fix**:
-1. Check if error mentions array subscript or parameter expansion
-2. Rewrite using Bash 3.2 compatible syntax (no `[[` with `=~`, no associative arrays)
-3. Test on macOS before pushing
-
-**Workaround**: Use Docker with Linux bash:
-```bash
-docker run --rm -v $(pwd):/work -w /work bash:5 bash .agents/validate-suite.sh
-```
-
-### Skill Not Triggering
-
-**Symptom**: Agent doesn't recognize your request as matching a Skill.
-
-**Fix**:
-1. Check `.agents/skills/*/SKILL.md` frontmatter `triggers` field
-2. Use one of the documented trigger phrases exactly
-3. If AI agent caches Skills, reload/restart agent
-
-**Example**: Instead of "help me design", say "apply mino problem framing to this feature".
-
-### Multiple Skills Activate
-
-**Symptom**: Agent tries to apply all design Skills at once.
-
-**Fix**: Use **Skill Composition** rules in your `AGENTS.md`:
-
-```markdown
-# Skill Composition
-
-When a request matches multiple Skills:
-
-- Use the Skill that best matches the primary outcome as the basic workflow.
-- Add only relevant Skills to supplement that workflow.
-- Let the basic Skill control scope, changes, validation, and response.
-```
-
-Then be specific: "Use only mino-problem-framing for this request".
-
-### Evidence Not Generated
-
-**Symptom**: CI passes but no Evidence files appear.
-
-**Fix**:
-1. Check if `.agents/evidence/` directory exists
-2. Check if runner has write permission
-3. Check if CI workflow captures artifacts:
-
-```yaml
-# GitHub Actions example
-- name: Upload Evidence
-  uses: actions/upload-artifact@v3
-  with:
-    name: validation-evidence
-    path: .agents/evidence/
-```
-
-### Contract Test Fails After Refactor
-
-**Symptom**: You changed implementation, now contract tests fail.
-
-**Fix**:
-1. **Don't change the contract** unless requirements changed
-2. If requirements did change: update Problem Frame first, then contract, then implementation
-3. If requirements didn't change: your refactor broke the contract—revert or fix
-
-**Principle**: Refactor preserves external contract, even if internal structure changes completely.
-
-## Code Examples
-
-### Example: Validating a New Skill File
-
-**Add a new Skill:**
-
-```bash
-mkdir -p .agents/skills/my-new-skill
-cat > .agents/skills/my-new-skill/SKILL.md <<'EOF'
----
-name: my-new-skill
-description: Does something useful
-triggers:
-  - apply my new skill
-  - use my skill
----
-
-# my-new-skill
-
-## Purpose
-[what this skill achieves]
-
-## Scope
-[what it covers]
-
-## Exclusions
-[what it does not do]
-
-## Gates
-[required conditions]
-
-## Workflow
-[step-by-step process]
-
-## Evidence
-[how to verify]
-EOF
-```
-
-**Validate structure:**
-
-```bash
-bash .agents/validate-suite.sh
-# Should show:
-# ✓ my-new-skill: valid
-```
-
-**If validation fails:**
-
-```bash
-# Check specific file
-bash -x .agents/validate-suite.sh 2>&1 | grep my-new-skill
-# Look for parse errors, missing sections
-```
-
-### Example: Problem Framing in Shell Script Context
-
-**User request:** "Add color output to validation script"
-
-**Agent applies `mino-problem-framing`:**
+**Expected artifacts**:
+- `Problem Framing Package` containing:
+  - **Observations**: Current behavior, measurements, constraints
+  - **Assumptions**: What we believe but haven't validated
+  - **Problem Statement**: Core issue to solve
+  - **Objectives**: Desired outcomes, not implementation
+  - **Success Criteria**: Measurable, testable conditions
+
+**Example output structure** (Markdown):
 
 ```markdown
 # Problem Framing Package
 
-## Observation
-- validate-suite.sh outputs plain text: "✓ skill: valid"
-- Errors are mixed with successes in STDOUT/STDERR
-- Users must read full output to find failures
+## Observations
+- Report generation takes 45s for 10,000 rows (measured 2026-07-14)
+- Database query plan shows full table scan
+- Users request report 200 times/day during business hours
 
-## Assumption
-- Users have color-capable terminals (TERM=xterm-256color or similar)
-- Color improves scan speed for pass/fail detection
+## Assumptions
+- Current database schema cannot be changed without migration plan
+- Users expect <5s response for report generation
+- Report content must remain accurate (no sampling trade-off)
 
-## Problem
-Users spend extra time visually scanning validation output to find which Skill failed.
+## Problem Statement
+Report generation exceeds user patience threshold due to query inefficiency.
 
-## Purpose
-Users immediately see pass/fail status without reading full output.
+## Objectives
+- Reduce report generation time to <5s for typical dataset
+- Maintain data accuracy and completeness
+- Minimize infrastructure cost increase
 
 ## Success Criteria
-- Green ✓ for pass, red ✗ for fail
-- Passes validation on all required platforms (Linux, macOS, Windows PowerShell)
-- Degrades gracefully on non-color terminals
-
-## Context Packet
-- Stakeholder: Skill authors running local validation
-- Constraint: Bash 3.2 compatibility (macOS), PowerShell 5.1 compatibility (Windows)
-- Risk: ANSI codes break on some CI runners (must detect and disable)
-- Dependency: Requires terminal capability detection
+- 95th percentile response time <5s for 10,000-row dataset
+- Zero data discrepancies vs. current report
+- Infrastructure cost increase <20%
 ```
 
-**Then proceed to Contract (not shown here, would specify color output contract) and Implementation.**
+### Pattern 2: Domain Model Completeness Audit
 
-### Example: Domain Model Completeness for Validation Suite
-
-**Agent applies `mino-domain-model-completeness`:**
-
-```markdown
-# Completeness Package
-
-## Concepts
-- **Skill**: name, description, triggers, sections (Purpose, Scope, Exclusions, Gates, Workflow, Evidence)
-- **Platform**: OS (Linux, macOS, Windows), shell (bash, pwsh), runner (native, Docker, WSL)
-- **Evidence**: platform, runner, exit code, timestamp, artifacts (logs, coverage)
-- **MISSING**: Baseline (approved frozen version for regression comparison)
-
-## States
-- Skill: draft → structural-valid → behavioral-verified → stable-release
-- Evidence: not-run → executed → pass → fail
-- **MISSING**: deprecated state (for sunset Skills)
-
-## Constraints
-- Invariant: Every Skill has exactly one SKILL.md
-- Invariant: Evidence timestamp is immutable after creation
-- **MISSING**: Maximum number of triggers per Skill (could affect performance)
-
-## Failures
-- validate-suite.sh parse error: exits 1, STDERR shows file+line
-- validate-suite.sh structural error: exits 2, STDERR shows missing section
-- **MISSING**: Partial fixture failure (does one bad oracle stop others? No guarantee documented)
-
-## Authority
-- Maintainer: can merge to main, approve stable release
-- Evaluation owner: can freeze versioned case for regression
-- Contributor: can propose Skill, cannot approve
-- **MISSING**: Who can add new required platform? (Policy gap)
-
-## Writer / Reader Coverage
-- **Skill author** writes SKILL.md → **Validator** reads → **CI** reads → **Agent runtime** reads
-- **CI runner** writes Evidence/ → **Release gatekeeper** reads
-- **MISSING**: Who owns mino-doc/ updates? (Reference material lifecycle unclear)
-```
-
-**Action**: Add missing concepts (Baseline), states (deprecated), constraints (trigger limit), failure guarantees (fixture isolation), authority (platform approval policy), and data ownership (mino-doc lifecycle).
-
-### Example: Design by Contract for Color Output
-
-**Agent applies `mino-design-by-contract`:**
-
-```markdown
-# Contract Package
-
-## Operation: validate-suite.sh (with color output)
-
-### Preconditions
-- Bash 3.2+ available (Linux, macOS)
-- .agents/skills/ directory contains at least one SKILL.md
-- TERM environment variable exists (may be empty)
-
-### Postconditions (Normal)
-- Exit code 0
-- STDOUT contains "✓" (green) or "✗" (red) for each Skill
-- If TERM is empty or "dumb", fallback to plain text
-- All SKILL.md files remain unmodified
-
-### Postconditions (Exceptional)
-- Exit 1 on YAML parse error: STDERR shows file+line, no color (avoid confusion)
-- Exit 2 on missing section: STDERR shows Skill+section, no color
-- Partial progress printed before failure (basic guarantee: see which Skills passed before error)
-
-### Invariants
-- Script never writes to .agents/skills/
-- Color codes only emitted if terminal is capable (detected via TERM or tput)
-
-### Contract Tests
+**Scenario**: You have a use case but want to find missing concepts, states, constraints.
 
 ```bash
-#!/bin/bash
-# Test: precondition—Bash 3.2 works
-bash --version | grep -q "version [3-9]"
-assert_exit_code 0
-
-# Test: postcondition normal—exit 0 on valid Skills
-bash .agents/validate-suite.sh >/tmp/out.txt 2>&1
-assert_exit_code 0
-grep -q "✓" /tmp/out.txt  # At least one pass symbol
-
-# Test: postcondition normal—green color on capable terminal
-export TERM=xterm-256color
-bash .agents/validate-suite.sh | grep -q $'\033\[32m'  # ANSI green
-assert_exit_code 0
-
-# Test: postcondition normal—plain text on dumb terminal
-export TERM=dumb
-bash .agents/validate-suite.sh >/tmp/plain.txt
-assert_exit_code 0
-! grep -q $'\033' /tmp/plain.txt  # No ANSI codes
-
-# Test: postcondition exceptional—exit 1 on parse error, no color in STDERR
-echo "bad: [yaml" > .agents/skills/bad/SKILL.md
-bash .agents/validate-suite.sh 2>/tmp/err.txt
-assert_exit_code 1
-! grep -q $'\033' /tmp/err.txt  # Error messages are plain
-
-# Test: invariant—files unmodified
-checksum_before=$(md5sum .agents/skills/*/SKILL.md | sort)
-bash .agents/validate-suite.sh >/dev/null 2>&1
-checksum_after=$(md5sum .agents/skills/*/SKILL.md | sort)
-assert_equal "$checksum_before" "$checksum_after"
-```
+# Request to AI agent:
+"Verify my domain model is complete for order fulfillment use case"
 ```
 
-**Implementation** (not shown) would add color functions, terminal detection, and color-safe error handling.
+**Expected artifacts**:
+- `Completeness Package` with:
+  - **Concept Coverage**: Entities, value objects, aggregates
+  - **State Coverage**: Lifecycles, transitions, terminal states
+  - **Constraint Coverage**: Invariants, business rules
+  - **Failure Coverage**: Error conditions, compensations
+  - **Authority Coverage**: Who can perform which operations
 
-## Integration with AI Coding Agents
+**Example output** (Markdown checklist):
 
-### Claude Code / Cursor / Copilot
+```markdown
+# Completeness Package: Order Fulfillment
 
-1. **Install Skill suite** in your project:
-   ```bash
-   git submodule add https://github.com/my-take-dev/inspired-mino-design-skills.git .agents/skills/mino
-   ```
+## Concept Coverage
+- [x] Order (aggregate root)
+- [x] OrderLine (entity, child of Order)
+- [x] Customer (reference)
+- [x] Product (reference)
+- [x] InventoryReservation (entity)
+- [ ] **GAP**: ShippingAddress (value object) — currently string, needs validation
+- [ ] **GAP**: PaymentMethod (value object) — no expiration tracking
 
-2. **Configure agent** to load Skills from `.agents/skills/mino/.agents/skills/*/SKILL.md`.
+## State Coverage
+- [x] Order states: Draft, Submitted, Confirmed, Shipped, Delivered, Cancelled
+- [ ] **GAP**: No "PartiallyShipped" state for multi-line orders
+- [ ] **GAP**: No terminal failure state (what if payment fails after shipment?)
 
-3. **Trigger in conversation**:
-   - "Apply mino problem framing to this feature request"
-   - "Check domain model completeness using mino skill"
-   - "Use mino reproducible development workflow for this refactor"
+## Constraint Coverage
+- [x] Order total = sum(OrderLine.price * OrderLine.quantity)
+- [x] Cannot ship order with insufficient inventory
+- [ ] **GAP**: No constraint for maximum order size
+- [ ] **GAP**: No constraint preventing duplicate submissions
 
-4. **Agent will**:
-   - Match trigger to Skill
-   - Follow Skill's Workflow section
-   - Respect Exclusions and Gates
-   - Produce structured artifacts (Problem Frame, Contract, etc.)
+## Failure Coverage
+- [x] Insufficient inventory → reject order
+- [x] Payment declined → cancel order
+- [ ] **GAP**: No compensation for shipped-but-unpaid orders
+- [ ] **GAP**: No handling for partial inventory availability
 
-### Custom Agent Configuration
+## Authority Coverage
+- [x] Customer can submit order
+- [x] Warehouse can mark order shipped
+- [ ] **GAP**: Who can cancel order after shipment?
+- [ ] **GAP**: Can customer modify order after confirmation?
+```
 
-If your agent supports
+### Pattern 3: Design by Contract
+
+**Scenario**: Convert natural language requirements into preconditions, postconditions, invariants, and contract tests.
+
+```bash
+# Request to AI agent:
+"Convert these requirements into contracts with test oracles: order submission must validate inventory and reserve stock"
+```
+
+**Expected artifacts**:
+- `Contract Package` with:
+  - Preconditions (caller responsibilities)
+  - Postconditions (operation guarantees)
+  - Invariants (always-true conditions)
+  - Failure guarantees (what's preserved on error)
+  - Contract test oracles
+
+**Example output** (TypeScript with contract tests):
+
+```typescript
+// contract/order-submission.contract.ts
+
+/**
+ * Contract: submitOrder
+ * 
+ * Preconditions:
+ * - order.lines.length > 0
+ * - order.customer exists and is active
+ * - all order.lines[].product exist
+ * 
+ * Postconditions (success):
+ * - order.state === OrderState.Submitted
+ * - for each line: inventory.reserved >= line.quantity
+ * - database transaction committed
+ * 
+ * Postconditions (failure):
+ * - order.state unchanged
+ * - no inventory reserved
+ * - database transaction rolled back
+ * 
+ * Invariants:
+ * - inventory.available + inventory.reserved === inventory.total (always)
+ * - order.totalPrice === sum(line.price * line.quantity) (always)
+ */
+
+describe('Contract: submitOrder', () => {
+  test('PRECONDITION VIOLATION: empty order lines → reject immediately', async () => {
+    const order = { lines: [], customer: validCustomer };
+    await expect(submitOrder(order)).rejects.toThrow(PreconditionError);
+    // ORACLE: no database write, no inventory touch
+    expect(await db.orders.count()).toBe(0);
+    expect(await inventory.getReservations()).toHaveLength(0);
+  });
+
+  test('POSTCONDITION SUCCESS: sufficient inventory → order submitted + inventory reserved', async () => {
+    const order = {
+      lines: [{ product: 'P1', quantity: 5, price: 100 }],
+      customer: validCustomer,
+    };
+    await inventory.setAvailable('P1', 10);
+
+    const result = await submitOrder(order);
+
+    // Postconditions
+    expect(result.state).toBe(OrderState.Submitted);
+    expect(await inventory.getReserved('P1')).toBe(5);
+    expect(await db.orders.findById(result.id)).toBeDefined();
+  });
+
+  test('POSTCONDITION FAILURE: insufficient inventory → order unchanged + no reservation', async () => {
+    const order = {
+      lines: [{ product: 'P1', quantity: 15, price: 100 }],
+      customer: validCustomer,
+    };
+    await inventory.setAvailable('P1', 10);
+
+    await expect(submitOrder(order)).rejects.toThrow(InsufficientInventoryError);
+
+    // Failure guarantee: no side effects
+    expect(await db.orders.count()).toBe(0);
+    expect(await inventory.getReserved('P1')).toBe(0);
+  });
+
+  test('INVARIANT: available + reserved === total (always maintained)', async () => {
+    const before = await inventory.get('P1');
+    expect(before.available + before.reserved).toBe(before.total);
+
+    const order = {
+      lines: [{ product: 'P1', quantity: 5, price: 100 }],
+      customer: validCustomer,
+    };
+    await submitOrder(order);
+
+    const after = await inventory.get('P1');
+    expect(after.available + after.reserved).toBe(after.total);
+  });
+});
+```
+
+### Pattern 4: Interface/Implementation Separation
+
+**Scenario**: Identify caller-side branching and technical leakage; design boundaries around intent.
+
+```bash
+# Request to AI agent:
+"Separate interface from implementation properly for notification sending"
+```
+
+**Expected artifacts**:
+- `Boundary Package` with:
+  - Caller intent (what, not how)
+  - Public contract
+  - Hidden implementation choices
+  - Eliminated caller-side branching
+
+**Example output** (Go):
+
+```go
+// BEFORE: caller must know implementation details
+func NotifyUser(userID string, message string, useEmail bool, useSMS bool) error {
+    if useEmail {
+        return emailService.Send(userID, message) // caller decides transport
+    }
+    if useSMS {
+        return smsService.Send(userID, message)
+    }
+    return errors.New("no notification method specified")
+}
+
+// PROBLEM: caller must know
+// - which transports exist
+// - how to choose between them
+// - transport-specific error handling
+
+// AFTER: caller expresses intent; implementation chooses transport
+type NotificationIntent struct {
+    UserID  string
+    Message string
+    Urgency UrgencyLevel // High, Normal, Low
+}
+
+type NotificationService interface {
+    // Contract:
+    // - Precondition: intent.UserID exists, intent.Message non-empty
+    // - Postcondition: at least one transport attempted; user preferences respected
+    // - Failure guarantee: logs delivery attempts; no partial state
+    Notify(ctx context.Context, intent NotificationIntent) error
+}
+
+type notificationService struct {
+    userPrefs UserPreferenceRepository
+    transports []Transport // email, SMS, push, etc.
+}
+
+func (s *notificationService) Notify(ctx context.Context, intent NotificationIntent) error {
+    // Implementation chooses transport based on:
+    // - user preferences (hidden from caller)
+    // - urgency level (caller specifies WHAT urgency means, not HOW to handle it)
+    // - transport availability (hidden from caller)
+
+    prefs, err := s.userPrefs.Get(ctx, intent.UserID)
+    if err != nil {
+        return fmt.Errorf("load user preferences: %w", err)
+    }
+
+    candidates := s.selectTransports(intent.Urgency, prefs)
+    for _, transport := range candidates {
+        err := transport.Send(ctx, intent.UserID, intent.Message)
+        if err == nil {
+            return nil // success on first available
+        }
+        log.Warn("transport %s failed: %v", transport.Name(), err)
+    }
+
+    return errors.New("all transports failed")
+}
+
+// Caller code (simplified):
+func HandleOrderShipped(orderID string) error {
+    // Caller only expresses INTENT, not implementation
+    return notificationService.Notify(ctx, NotificationIntent{
+        UserID:  order.CustomerID,
+        Message: fmt.Sprintf("Order %s shipped", orderID),
+        Urgency: UrgencyNormal,
+    })
+}
+```
+
+**Key improvements**:
+- Caller no longer branches on transport type
+- Transport selection logic hidden in implementation
+- User preferences hidden from caller
+- New transports can be added without changing caller
+
+### Pattern 5: Architecture Quality Strategy
+
+**Scenario**: System-wide design with quality trade-offs, data ownership, migration, recovery.
+
+```bash
+# Request to AI agent:
+"Design architecture quality strategy for multi-tenant SaaS with data sovereignty requirements"
+```
+
+**Expected artifacts**:
+- `Architecture Strategy Package` with:
+  - Quality portfolio (optimized vs. constrained vs. deliberately not optimized)
+  - Module structure and data ownership
+  - Cross-cutting concerns (observability, security, resilience)
+  - Migration and recovery strategy
+  - Trade-off decisions with rationale
+
+**Example output** (Markdown):
+
+```markdown
+# Architecture Strategy Package: Multi-Tenant SaaS with Data Sovereignty
+
+## Quality Portfolio
+
+| Quality Attribute | Strategy | Rationale |
+|-------------------|----------|-----------|
+| **Data Sovereignty** | OPTIMIZE | Legal requirement (GDPR, regional laws); business differentiator |
+| **Tenant Isolation** | OPTIMIZE | Security compliance, blast radius containment |
+| **Write Throughput** | CONSTRAIN | Acceptable: <1000 writes/sec per tenant; focus on read scale instead |
+| **Deployment Speed** | CONSTRAIN | Acceptable: monthly releases; zero-downtime more important |
+| **UI Response Time** | OPTIMIZE | User retention depends on <200ms perceived latency |
+| **Storage Cost** | NOT OPTIMIZED | Growth projections show compute cost >> storage cost |
+
+## Module Structure & Data Ownership
+
+### Modules
+- **TenantService**: owns Tenant identity, subscription, region assignment
+- **DataPartitionService**: owns physical data location, region mapping
+- **ApplicationService**: owns business logic, reads from correct partition
+- **AuditService**: owns compliance logs, immutable append-only store
+
+### Data Ownership
+```mermaid
+graph TD
+    A[TenantService] -->|owns| B[tenant table: id, subscription, region]
+    C[DataPartitionService] -->|owns| D[partition_map: tenant_id → db_connection]
+    E[ApplicationService] -->|reads via| C
+    E -->|writes to| F[tenant-specific DB instance]
+    G[AuditService] -->|writes| H[audit_log: region-local append-only]
+```
+
+### Data Sovereignty Implementation
+- Each tenant assigned to **region** at creation (immutable)
+- Tenant data stored in **region-local database instance**
+- Cross-region queries **prohibited** (enforced at DataPartitionService)
+- Audit logs **replicated regionally**, never cross-border
+
+## Cross-Cutting Concerns
+
+### Observability
+- **Tenant context** propagated in all log lines, traces
+- **Region tag** on all metrics for sovereignty compliance verification
+- **Audit trail** for data access: who, what, when, from which region
+
+### Security
+- **Row-level security** enforced at database: `WHERE tenant_id = current_tenant()`
+- **Region boundary enforcement**: application cannot request cross-region data
+- **Encryption at rest**: per-region keys managed by regional KMS
+
+### Resilience
+- **Regional failover**: each region has standby database
+- **No cross-region dependency**: region failure isolated
+- **Degraded mode**: read-only access if write database unavailable
+
+## Migration Strategy
+
+### New Tenant Onboarding
+1. Assign region based on user-selected data residency
+2. Provision tenant-specific schema in region-local database
+3. Write `tenant_id → region → db_connection` to partition map
+4. Verify audit log pipeline active before allowing first write
+
+### Existing Tenant Region Change (rare, compliance-driven)
+1. Legal approval required (documented in audit log)
+2. Create target region schema
+3. Replicate data to target region (using encrypted channel)
+4. Verify data integrity (checksum comparison)
+5. Atomically update partition map: `tenant_id` → new region
+6. Wipe source region data after retention period
+
+## Recovery Strategy
+
+### Regional Database Failure
+- **RTO**: 5 minutes (automatic failover to standby)
+- **RPO**: 0 (synchronous replication to standby)
+- **Procedure**: DNS flip to standby; promote standby to primary
+
+### Accidental Data Deletion
+- **Audit log** provides point-in-time reference
+- **Backup retention**: 30 days, region-local encrypted backups
+- **Procedure**: restore from backup to staging; verify tenant; promote to production
+
+### Sovereignty Violation (data leaked cross-region)
+- **Detection**: audit log alerting on cross-region access attempts
+- **Response**: immediate revocation of compromised credentials; incident log
+- **Remediation**: verify no data exfiltrated; notify affected tenants per GDPR
+
+## Trade-Off Decisions
+
+| Decision | Chosen | Rejected | Rationale |
+|----------|--------|----------|-----------|
+| Multi-tenancy model | **Separate DB per tenant** | Shared DB with row-level security | Data sovereignty requires physical separation; blast radius containment |
+| Cross-region reads | **Prohibited** | Allowed with replication lag | Sovereignty compliance more important than read convenience |
+| Tenant migration | **Rare, manual, audited** | Self-service | Legal risk too high; compliance verification required |
+| Storage cost | **Not optimized** | Aggressive compression | Development velocity and sovereignty enforcement more valuable |
+```
+
+### Pattern 6: Reproducible Development Workflow
+
+**Scenario**: Medium-to-large change requiring multiple design artifacts, implementation, and independent verification.
+
+```bash
+# Request to AI agent:
+"Apply mino reproducible development workflow for adding payment retry logic"
+```
+
+**Expected artifacts**:
+- Problem Frame (why this change)
+- Requirement Catalog (what must be satisfied)
+- Design artifacts (contracts, model, boundary)
+- Implementation Spec (how it will be built)
+- Verified Change (evidence tests pass)
+- Review Result (human approval + rationale)
+
+**Workflow**:
+
+```bash
+# 1. Problem Framing
+# AI agent creates Problem Framing Package
+
+# 2. Design Selection
+# AI agent applies relevant design skills:
+# - mino-design-by-contract (retry contract, failure guarantees)
+# - mino-domain-model-completeness (PaymentAttempt entity, states)
+
+# 3. Implementation Spec
+# AI agent produces:
+# - Code changes
+# - Contract tests
+# - Migration plan (if schema changes)
+
+# 4. Verification
+# AI agent runs:
+# - Contract tests (preconditions, postconditions, invariants)
+# - Regression tests
+# - Platform parity (if multi-platform)
+
+# 5. Review Package
+# AI agent generates review artifacts:
+# - Design rationale
+# - Test evidence
+# - Quality scenario coverage
+# - Breaking change analysis
+
+# 6. Human Approval
+# Developer reviews, approves, or requests changes
+```
+
+**Example Implementation Spec** (partial):
+
+```markdown
+# Implementation Spec: Payment Retry Logic
+
+## Problem Reference
+See `docs/problem-frames/payment-retry-2026-07.md`
+
+## Design Artifacts
+- Contract: `contracts/payment-retry.contract.md`
+- Model: `models/payment-attempt.md`
+
+## Code Changes
+
+### New Entity: PaymentAttempt
+```typescript
+// src/domain/payment-attempt.ts
+export enum PaymentAttemptState {
+  Pending = 'pending',
+  Succeeded = 'succeeded',
+  Failed = 'failed',
+  Retrying = 'retrying',
+}
+
+export interface PaymentAttempt {
+  id: string;
+  orderId: string;
+  amount: Money;
+  state: PaymentAttemptState;
+  attemptNumber: number; // 1-based
+  lastAttemptAt: Date;
+  nextRetryAt: Date | null;
+  failureReason: string | null;
+}
+
+// Invariant: attemptNumber >= 1
+// Invariant: if state === Retrying, nextRetryAt !== null
+// Invariant: if state === Succeeded, nextRetryAt === null
+```
+
+### Retry Contract
+```typescript
+// src/services/payment-retry.service.ts
+
+/**
+ * Contract: retryPayment
+ * 
+ * Preconditions:
+ * - attempt.state === PaymentAttemptState.Failed || Retrying
+ * - attempt.attemptNumber < MAX_RETRY_ATTEMPTS (3)
+ * - Date.now() >= attempt.nextRetryAt
+ * 
+ * Postconditions (success):
+ * - attempt.state === Succeeded
+ * - attempt.nextRetryAt === null
+ * - order.paymentStatus === Paid
+ * 
+ * Postconditions (retriable failure):
+ * - attempt.state === Retrying
+ * - attempt.attemptNumber += 1
+ * - attempt.nextRetryAt set (exponential backoff)
+ * 
+ * Postconditions (terminal failure):
+ * - attempt.state === Failed
+ * - attempt.nextRetryAt === null
+ * - order.paymentStatus === PaymentFailed
+ * 
+ * Failure guarantee:
+ * - No double-charge (idempotency key used)
+ * - Audit log entry for every attempt
+ */
+export async function retryPayment(attemptId: string): Promise<PaymentAttempt> {
+  // implementation
+}
+```
+
+### Contract Tests
+```typescript
+// tests/payment-retry.contract.test.ts
+
+describe('Contract: retryPayment', () => {
+  test('PRECONDITION: max attempts reached → reject', async () => {
+    const attempt = await createFailedAttempt({ attemptNumber: 3 });
+    await expect(retryPayment(attempt.id)).rejects.toThrow(MaxAttemptsExceededError);
+  });
+
+  test('POSTCONDITION SUCCESS: payment succeeds → state=Succeeded, no nextRetry', async () => {
+    mockPaymentGateway.setNextResult('success');
+    const attempt = await createFailedAttempt({ attemptNumber: 1 });
+
+    const result = await retryPayment(attempt.id);
+
+    expect(result.state).toBe(PaymentAttemptState.Succeeded);
+    expect(result.nextRetryAt).toBeNull();
+    expect(await getOrder(result.orderId)).toHaveProperty('paymentStatus', 'Paid');
+  });
+
+  test('POSTCONDITION RETRIABLE FAILURE: transient error → state=Retrying, nextRetry set', async () => {
+    mockPaymentGateway.setNextResult('transient_error');
+    const attempt = await createFailedAttempt({ attemptNumber: 1 });
+
+    const result = await retryPayment(attempt.id);
+
+    expect(result.state).toBe(PaymentAttemptState.Retrying);
+    expect(result.attemptNumber).toBe(2);
+    expect(result.nextRetryAt).toBeInstanceOf(Date);
+    expect(result.nextRetryAt!.getTime()).toBeGreaterThan(Date.now());
+  });
+
+  test('FAILURE GUARANTEE: no double-charge on retry', async () => {
+    mockPaymentGateway.setNextResult('success');
+    const attempt = await createFailedAttempt({ attemptNumber: 1 });
+
+    await retryPayment(attempt.id);
+    const charges = mockPaymentGateway.getCharges(attempt.orderId);
+
+    expect(charges).toHaveLength(1); // only one charge despite retry
+  });
+});
+```
+
+## Verification Evidence
+- [x] Contract tests pass (12/12)
+- [x] Regression tests pass (148/148)
+- [x] No breaking changes to public API
+- [x] Audit log integration verified
+
+## Quality Scenarios Covered
+- Payment gateway transient failure → automatic retry with exponential backoff
+- Payment gateway permanent failure → no retry, order marked PaymentFailed
+- Max retry attempts reached → terminal failure, alert operations team
+- Idempotency: duplicate retry request → no double-charge
+```
+
+## Configuration
+
+No global configuration required. Each skill documents its own modes and gates in its `SKILL.md`:
+
+- `mino-core`: defines common decision gates (Problem Frame, Context Packet)
+- `mino-problem-framing`: entry mode (observation → problem → objective)
+- `mino-domain-model-completeness`: audit mode (find gaps)
+- `mino-design-by-contract`: contract generation mode
+- `mino-interface-implementation-separation`: boundary analysis mode
+- `mino-architecture-quality-strategy`: system-wide design mode
+- `mino-reproducible-development`: integration mode (problem → design → implementation → verification)
+
+## Platform Support
+
+| Platform | Structural Validation | Fixture Runner | Native Evidence | Status |
+|----------|----------------------|----------------|-----------------|--------|
+| Linux (Bash 3.2+) | ✅ | ✅ | ✅ | Pass |
+| Windows (PowerShell) | ✅ | ✅ | ✅ | Pass |
+| WSL | ✅ (as Linux) | ✅ (as Linux) | ✅ | Pass |
+| macOS (Bash 3.2) | ✅ | ❌ (failed run 29397674053) | ⚠️ | Fail |
+
+**macOS status**: Structural validator passes; fixture runner fails on `solver-nested-metadata` portable rewrite (exit 2). macOS support implemented but not released until native job passes.
+
+## Troubleshooting
+
+### "Skill not activating"
+
+**Symptom**: AI agent doesn't apply mino principles when asked.
+
+**Solution**:
+1. Verify `.agents/AGENTS.md` references the skill directory.
+2. Use explicit skill name in request: `"apply mino-problem-framing to this feature request"`
+3. Check skill triggers match your phrasing (see YAML frontmatter in each `SKILL.md`).
+
+### "Multiple skills conflicting"
+
+**Symptom**: AI agent applies both mino skill and framework-specific skill, producing conflicting guidance.
+
+**Solution**:
+1. Follow Skill Composition rules (see "Adding to Your Project" section).
+2. Choose the skill that matches the **primary artifact**: if you want a Problem Frame, use `mino-problem-framing` as primary; if you want framework-specific code, use framework skill as primary and mino skill as supplement.
+3. Explicitly state: `"Use mino-problem-framing as the primary workflow; add React-specific guidance only where relevant."`
+
+### "macOS validation failing"
+
+**Symptom**: You're on macOS and getting fixture runner errors.
+
+**Solution**:
+- Current head (`e47aaafb74a27cf2cc7d4bc9c64f74d1933f10db`) has known macOS fixture runner failure.
+- Structural validation works; you can read and apply design principles manually.
+- For automated validation, use Linux or WSL environment until macOS runner is fixed.
+- Track: GitHub Actions run 29397674053, job ID 87294760529.
+
+### "Contract tests failing after design"
+
+**Symptom**: `mino-design-by-contract` produced contract tests, but they fail immediately.
+
+**Solution**:
+1. Verify **preconditions** are met in test setup.
+2. Check **postconditions** match actual implementation behavior (contract may be stricter than code).
+3. Contract failures are **expected** if implementation doesn't satisfy contract — fix implementation, not contract.
+4. Use contract failures as **design feedback**: if contract is too strict, revisit requirements with human stakeholder.
+
+### "Too many artifacts for small change"
+
+**Symptom**: Small bug fix triggers full `mino-reproducible-development` workflow.
+
+**Solution**:
+- Don't use this suite for mechanical changes (rename, approved baseline).
+- For small fixes with clear problem/contract, use single-skill mode: `mino-design-by-contract` only.
+- Reserve `mino-reproducible-development` for medium-to-large changes requiring multiple design viewpoints.
+
+## Key Principles Reference
+
+1. **Problem ≠ Solution**: Separate observations, assumptions, problems, objectives, success criteria before proposing implementation.
+2. **Requirements Traceability**: Track from natural language → model → contract → public operation → test → evidence.
+3. **Completeness Auditing**: Find missing concepts, states, constraints, failures, authorities.
+4. **Design by Contract**: Express as preconditions, postconditions, invariants, failure guarantees; validate with oracles.
+5. **Interface/Implementation Separation**: Caller expresses intent; implementation chooses how; no caller-side technical branching.
+6. **Quality Portfolio**: Explicitly choose optimized, constrained, and not-optimized quality attributes per business value.
+7. **Evidence over Explanation**: Judge by contract tests, quality scenarios, independent validation—not AI narration.
+8. **Human Ownership**: Final value judgment, public contract, irreversible decisions, release approval stay with humans.
+
+## Related Skills
+
+- Combine with **language-specific skills** (e.g., `typescript-expert`, `go-patterns`) for implementation details.
+- Combine with **framework skills** (e.g., `react-design`, `nestjs-architecture`) for technology-specific patterns.
+- Use mino skills for **design phase**; use framework skills for **implementation phase**.
+
+## Learn More
+
+- Repository: [https://github.com/my-take-dev/inspired-mino-design-skills](https://github.com/my-take-dev/inspired-mino-design-skills)
+- Original materials: Mino-san's public resources (see repository `mino-doc/` for references)
+- License: See repository LICENSE (suite
