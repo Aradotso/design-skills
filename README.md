@@ -129,6 +129,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [gzh-design-skill-wechat-markdown-formatter](skills/gzh-design-skill-wechat-markdown-formatter/) | [install](https://skills.sh/aradotso/design-skills/gzh-design-skill-wechat-markdown-formatter) | [isjiamu/gzh-design-skill](https://github.com/isjiamu/gzh-design-skill) | 2026-07-07 |
 | [undress-design-fashion-ai](skills/undress-design-fashion-ai/) | [install](https://skills.sh/aradotso/design-skills/undress-design-fashion-ai) | [chordswallowthrust/undress-design](https://github.com/chordswallowthrust/undress-design) | 2026-07-12 |
 | [mino-driven-design-skills](skills/mino-driven-design-skills/) | [install](https://skills.sh/aradotso/design-skills/mino-driven-design-skills) | [my-take-dev/inspired-mino-design-skills](https://github.com/my-take-dev/inspired-mino-design-skills) | 2026-07-15 |
+| [grokking-system-design-interview](skills/grokking-system-design-interview/) | [install](https://skills.sh/aradotso/design-skills/grokking-system-design-interview) | [design-gurus/grokking-system-design](https://github.com/design-gurus/grokking-system-design) | 2026-07-16 |
 <!-- SKILL_INDEX -->
 
 ---
