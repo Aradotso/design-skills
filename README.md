@@ -134,6 +134,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [design-judge-skills](skills/design-judge-skills/) | [install](https://skills.sh/aradotso/design-skills/design-judge-skills) | [SeanJ1ang/design-judge-skills](https://github.com/SeanJ1ang/design-judge-skills) | 2026-07-30 |
 | [design-harness-agent-skill](skills/design-harness-agent-skill/) | [install](https://skills.sh/aradotso/design-skills/design-harness-agent-skill) | [tigerless-labs/design-harness](https://github.com/tigerless-labs/design-harness) | 2026-07-30 |
 | [figma-design-system-to-design-md](skills/figma-design-system-to-design-md/) | [install](https://skills.sh/aradotso/design-skills/figma-design-system-to-design-md) | [albertzhangz10/figma-design-system-to-design-md](https://github.com/albertzhangz10/figma-design-system-to-design-md) | 2026-07-30 |
+| [figma-kiwi-protocol-decode](skills/figma-kiwi-protocol-decode/) | [install](https://skills.sh/aradotso/design-skills/figma-kiwi-protocol-decode) | [allan-simon/figma-kiwi-protocol](https://github.com/allan-simon/figma-kiwi-protocol) | 2026-07-30 |
 <!-- SKILL_INDEX -->
 
 ---
