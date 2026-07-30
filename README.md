@@ -133,6 +133,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [gbro-social-cover-generator](skills/gbro-social-cover-generator/) | [install](https://skills.sh/aradotso/design-skills/gbro-social-cover-generator) | [pyang5166/gbro-cover-design](https://github.com/pyang5166/gbro-cover-design) | 2026-07-18 |
 | [design-judge-skills](skills/design-judge-skills/) | [install](https://skills.sh/aradotso/design-skills/design-judge-skills) | [SeanJ1ang/design-judge-skills](https://github.com/SeanJ1ang/design-judge-skills) | 2026-07-30 |
 | [design-harness-agent-skill](skills/design-harness-agent-skill/) | [install](https://skills.sh/aradotso/design-skills/design-harness-agent-skill) | [tigerless-labs/design-harness](https://github.com/tigerless-labs/design-harness) | 2026-07-30 |
+| [figma-design-system-to-design-md](skills/figma-design-system-to-design-md/) | [install](https://skills.sh/aradotso/design-skills/figma-design-system-to-design-md) | [albertzhangz10/figma-design-system-to-design-md](https://github.com/albertzhangz10/figma-design-system-to-design-md) | 2026-07-30 |
 <!-- SKILL_INDEX -->
 
 ---
