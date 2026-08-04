@@ -136,6 +136,7 @@ npx skills add Aradotso/design-skills --skill <skill-name>
 | [figma-design-system-to-design-md](skills/figma-design-system-to-design-md/) | [install](https://skills.sh/aradotso/design-skills/figma-design-system-to-design-md) | [albertzhangz10/figma-design-system-to-design-md](https://github.com/albertzhangz10/figma-design-system-to-design-md) | 2026-07-30 |
 | [figma-kiwi-protocol-decode](skills/figma-kiwi-protocol-decode/) | [install](https://skills.sh/aradotso/design-skills/figma-kiwi-protocol-decode) | [allan-simon/figma-kiwi-protocol](https://github.com/allan-simon/figma-kiwi-protocol) | 2026-07-30 |
 | [agentic-coding-design-patterns](skills/agentic-coding-design-patterns/) | [install](https://skills.sh/aradotso/design-skills/agentic-coding-design-patterns) | [mokevnin/agentic-coding-design-patterns](https://github.com/mokevnin/agentic-coding-design-patterns) | 2026-08-03 |
+| [figma-boost-mcp](skills/figma-boost-mcp/) | [install](https://skills.sh/aradotso/design-skills/figma-boost-mcp) | [aspectrhymedefend/figma-boost](https://github.com/aspectrhymedefend/figma-boost) | 2026-08-04 |
 <!-- SKILL_INDEX -->
 
 ---
